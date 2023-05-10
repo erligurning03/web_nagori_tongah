@@ -30,7 +30,6 @@
             </div>
             <p>Silahkan Unggah File Persyaratan Yang Diminta</p>
             <div class="container">
-                <h1>Form Upload Berkas</h1>
                 <div style="background-color:#D9D9D9;" class="dropzone" id="myDropzone"></div>
                 <button style="background-color:#3CCF4E;" type="button" id="addFilesBtn">Add Files</button>
             </div>
