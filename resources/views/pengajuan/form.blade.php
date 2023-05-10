@@ -22,8 +22,8 @@
         Form Upload Berkas
         </h1>
         <!-- container -->
-        <div style="width: 50%; margin: 0 auto; background-color: #fff; padding: 20px;">
-            <div style="text-align: left; margin: 0; line-height: 0.5;margin-bottom: 1cm;">
+        <div style="max-width: 500px; margin: 0 auto; background-color: #fff; padding: 20px;">
+            <div style="text-align: left; margin: 0; line-height: 0.5; margin-bottom: 1cm;">
                 <p>Persyaratan:</p>
                 <p>1. Kartu Keluarga</p>
                 <p>2. Kartu Tanda Penduduk</p>
@@ -31,10 +31,11 @@
             <p>Silahkan Unggah File Persyaratan Yang Diminta</p>
             <div class="container">
                 <div style="background-color:#D9D9D9;" class="dropzone" id="myDropzone"></div>
-                <button style="background-color:#3CCF4E;" type="button" id="addFilesBtn">Add Files</button>
+                <button style="background-color:#3CCF4E; margin-top: 10px;" type="button" id="addFilesBtn">Add Files</button>
             </div>
         </div>    
 </body>
+
 <script>
     // initialize Dropzone
     Dropzone.autoDiscover = false;
