@@ -8,7 +8,7 @@
     <title>Pengajuan</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 </head>
-<body style="font-family: 'Lato'">">
+<body style="font-family: 'Lato'">
     <h1 class="text-center mt-4">Daftar Surat Pemohon</h1>
 
     <!-- fitur search -->
