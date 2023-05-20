@@ -1,0 +1,149 @@
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+}
+
+.sidebar-content {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu li a .icon {
+  margin-left: 20px;
+  margin-right: 10px;
+  background-color: #EBEBEB;
+  border-radius: 50%;
+  width: 35px;
+  padding: 10px;
+}
+
+.toggle-button-line {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.box {
+  background-color: #F9F9F9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.box a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.box span {
+  margin-right: 10px;
+}
+
+.box i {
+  background-color: #90B594;
+  color: white;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+.box2 {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-info span {
+  font-weight: bold;
+}
+
+.post-content {
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-icon {
+  margin-right: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.love-icon {
+  color: gray;
+  cursor: pointer;
+}
+
+.love-icon.filled {
+  color: red;
+}
