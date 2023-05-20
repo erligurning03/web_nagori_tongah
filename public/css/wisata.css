@@ -1,0 +1,40 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 60%;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-top: -100px;
+}
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+.card-title{
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'lato',sans-serif;
+}
+.card-text:last-child{
+    margin-bottom: 0;
+    text-align: end;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+img, svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}

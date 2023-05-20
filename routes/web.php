@@ -30,7 +30,12 @@ Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 Route::get('/galeri', function () {return view('galeri/index');});
 Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
 Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
+<<<<<<< HEAD
 Route::get('/admin', function() {return view('admin/index');});
+=======
+
+Route::get('/wisata', function () {return view('wisata/index');});
+>>>>>>> 21c0cc2f2debc9648342e8f5be9a22ff4775b8a4
 
 // Route::get('/landingpage', function () {
 //     return view('landing_page/landing');
