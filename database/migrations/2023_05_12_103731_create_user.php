@@ -19,7 +19,6 @@ return new class extends Migration
             $table->char('email', 50)->unique();
             $table->char('telepon', 15);
             $table->enum('role', ['admin', 'operator', 'warga']);
-            $table->date('tanggal_bergabung');
             $table->string('foto_profil')->nullable();
             $table->enum('status_akun', ['terdaftar', 'menunggu'])->default('menunggu');
             $table->timestamps();
