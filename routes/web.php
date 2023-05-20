@@ -31,6 +31,7 @@ Route::get('/galeri', function () {return view('galeri/index');});
 Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
 Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
 
+Route::get('/wisata', function () {return view('wisata/index');});
 
 // Route::get('/landingpage', function () {
 //     return view('landing_page/landing');
