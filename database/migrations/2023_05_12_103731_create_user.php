@@ -15,7 +15,7 @@ return new class extends Migration
             $table->char('nik', 16)->primary();
             $table->string('nama_lengkap');
             $table->char('username', 50)->unique();
-            $table->char('password', 50);
+            $table->string('password');
             $table->char('email', 50)->unique();
             $table->char('telepon', 15);
             $table->enum('role', ['admin', 'operator', 'warga']);

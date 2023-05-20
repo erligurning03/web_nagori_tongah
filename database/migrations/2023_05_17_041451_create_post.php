@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreign('nik')-> references('nik')->on('user');
             $table->string('judul');
             $table->string('isi_post');
-            $table->date('tanggal_post');
             $table->bigInteger('jumlah_like');
             $table->timestamps();
         });
