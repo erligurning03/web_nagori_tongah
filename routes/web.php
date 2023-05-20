@@ -30,7 +30,7 @@ Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 Route::get('/galeri', function () {return view('galeri/index');});
 Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
 Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
-
+Route::get('/admin', function() {return view('admin/index');});
 
 // Route::get('/landingpage', function () {
 //     return view('landing_page/landing');
