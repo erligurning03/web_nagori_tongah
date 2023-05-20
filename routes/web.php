@@ -23,6 +23,8 @@ Route::get('/landing', function () {
     return view('landing_page/landing');
 });
 
+Route::get('/auth', function () {return view('auth/login');});
+
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 Route::get('/galeri', function () {return view('galeri/index');});
