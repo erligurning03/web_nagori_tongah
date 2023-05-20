@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/', function () {
+//     return view('landing_page/landing');
+// });
+Route::get('/landing', function () {
+    return view('landing_page/landing');
+});
 
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
@@ -23,6 +29,10 @@ Route::get('/galeri', function () {return view('galeri/index');});
 Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
 Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
 
+
+// Route::get('/landingpage', function () {
+//     return view('landing_page/landing');
+// });
 
 Auth::routes();
 

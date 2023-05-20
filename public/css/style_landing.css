@@ -1,0 +1,131 @@
+.jumbotron {
+    background-image: url("../img/component_3.png");
+    background-repeat: repeat;
+    /* background-size: cover; */
+    background-position: center;
+    margin-top: 70px;
+    padding: 100px;
+    padding-top: 5rem;
+    padding-buttom: 10rem;
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    /* or 131% */
+
+
+    color: #FFFFFF;
+  }
+
+  .jumbotron .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1px;
+    margin-bottom: 5px;
+  }
+  
+  .jumbotron .card h5 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+
+    margin-bottom: 10px;
+  }
+  .jumbotron h1 {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 76px;
+    line-height: 101px;
+    
+    color: #FFFFFF;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+  }
+  
+  .jumbotron .card p {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #000000;
+
+    margin-bottom: 1px;
+  }
+  /* .jumbotron .container .row .col-4{
+    width:500px;
+    height:800x;
+  } */
+  
+  .jumbotron .card img {
+    max-width: 40%;
+    height: auto;
+    padding: 1px;
+  }
+  
+ /* .jumbotron .container .row{
+    padding-buttom: 1000rem;
+ } */
+
+ .container h1{
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 101px;
+    text-align : center;
+
+    color: #000000;
+
+ }
+
+ .perangkat .container .row{
+  background-image: url("../img/bg_section3.png");
+  /* background-color: #3C6255;  */
+}
+
+
+/* .perangkat{
+  background-image: url("../img/component_3.png");
+  background-position: center; 
+} */
+
+//untuk section perangkat
+.row {
+  margin-top : 20px;
+  margin-bottom: 20px; /* Memberikan jarak bawah antar baris */
+}
+
+.col-sm-3 {
+  margin-top : 20px;
+  margin-bottom: 20px; /* Memberikan jarak bawah antar kolom */
+}
+
+.card {
+  height: 100%; /* Atur tinggi card */
+  width:auto;
+  text-align:center;
+}
+
+.card-img-top {
+  width: 262px; /* Atur lebar gambar menjadi 100% dari container */
+  height: 280PX; /* Atur tinggi gambar sesuai kebutuhan */
+  object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
+}
+
+//end section perangkat
