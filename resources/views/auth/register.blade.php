@@ -93,7 +93,7 @@
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/regex.js"></script>
+<script src="js/registrasi.js"></script>
   </body>
 </html>
 
