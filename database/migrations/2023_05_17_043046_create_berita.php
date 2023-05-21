@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreign('nik')-> references('nik')->on('user');
             $table->enum('jenis_berita', ['berita', 'hoax']);
             $table->string('judul');
-            $table->string('isi_post');
-            $table->date('tanggal_post');
+            $table->string('isi_berita');
             $table->timestamps();
 
         });

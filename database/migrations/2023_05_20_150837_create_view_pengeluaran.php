@@ -20,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement("DROP VIEW IF EXITS `view_pengeluaran`");
+        DB::statement("DROP VIEW IF EXISTS `view_pengeluaran`");
     }
 };

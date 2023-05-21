@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_persyaratan');
             $table->foreign('id_persyaratan')->references('id')->on('persyaratan');
             $table->string('nama_file');
-            $table->date('tanggal_unggah');
             $table->enum('status_validasi', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
             $table->timestamps();
         });

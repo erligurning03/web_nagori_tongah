@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('nik')-> references('nik')->on('user');
             $table->enum('nama_suket', ['akta_lahir', 'domisili', 'kehilangan', 'kip', 'ktp', 'akta_nikah', 'penghasilan', 'skck', 'kk']);
             $table->string('deskripsi');
-            $table->date('tanggal_pengajuan');
             $table->enum('status_pengajuan', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
             $table->timestamps();
 

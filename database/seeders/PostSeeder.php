@@ -22,5 +22,25 @@ class PostSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+
+        DB::table('post')->insert([
+            'id' => 2,
+            'nik' => '1234567890432156',
+            'judul' => 'Gempa Bumi',
+            'isi_post' => 'Terjadi gempa bumi',
+            'jumlah_like' => 100,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('post')->insert([
+            'id' => 3,
+            'nik' => '1111111122222222',
+            'judul' => 'Gempa Bumi',
+            'isi_post' => 'Terjadi gempa bumi',
+            'jumlah_like' => 100,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }
