@@ -29,33 +29,35 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="#" class="signin-form">
-			      		<div class="form-group mb-3">
-			      			<input type="text" class="form-control" placeholder="Username/NIK" required>
-			      		</div>
-		            <div class="form-group mb-3">
-		              <input type="password" class="form-control" placeholder="Password" required>
-		            </div>
-		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
-		            </div>
-					<div class="form-group">
-		            	<p class="text-center">Belum Punya Akun?</p>
-		            </div>
-					<div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary-1 px-3">Daftar Akun</button>
-		            </div>
-		      </div>
-				</div>
+					  <form action="#" class="signin-form">
+						<div class="form-group mb-3">
+							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,15}$">
+						  <p id="invalid-username" style="display:none;color:red">username maks 15 karakter</p>
+						</div>
+				  <div class="form-group mb-3">
+					<input type="password" class="form-control" placeholder="Password" required id="password" aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+					<p id="invalid-password" style="display:none;color:red">password min 6 karakter dan maks 20 karakter </p>
+				  </div>
+				  <div class="form-group">
+					  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
+				  </div>
+				  <div class="form-group">
+					  <p class="text-center">Belum Punya Akun?</p>
+				  </div>
+				  <div class="form-group">
+					  <button type="submit" class="form-control btn btn-primary-1 px-3">Daftar Akun</button>
+				  </div>
 			</div>
-		</div>
-	</section>
+			  </div>
+		  </div>
+	  </div>
+  </section>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
 
-	</body>
+  </body>
 </html>
-
