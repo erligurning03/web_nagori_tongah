@@ -17,6 +17,10 @@ use App\Http\Controllers\Controller;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tes', function () {
+    return view('landing_page/tes');
+});
 // Route::get('/', function () {
 //     return view('landing_page/landing');
 // });
@@ -24,7 +28,13 @@ Route::get('/landing', function () {
     return view('landing_page/landing');
 });
 
+<<<<<<< Updated upstream
 Route::get('/auth', function () {return view('auth/login');});
+=======
+Route::get('/belanja', function () {
+    return view('landing_page/belanja');
+});
+>>>>>>> Stashed changes
 
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
