@@ -27,13 +27,6 @@
 			      		<div class="w-100">
 			      			<h3 class="mb-4 mt-5" ><b>Daftar Akun</b></h3>
 						</div>
-						<div class="card-body">
-							@if(Session::has('success'))
-							<div class="alert alert-success" role="alert">
-								{{ Session::get('success') }}
-							</div>
-							@endif
-			      	    </div>
 					  <form action="{{ route('simpan_register')}}" method="POST" class="signin-form">
 						@csrf  
 						<div class="form-group mb-3">

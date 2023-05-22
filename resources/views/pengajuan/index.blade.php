@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Pengajuan</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengajuan Surat</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <style>
+    .card {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      background-color: #C9C9C9;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-text {
+      flex-grow: 1;
+    }
+
+    .btn-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .bgcolorhijau {
+      background-color: #3C6255;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: 'Lato'">
-    <h1 class="text-center mt-4">Daftar Surat Pemohon</h1>
-
-    <!-- fitur search -->
-    <div class="d-flex justify-content-center mt-4">
-        <div style="max-width: 100%;">
-            <div class="input-group">
-            <input type="text" class="form-control form-control-lg" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-            </div>
-            </div>
+<body>
+<h1 class="text-center mt-3">Daftar Surat Pemohon</h1>
+  <div class="container mt-4">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Judul Card 1</h5>
+          <p class="card-text">Deskripsi card 1 yang dibatasi.</p>
+          <a href="{{ route('form') }}" class="btn bgcolorhijau rounded-pill btn-bottom">Ajukan Surat</a>
         </div>
-    </div>
-
-    <!-- card -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="{{ route('form') }}" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Judul Card 2</h5>
+          <p class="card-text">Deskripsi card 2 yang dibatasi.</p>
+          <a href="#" class="btn bgcolorhijau rounded-pill btn-bottom">Ajukan Surat</a>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Judul Card 3</h5>
+          <p class="card-text">Deskripsi card 3 yang dibatasi.</p>
+          <a href="#" class="btn bgcolorhijau rounded-pill btn-bottom">Ajukan Surat</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

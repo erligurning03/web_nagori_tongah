@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ use App\Http\Controllers\Controller;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tes', function () {
+    return view('landing_page/tes');
+});
 // Route::get('/', function () {
 //     return view('landing_page/landing');
 // });
@@ -25,19 +30,29 @@ Route::get('/landing', function () {
     return view('landing_page/landing');
 });
 
-Route::get('/login',[ AuthController::class, 'login'])->name('login');
-Route::post('/login_masuk',[ AuthController::class, 'loginMasuk'])->name('login_masuk');
+Route::get('/auth', function () {return view('auth/login');});
 
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');   //untuk menyimpan
 
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
+Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 Route::get('/galeri', function () {return view('galeri/index');});
-Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
-Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
+
+Route::get('/admin', function() {return view('admin/index');});
 
 Route::get('/wisata', function () {return view('wisata/index');});
+
+
+// Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
+Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
+
+Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index');
+// cara panggil {{ route('posts.index') }}
+Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
+
 
 // Route::get('/landingpage', function () {
 //     return view('landing_page/landing');
