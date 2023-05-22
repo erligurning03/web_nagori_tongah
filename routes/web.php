@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 
 /*
@@ -24,7 +25,11 @@ Route::get('/landing', function () {
     return view('landing_page/landing');
 });
 
-Route::get('/auth', function () {return view('auth/login');});
+Route::get('/login',[ AuthController::class, 'login'])->name('login');
+Route::post('/login_masuk',[ AuthController::class, 'loginMasuk'])->name('login_masuk');
+
+Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
+Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');   //untuk menyimpan
 
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
@@ -48,7 +53,5 @@ Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa
 Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
 Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
