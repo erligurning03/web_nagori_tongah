@@ -38,6 +38,9 @@ class PostSeeder extends Seeder
             'nik' => '1111111122222222',
             'judul' => 'Gempa Bumi',
             'isi_post' => 'Terjadi gempa bumi',
+            'nik' => '1111111122222222',
+            'judul' => 'Buka lowongan pekerjaan',
+            'isi_post' => 'Dibuka lowongan pekerjaan untuk Toko Mixue, hubungi contact person: 081234456678',
             'jumlah_like' => 100,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
