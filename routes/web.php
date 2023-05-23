@@ -68,5 +68,8 @@ Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa
 Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
 Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
-
+Route::get('/navbar', function() {return view('admin/layouts/navbar');});
+Route::get('/navbar2', function() {return view('newadmin/layouts/navsidebar');});
+Route::get('/test', function() {return view('newadmin/layouts/tes');});
+Route::get('/newadmin', function() {return view('newadmin/index');});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
