@@ -72,4 +72,8 @@ Route::get('/admin/wisata', function() {return view('admin/wisata_desa/daftarwis
 Route::get('/admin/tambah/wisata', function() {return view('admin/wisata_desa/tambahwisata');});
 // Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
+Route::get('/navbar', function() {return view('admin/layouts/navbar');});
+Route::get('/navbar2', function() {return view('newadmin/layouts/navsidebar');});
+Route::get('/test', function() {return view('newadmin/layouts/tes');});
+Route::get('/newadmin', function() {return view('newadmin/index');});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
