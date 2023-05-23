@@ -56,7 +56,7 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Perangkat Desa -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -72,6 +72,7 @@
                     </div>
                 </div>
             </li>
+            <!-- Perangkat Desa -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">

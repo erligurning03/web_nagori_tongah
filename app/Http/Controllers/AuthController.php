@@ -48,7 +48,7 @@ class AuthController extends Controller
             return view('dashboard');
         } else {
         // Invalid credentials
-            return back()->withErrors([
+            return redirect('login')->withErrors([
                 'username' => 'Invalid login or password.',
             ]);
         }

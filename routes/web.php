@@ -68,5 +68,8 @@ Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa
 Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
 Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
+Route::get('/admin/wisata', function() {return view('admin/wisata_desa/daftarwisata');});
+Route::get('/admin/tambah/wisata', function() {return view('admin/wisata_desa/tambahwisata');});
+// Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

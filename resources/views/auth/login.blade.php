@@ -29,6 +29,11 @@
 									</p>
 								</div>
 			      	</div>
+					  @if(session('success'))
+					  <div class="alert alert-success">
+						  {{ session('success') }}
+					  </div>
+				  	@endif				  
 					  <form action="{{ route('login_masuk') }}" method="POST" class="signin-form">
                         @csrf
 						<div class="form-group mb-3">
