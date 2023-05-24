@@ -15,6 +15,20 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('user')->insert([
+            'nik' => '1111122222333334',
+            'nama_lengkap' => 'Admin',
+            'username' => 'admin123',
+            'password' => Hash::make('admin123'),
+            'email' => 'admin@gmail.com',
+            'telepon' => '081234567890',
+            'role' => 'admin',
+            'foto_profil' => 'img/admin.jpg',
+            'status_akun' => 'terdaftar',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('user')->insert([
             'nik' => '1234567890123456',
             'nama_lengkap' => 'Putrija Malau',
             'username' => 'putrija.m',

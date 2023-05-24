@@ -11,7 +11,17 @@
 
 	</head>
 	<body>
+	@if($errors->any())
+    <div class="alert alert-danger" id="error-alert">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 	<section class="ftco-section">
+		
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
@@ -37,11 +47,11 @@
 					  <form action="{{ route('login_masuk') }}" method="POST" class="signin-form">
                         @csrf
 						<div class="form-group mb-3">
-							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9.]{4,16}$">
+							<input type="text" class="form-control" placeholder="Masukkan Username atau NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9.]{4,16}$">
 						    <p id="invalid-username" style="display:none;color:red">username maks 16 karakter</p>
 						</div>
 				  <div class="form-group mb-3">
-					<input type="password" class="form-control" placeholder="Password" required id="password" aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+					<input type="password" class="form-control" placeholder="Masukkan Password" required id="password" aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 					<p id="invalid-password" style="display:none;color:red">password min 6 karakter dan maks 20 karakter </p>
 				  </div>
                         {{-- button --}}
@@ -59,6 +69,13 @@
 		  </div>
 	  </div>
   </section>
+
+  <!-- script untuk membuat allert bertahan 5 detik -->
+  <script>
+    setTimeout(function() {
+        document.getElementById('error-alert').style.display = 'none';
+    }, 5000); // Mengatur waktu 5 detik (5000 milidetik)
+</script>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>

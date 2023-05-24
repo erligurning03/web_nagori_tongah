@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('status_akun', ['terdaftar', 'menunggu'])->default('menunggu');
             $table->timestamps();
             $table->softDeletes();
+            $table->rememberToken();
         });
     }
 

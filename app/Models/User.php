@@ -20,17 +20,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama_lengkap',
-        'username',
-        'nik',
-        'telepon',
-        'email',
-        'password',
-        // 'nik','nama_lengkap','username','password','email','telepon','role','foto_profil','status_akun'
+        // 'nama_lengkap',
+        // 'username',
+        // 'nik',
+        // 'telepon',
+        // 'email',
+        // 'password',
+        
+        'nik','nama_lengkap','username','password','email','telepon','role','foto_profil','status_akun'
     ];
     // protected $table='user';
 
     protected $table = 'user';
+
+    
 
     public function post()
     {
