@@ -35,6 +35,9 @@ Route::get('/auth', function () {return view('auth/login');});
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');   //untuk menyimpan
 
+Route::get('/login',[ AuthController::class, 'login'])->name('login');                       //view untuk register
+Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');   //untuk menyimpan
+
 Route::get('/pengajuan', function () {return view('pengajuan/index');});
 Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
 Route::get('/form', function () {return view('pengajuan/form');})->name('form');
