@@ -37,7 +37,7 @@
 					  <form action="{{ route('login_masuk') }}" method="POST" class="signin-form">
                         @csrf
 						<div class="form-group mb-3">
-							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,16}$">
+							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9.]{4,16}$">
 						    <p id="invalid-username" style="display:none;color:red">username maks 16 karakter</p>
 						</div>
 				  <div class="form-group mb-3">

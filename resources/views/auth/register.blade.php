@@ -36,8 +36,8 @@
 						</div>
 						<div class="form-group mb-3">
 						  <label class="label" for="username">Username</label>
-						<input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,15}$">
-						<p id="invalid-username" style="display:none;color:red">username maksimal 15 karakter</p>
+						<input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9.]{4,16}$">
+						<p id="invalid-username" style="display:none;color:red">username maksimal 16 karakter</p>
 					  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="nik">NIK</label>
