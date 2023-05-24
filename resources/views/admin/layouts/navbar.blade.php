@@ -31,15 +31,17 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fa fa-home" aria-hidden="true"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin">
+                <div class="sidebar-brand-icon">
+                    <img src="{{asset('admin_assets/assets/img/logo.png')}}" width="100%">
+                    {{-- <i class="fa fa-home" aria-hidden="true"></i> --}}
                 </div>
-                <div class="sidebar-brand-text">Desa Nagori Nagori Tongah</div>
+                {{-- <div class="sidebar-brand-text">Desa Nagori Nagori Tongah</div> --}}
+                {{-- <img src="" alt=""> --}}
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-2">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -80,7 +82,7 @@
                 <div id="collapseOneTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
-                        <a class="collapse-item" href="{{ url('/admin/perangkatdesa') }}">List Wisata</a>
+                        <a class="collapse-item" href="{{ url('/admin/wisatadesa') }}">Daftar Wisata Desa</a>
                         <a class="collapse-item" href="{{ url('/admin/tambah/perangkat') }}">Tambah Wisata</a>
                     </div>
                 </div>

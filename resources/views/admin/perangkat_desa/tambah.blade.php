@@ -1,5 +1,5 @@
 @extends('admin.layouts.navbar')
-@section('contentform')
+@section('container')
 
 <form action="{{ route('perangkatdesa.store') }}" method="post">
     @csrf
