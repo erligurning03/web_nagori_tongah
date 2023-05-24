@@ -88,3 +88,53 @@
   object-fit: contain;
   margin-bottom: 10px;
 }
+
+.post-image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.post-image-wrapper {
+    display: flex;
+}
+
+.card-image {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.card-image.active {
+    display: block;
+}
+
+.next-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.next-arrow i {
+    color: black;
+}
+
+.previous-arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.previous-arrow i {
+    color: black;
+}
