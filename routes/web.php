@@ -54,10 +54,7 @@ Route::get('/', function () {
 
 // // Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');   //untuk menyimpan
 
-// Route::get('/belanja', function () {return view('landing_page/belanja');});
-// Route::get('/chart', [ChartController::class, 'index']);
-// Route::get('/chart/data', [ChartController::class, 'getData']);
-// Route::get('/chart/dataa', [ChartController::class, 'getDataa']);
+
 
 
 // Route::get('/pengajuan', function () {return view('pengajuan/index');});
@@ -105,21 +102,9 @@ Route::get('/', function () {
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan.anggaran');
-// Route::get('/admin/pendapatan/filter', [PendapatanController::class, 'filter'])->name('pendapatan.filter');
-// Route::delete('/admin/pendapatan/{id}', [PendapatanController::class, 'destroy'])->name('pendapatan.destroy');
-// Route::put('/admin/pendapatan/{id}', [PendapatanController::class, 'update'])->name('pendapatan.update');
-// Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('pendapatan.per-tahun');
-// Route::get('/admin/pendapatan/add', [PendapatanController::class, 'create'])->name('admin.tambahpendapatan.anggaran');
-// Route::post('/admin/pendapatan', [PendapatanController::class, 'store'])->name('pendapatan.store');
 
-// Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('admin.pengeluaran.anggaran');
-// Route::get('/admin/pengeluaran/filter', [PengeluaranController::class, 'filter'])->name('pengeluaran.filter');
-// Route::delete('/admin/pengeluaran/{id}', [PengeluaranController::class, 'destroy'])->name('pengeluaran.destroy');
-// Route::put('/admin/pengeluaran/{id}', [PengeluaranController::class, 'update'])->name('pengeluaran.update');
-// Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.per-tahun');
-// Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
-// Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+
+
 // //untuk halaman admin
 // Route::get('/admin', function() {return view('admin/index');});
 // Route::get('/admin/charts', function () {
@@ -160,21 +145,42 @@ Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('
 //route setelah login
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => 'role:admin'], function () {
+    Route::group(['middleware' => 'role:admin || operator'], function () {
         // Route yang hanya dapat diakses oleh admin
         Route::get('/dashboard-admin', function () { return view('admin.index'); })->name('dashboard-admin');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    });
 
-    Route::group(['middleware' => 'role:operator'], function () {
-        // Route yang hanya dapat diakses oleh operator
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+        // Route halaman CRUD pendapatan
+        Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan.anggaran');
+        Route::get('/admin/pendapatan/filter', [PendapatanController::class, 'filter'])->name('pendapatan.filter');
+        Route::delete('/admin/pendapatan/{id}', [PendapatanController::class, 'destroy'])->name('pendapatan.destroy');
+        Route::put('/admin/pendapatan/{id}', [PendapatanController::class, 'update'])->name('pendapatan.update');
+        Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('pendapatan.per-tahun');
+        Route::get('/admin/pendapatan/add', [PendapatanController::class, 'create'])->name('admin.tambahpendapatan.anggaran');
+        Route::post('/admin/pendapatan', [PendapatanController::class, 'store'])->name('pendapatan.store');
+
+        // Route halaman CRUD pengeluaran
+        Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('admin.pengeluaran.anggaran');
+        Route::get('/admin/pengeluaran/filter', [PengeluaranController::class, 'filter'])->name('pengeluaran.filter');
+        Route::delete('/admin/pengeluaran/{id}', [PengeluaranController::class, 'destroy'])->name('pengeluaran.destroy');
+        Route::put('/admin/pengeluaran/{id}', [PengeluaranController::class, 'update'])->name('pengeluaran.update');
+        Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.per-tahun');
+        Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
+        Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+
     });
 
     Route::group(['middleware' => 'role:warga'], function () {
         // Route yang hanya dapat diakses oleh warga
         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+        //Route halaman chart anggaran
+        Route::get('/belanja', function () {return view('landing_page/belanja');});
+        Route::get('/chart', [ChartController::class, 'index']);
+        Route::get('/chart/data', [ChartController::class, 'getData']);
+        Route::get('/chart/dataa', [ChartController::class, 'getDataa']);
+
     });
 
 });
