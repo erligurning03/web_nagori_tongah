@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\PostController;
+use App\Models\PerangkatDesa;
+use Illuminate\Contracts\Cache\Store;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +83,10 @@ Route::get('/navbar2', function() {return view('newadmin/layouts/navsidebar');})
 Route::get('/test', function() {return view('newadmin/layouts/tes');});
 Route::get('/newadmin', function() {return view('newadmin/index');});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//CRUD Perangkat Desa
+Route::get('/perangkat-desa/create-multiple', 'PerangkatDesaController@createMultiple')->name('perangkat-desa.create-multiple');
+Route::post('/perangkat-desa/store-multiple', 'PerangkatDesaController@storeMultiple')->name('perangkat-desa.store-multiple');
+
+Route::post('/admin/perangkatdesa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');
+
