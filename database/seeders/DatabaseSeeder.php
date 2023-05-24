@@ -32,12 +32,7 @@ class DatabaseSeeder extends Seeder
             VisiMisiSeeder::class,
             KetDesaSeeder::class,
             PendapatanSeeder::class,
-            BidPelaksanaanSeeder::class,
-            BidPemberdayaanSeeder::class,
-            BidPembiayaanSeeder::class,
-            BidPembinaanSeeder::class,
-            BidPenanggulanganSeeder::class,
-            BidPenyelenggaraanSeeder::class,
+            PengeluaranSeeder::class,
         ]);
     }
 }

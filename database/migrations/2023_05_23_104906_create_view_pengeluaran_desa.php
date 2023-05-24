@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bidang_penanggulangan', function (Blueprint $table) {
+        Schema::create('view_pengeluaran_desa', function (Blueprint $table) {
             $table->id();
-            $table->string('keterangan');
-            $table->integer('anggaran');
-            $table->integer('tahun');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bidang_penanggulangan');
+        Schema::dropIfExists('view_pengeluaran_desa');
     }
 };
