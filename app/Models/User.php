@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    // use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +20,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nik','nama_lengkap','username','password','email','telepon','role','foto_profil','status_akun'
+        'nama_lengkap',
+        'username',
+        'nik',
+        'telepon',
+        'email',
+        'password',
+        // 'nik','nama_lengkap','username','password','email','telepon','role','foto_profil','status_akun'
     ];
+    // protected $table='user';
 
     protected $table = 'user';
 

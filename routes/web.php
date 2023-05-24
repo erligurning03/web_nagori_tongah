@@ -1,11 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ChartController;
+use App\Models\PerangkatDesa;
+use Illuminate\Contracts\Cache\Store;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +37,12 @@ Route::get('/landing', function () {
 });
 
 Route::get('/auth', function () {return view('auth/login');});
-Route::get('/belanja', function () {
-    return view('landing_page/belanja');
-});
+
+Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
+Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');   //untuk menyimpan
+
+Route::get('/login',[ AuthController::class, 'login'])->name('login');                       //view untuk register
+Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');   //untuk menyimpan
 
 Route::get('/belanja', function () {return view('landing_page/belanja');});
 Route::get('/chart', [ChartController::class, 'index']);
@@ -60,6 +67,9 @@ Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.inde
 // cara panggil {{ route('posts.index') }}
 Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
+Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+
 
 Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
 Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
@@ -100,3 +110,29 @@ Route::put('/admin/pengeluaran/{id}', [PengeluaranController::class, 'update'])-
 Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.per-tahun');
 Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
 Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+//untuk halaman admin
+Route::get('/admin', function() {return view('admin/index');});
+Route::get('/admin/charts', function () {
+    return view('admin.charts');
+})->name('charts');
+
+Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/show');});
+Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+Route::post('/submit-form', 'FormController@submit')->name('submit-form');
+
+Route::get('/admin/wisata', function() {return view('admin/wisata_desa/daftarwisata');});
+Route::get('/admin/tambah/wisata', function() {return view('admin/wisata_desa/tambahwisata');});
+// Route::post('/submit-form', 'FormController@submit')->name('submit-form');
+
+Route::get('/navbar', function() {return view('admin/layouts/navbar');});
+Route::get('/navbar2', function() {return view('newadmin/layouts/navsidebar');});
+Route::get('/test', function() {return view('newadmin/layouts/tes');});
+Route::get('/newadmin', function() {return view('newadmin/index');});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//CRUD Perangkat Desa
+Route::get('/perangkat-desa/create-multiple', 'PerangkatDesaController@createMultiple')->name('perangkat-desa.create-multiple');
+Route::post('/perangkat-desa/store-multiple', 'PerangkatDesaController@storeMultiple')->name('perangkat-desa.store-multiple');
+
+Route::post('/admin/perangkatdesa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');
+

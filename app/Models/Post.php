@@ -21,4 +21,14 @@ class Post extends Model
     {
         return $this->hasMany(FotoPost::class, 'id_post');
     }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class, 'id_post');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(LikePost::class, 'id_post');
+    }
 }

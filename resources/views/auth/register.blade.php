@@ -26,58 +26,57 @@
 						<div>
 			      		<div class="w-100">
 			      			<h3 class="mb-4 mt-5" ><b>Daftar Akun</b></h3>
-
 						</div>
-			      	</div>
-					  <form action="#" class="signin-form">
+					  <form action="{{ route('simpan_register')}}" method="POST" class="signin-form">
+						@csrf  
 						<div class="form-group mb-3">
 							<label class="label" for="nama">Nama Lengkap</label>
-							<input type="text" class="form-control" placeholder="Nama" required  id="nama" aria-describedby="nama" name="nama" pattern="^[a-zA-Z\s'-]{1,100}$">
+							<input type="text" class="form-control" required placeholder="Nama" id="nama" aria-describedby="nama" name="nama" pattern="^[a-zA-Z\s'-]{1,100}$">
 							<p id="invalid-nama" style="display:none;color:red">Masukkan hanya huruf saja </p>
 						</div>
 						<div class="form-group mb-3">
 						  <label class="label" for="username">Username</label>
-						<input type="text" class="form-control" placeholder="Username" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,15}$">
+						<input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,15}$">
 						<p id="invalid-username" style="display:none;color:red">username maksimal 15 karakter</p>
 					  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="nik">NIK</label>
-					<input type="text" class="form-control" placeholder="Nomor Induk Keluarga" required  id="nik" aria-describedby="nik" name="nik" pattern="[0-9]{16}$">
+					<input type="text" class="form-control " required  placeholder="Nomor Induk Keluarga" id="nik" aria-describedby="nik" name="nik" pattern="[0-9]{16}$">
 					<p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter</p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="telepon">Telepon</label>
-					<input type="text" class="form-control" placeholder="Nomor Telepon" required id="telepon" aria-describedby="telepon" name="telepon" pattern="^(\+62|0)[2-9][0-9]{10,14}$">
+					<input type="text" class="form-control " required placeholder="Nomor Telepon" id="telepon" aria-describedby="telepon" name="telepon" pattern="^(\+62|0)[2-9][0-9]{10,14}$">
 					<p id="invalid-telepon" style="display:none;color:red">Berawalan +62... atau 08...</p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="email">Email</label>
-					<input type="text" class="form-control" placeholder="Email" required id="email" aria-describedby="email" name="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,10}$">
+					<input type="email" class="form-control " required  placeholder="Email" id="email" aria-describedby="email" name="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,10}$">
 					<p id="invalid-email" style="display:none;color:red">masukkan alamat email dengan berakhiran @gmail.com </p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="password">Password</label>
-						<input type="text" class="form-control" placeholder="Password" required id="password" aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+						<input type="password" class="form-control" required aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 						<p id="invalid-password" style="display:none;color:red">Masukkan password minimal 6 karakter dan maksimal 20 karakter </p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="confirpassword">Konfirmasi Password</label>
-						<input type="text" class="form-control" placeholder="Confirmation Password" required  id="confirpassword" aria-describedby="confirpassword" name="confirpassword" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+						<input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Confirmation Password" id="confirpassword" aria-describedby="confirpassword" name="confirpassword" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 						<p id="invalid-confirpassword" style="display:none;color:red"> Password yang anda masukkan salah  </p>
 				  </div>
-				</form>
+				  <div class="form-group">
+					<button type="submit" class="form-control btn btn-primary rounded submit px-3">Daftar Akun</button>
+				</div>
+				<div class="w-75 text-md-right">
+					<p>Sudah punya akun?</p>
+				</div>
 				<div class="form-group">
-				  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Daftar Akun</button>
-			  </div>
-			  <div class="w-75 text-md-right">
-				  <p>Sudah punya akun?</p>
-			  </div>
-			  <div class="form-group">
-				  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
-			  </div>
-			  <div class="form-group d-md-flex">
-				  <div class="w-50 text-left">
-			  </div>
+					<a href="login" type="submit" class="button form-control btn btn-primary rounded submit px-3">Masuk</a>
+				</div>
+				<div class="form-group d-md-flex">
+					<div class="w-50 text-left">
+				</div>
+				</form>
 			</div>
 			  </div>
 		  </div>

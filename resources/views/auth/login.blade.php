@@ -18,7 +18,7 @@
 					<div class="wrap d-md-flex">
 						<div class="img" style="background-image: url(img/cover.png);">
 			      </div>
-						<div class="login-wrap p-4 p-md-5">
+					<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
 			      			<h3 class="mb-4 mt-5">Masuk Akun</h3>
@@ -29,23 +29,30 @@
 									</p>
 								</div>
 			      	</div>
-					  <form action="#" class="signin-form">
+					  @if(session('success'))
+					  <div class="alert alert-success">
+						  {{ session('success') }}
+					  </div>
+				  	@endif				  
+					  <form action="{{ route('login_masuk') }}" method="POST" class="signin-form">
+                        @csrf
 						<div class="form-group mb-3">
-							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,15}$">
-						  <p id="invalid-username" style="display:none;color:red">username maks 15 karakter</p>
+							<input type="text" class="form-control" placeholder="Username/NIK" required id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{7,16}$">
+						    <p id="invalid-username" style="display:none;color:red">username maks 16 karakter</p>
 						</div>
 				  <div class="form-group mb-3">
 					<input type="password" class="form-control" placeholder="Password" required id="password" aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 					<p id="invalid-password" style="display:none;color:red">password min 6 karakter dan maks 20 karakter </p>
 				  </div>
+                        {{-- button --}}
 				  <div class="form-group">
 					  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
 				  </div>
 				  <div class="form-group">
-					  <p class="text-center">Belum Punya Akun?</p>
+					  <a class="text-center">Belum Punya Akun?</p>
 				  </div>
 				  <div class="form-group">
-					  <button type="submit" class="form-control btn btn-primary-1 px-3">Daftar Akun</button>
+					  <a href ="register" type="submit" class=" button form-control btn btn-primary-1 px-3">Daftar Akun</a>
 				  </div>
 			</div>
 			  </div>

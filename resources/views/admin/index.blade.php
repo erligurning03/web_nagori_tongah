@@ -56,7 +56,7 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Perangkat Desa -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -72,6 +72,7 @@
                     </div>
                 </div>
             </li>
+            <!-- Perangkat Desa -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -364,6 +365,8 @@
 
                 </nav>
                 <!-- End of Topbar -->
+@extends('admin.layouts.navbar')
+@section('container')
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -739,30 +742,5 @@
             </div>
         </div>
     </div>
+@endsection
 
-    <!-- Bootstrap core JavaScript-->
-    <script src=" {{ asset('admin_assets/assets/vendor/jquery/jquery.min.js')}}" ></script>
-    <script src="{{ asset('admin_assets/vendor/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('admin_assets/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('admin_assets/assets/js/sb-admin-2.min.js')}}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('admin_assets/assets/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('admin_assets/assets/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('admin_assets/assets/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="https://kit.fontawesome.com/a87d4ae636.js" crossorigin="anonymous"></script>
-
-    <!-- Chat GPT Recommendation Why the drop down doesn't work -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
