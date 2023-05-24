@@ -59,11 +59,11 @@
 						<input type="password" class="form-control" required aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 						<p id="invalid-password" style="display:none;color:red">Masukkan password minimal 6 karakter dan maksimal 20 karakter </p>
 				  </div>
-				  {{-- <div class="form-group mb-3">
+				  <div class="form-group mb-3">
 					  <label class="label" for="confirpassword">Konfirmasi Password</label>
 						<input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Confirmation Password" id="confirpassword" aria-describedby="confirpassword" name="confirpassword" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
 						<p id="invalid-confirpassword" style="display:none;color:red"> Password yang anda masukkan salah  </p>
-				  </div> --}}
+				  </div>
 				  <div class="form-group">
 					<button type="submit" class="form-control btn btn-primary rounded submit px-3">Daftar Akun</button>
 				</div>
