@@ -85,3 +85,41 @@ confirpasswordField.addEventListener("keyup", (event) => {
     }
 
 });
+
+function hidePasswordInput() {
+    const passwordInput = document.getElementById("passwordInput");
+    const password = passwordInput.value;
+    const hiddenPassword = password.replace(/./g, "*");
+  
+    passwordInput.value = hiddenPassword;
+  
+    validatePassword();
+  }
+  
+  function hideConfirmPasswordInput() {
+    const confirmPasswordInput = document.getElementById("confirmPasswordInput");
+    const confirmPassword = confirmPasswordInput.value;
+    const hiddenConfirmPassword = confirmPassword.replace(/./g, "*");
+  
+    confirmPasswordInput.value = hiddenConfirmPassword;
+  
+    validatePassword();
+  }
+  
+  function validatePassword() {
+    const passwordInput = document.getElementById("passwordInput");
+    const confirmPasswordInput = document.getElementById("confirmPasswordInput");
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+  
+    if (password.length >= 6 && password.length <= 20) {
+      if (password == confirmPassword) {
+        console.log("Password dan konfirmasi password cocok");
+      } else {
+        console.log("Password dan konfirmasi password tidak cocok");
+      }
+    } else {
+      console.log("Password harus terdiri dari 6 hingga 20 karakter");
+    }
+  }
+  

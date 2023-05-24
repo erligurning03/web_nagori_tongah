@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\UmkmController;
 use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
 
@@ -141,6 +142,7 @@ Route::get('/landing', function () { return view('landing_page/landing'); })->na
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
+Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {

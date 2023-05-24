@@ -10,13 +10,7 @@ class Umkm extends Model
     use HasFactory;
     protected $table = 'umkm'; 
 
-    protected $fillable = [
-        'nama_usaha',
-        'alamat',
-        'gambar_produk',
-        'telepon',
-        'deskripsi',
-    ];
+    protected $fillable = ['nama_usaha', 'alamat', 'gambar_produk', 'telepon', 'deskripsi'];
     public function getGambarAttribute($value)
     {
         if (!$value) {

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -74,6 +76,12 @@ class AuthController extends Controller
     }
 
 
+    protected function validator(array $data)
+{
+    return Validator::make($data, [
+        'password' => ['required', 'confirmed', 'min:8'], 
+    ]);
+}
     public function logout()
 {
     Auth::logout();

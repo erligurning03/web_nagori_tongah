@@ -36,34 +36,34 @@
 						</div>
 						<div class="form-group mb-3">
 						  <label class="label" for="username">Username</label>
-						<input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9.]{4,16}$">
+						<input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{4,16}$">
 						<p id="invalid-username" style="display:none;color:red">username maksimal 16 karakter</p>
 					  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="nik">NIK</label>
 					<input type="text" class="form-control " required  placeholder="Nomor Induk Keluarga" id="nik" aria-describedby="nik" name="nik" pattern="[0-9]{16}$">
-					<p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter</p>
+					<p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter Huruf</p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="telepon">Telepon</label>
 					<input type="text" class="form-control " required placeholder="Nomor Telepon" id="telepon" aria-describedby="telepon" name="telepon" pattern="^(\+62|0)[2-9][0-9]{10,14}$">
-					<p id="invalid-telepon" style="display:none;color:red">Berawalan +62... atau 08...</p>
+					<p id="invalid-telepon" style="display:none;color:red">Gunakan +62... atau 08...</p>
 				  </div>
 				  <div class="form-group mb-3">
 					  <label class="label" for="email">Email</label>
 					<input type="email" class="form-control " required  placeholder="Email" id="email" aria-describedby="email" name="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,10}$">
-					<p id="invalid-email" style="display:none;color:red">masukkan alamat email dengan berakhiran @gmail.com </p>
+					<p id="invalid-email" style="display:none;color:red">Gunakan @gmail.com ... atau @yahoo.com... atau @students.ac.id </p>
 				  </div>
 				  <div class="form-group mb-3">
-					  <label class="label" for="password">Password</label>
-						<input type="password" class="form-control" required aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
-						<p id="invalid-password" style="display:none;color:red">Masukkan password minimal 6 karakter dan maksimal 20 karakter </p>
-				  </div>
-				  <div class="form-group mb-3">
-					  <label class="label" for="confirpassword">Konfirmasi Password</label>
-						<input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Confirmation Password" id="confirpassword" aria-describedby="confirpassword" name="confirpassword" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
-						<p id="invalid-confirpassword" style="display:none;color:red"> Password yang anda masukkan salah  </p>
-				  </div>
+					<label class="label" for="password">Password</label>
+					  <input type="password" id="passwordInput" oninput="hidePasswordInput()" class="form-control" placeholder="Password" required aria-describedby="password" name="password" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+					  <p id="invalid-password" style="display:none;color:red">Masukkan password minimal 6 karakter dan maksimal 20 karakter </p>
+				</div>
+				<div class="form-group mb-3">
+					<label class="label" for="confirpassword">Konfirmasi Password</label>
+					  <input type="password" id="confirmPasswordInput" oninput="hideConfirPasswordInput()" class="form-control" placeholder="Konfirmasi Password" required   aria-describedby="confirpassword" name="confirpassword" pattern="^[a-zA-Z0-9@#$%^&*]{6,20}$">
+					  <p id="invalid-confirpassword" style="display:none;color:red"> Password yang anda masukkan tidak sama  </p>
+				</div>
 				  <div class="form-group">
 					<button type="submit" class="form-control btn btn-primary rounded submit px-3">Daftar Akun</button>
 				</div>
@@ -82,9 +82,20 @@
 		  </div>
 	  </div>
   </section>
-<script>
-  
-</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSubmit").click(function () {
+                var password = $("#passwordInput").val();
+                var confirmpassword = $("#ConfirmPasswordInput").val();
+                if (var password != var confirmpassword) {
+                    alert("Passwords do not match.");
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
