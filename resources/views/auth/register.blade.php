@@ -26,11 +26,6 @@
 						<div>
 			      		<div class="w-100">
 			      			<h3 class="mb-4 mt-5" ><b>Daftar Akun</b></h3>
-							  @if($isAuthenticated)
-    <p>Pengguna terotentikasi</p>
-@else
-    <p>Pengguna tamu</p>
-@endif
 						</div>
 					  <form action="{{ route('simpan_register')}}" method="POST" class="signin-form">
 						@csrf  
