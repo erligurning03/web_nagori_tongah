@@ -70,60 +70,42 @@
       </div>
     </section>
 		
-	<section class="jumbotron text-center my-5">
-			<div class="card-group">
-			  <div class="col-sm-2 mx-auto">
-				  <div class="card">
-					<div class="card-body text-center">
-					  <img src="img/4.png" class="card-img-top" alt="...">
-					  <h5 class="card-title"><b>pengurusan berkas</b></h5>
-					  <p class="card-text">Keperluan pengurusan berkas seperti KTP, KK, dan lain sebagainya.</p>
-					  <a href="#" class="btn btn-primary">selengkapnya</a>
-					</div>
-				  </div>
-			  </div>
-			  <div class="col-sm-2 mx-auto">
-				  <div class="card">
-					<div class="card-body text-center">
-					  <img src="img/1.png" class="card-img-top" alt="...">
-					  <h5 class="card-title"><b>Forum Diskusi</b></h5>
-					  <p class="card-text">Untuk berbagi informasi, ide, pendapat, dan tempat pengaduan</p>
-					  <a href="#" class="btn btn-primary">selengkapnya</a>
-					</div>
-				  </div>
-			  </div>
-			  <div class="col-sm-2 mx-auto">
-				  <div class="card">
-					<div class="card-body text-center">
-					  <img src="img/2.png" class="card-img-top" alt="...">
-					  <h5 class="card-title"><b>Wisata Nagori</b></h5>
-					  <p class="card-text">Kumpulan informasi terkait wisata yang terdapat di Nagori</p>
-					  <a href="#" class="btn btn-primary">selengkapnya</a>
-					</div>
-				  </div>
-			  </div>
-			  <div class="col-sm-2 mx-auto">
-				  <div class="card">
-					<div class="card-body text-center">
-					  <img src="img/3.png" class="card-img-top" alt="...">
-					  <h5 class="card-title"><b>UMKM Nagori</b></h5>
-					  <p class="card-text">Kumpulan UMKM yang terdapat di Nagori, daftarkan UKMK Anda!</p>
-					  <a href="#" class="btn btn-primary">selengkapnya</a>
-					</div>
-				  </div>
-			  </div>
-			  <div class="col-sm-2 mx-auto">
-				  <div class="card">
-					<div class="card-body text-center">
-					  <img src="img/4.png" class="card-img-top" alt="...">
-					  <h5 class="card-title"><b>Transparansi Dana</b></h5>
-					  <p class="card-text">Informasi pendapatan dan pengeluaran Dana pertahun dan realisasinya.</p>
-					  <a href="#" class="btn btn-primary">selengkapnya</a>
-					</div>
-				  </div>
-			  </div>
-		  </div>
-	  </div>
+	<section class="ftco-section ftco-services ftco-no-pt">
+      <div class="container">
+        <div class="row services-section">
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon"><span class="flaticon-layers"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Perfectly Design</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>      
+          </div>
+
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon"><span class="flaticon-compass-symbol"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Carefully Planned</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon"><span class="flaticon-layers"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Smartly Execute</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="section-counter" data-section="about">
