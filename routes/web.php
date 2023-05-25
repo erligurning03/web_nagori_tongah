@@ -182,3 +182,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
 });
+
+Route::get('/pengajuan', function () { return view('pengajuan/index2'); })->name('pengajuan');
+Route::get('/pengajuan/form', function () { return view('pengajuan/form'); })->name('form');
+// Route::get('/form', function () {return view('pengajuan/form');})->name('form');
+
+        
