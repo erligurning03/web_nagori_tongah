@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -19,8 +21,13 @@ class AuthController extends Controller
     }
 
     public function register(){
-        return view('auth.register');
+        // return view('auth.register');
+        Auth::logout();
+        $isAuthenticated = Auth::check();
+
+    return view('auth.register', compact('isAuthenticated'));
     }
+
     public function registerPost(Request $request)
     {
         $user = new User();
@@ -39,41 +46,67 @@ class AuthController extends Controller
     }
     
     // login
-    public function login(){
-        return view('auth.login');
+    public function login()
+{
+    if (auth()->check()) {
+        $user = auth()->user();
+
+        if ($user->role == 'admin' || $user->role == 'operator') {
+            return redirect()->route('dashboard-admin');
+        } elseif ($user->role == 'warga') {
+            return redirect()->route('dashboard');
+        }
+    } elseif (auth()->viaRemember()) {
+        // Logout user and redirect to login if remember_token is empty
+        $user = auth()->user();
+        if (!$user->remember_token) {
+            auth()->logout();
+            return redirect()->route('login');
+        }
     }
 
-    public function loginMasuk(Request $request)
-    {
-        $loginField = $request->input('username');
-        $password = $request->input('password');
+    return view('auth.login');
+}
 
-        $user = User::where('username', $loginField)
+
+
+    public function loginMasuk(Request $request)
+{
+    $loginField = $request->input('username');
+    $password = $request->input('password');
+    $remember = $request->has('remember'); // Periksa apakah checkbox "Ingat Saya" dicentang
+
+    $user = User::where('username', $loginField)
         ->orWhere('nik', $loginField)
         ->first();
 
-        if ($user && Hash::check($password, $user->password)) {
-            // Authentication successful
-            auth()->login($user);
-        
-            if ($user->role == 'admin') {
-                return view('admin.index');
-            } elseif ($user->role == 'warga') {
-                return view('dashboard');
-            }
-        } else {
-            if (!$user) {
-                return redirect('login')->withErrors([
-                    'username' => 'Data tidak ada. Username atau NIK yang dimasukkan tidak ditemukan.',
-                ]);
-            } else {
-                return redirect('login')->withErrors([
-                    'password' => 'Password salah.',
-                ]);
-            }
+    if ($user && Hash::check($password, $user->password)) {
+        // Authentication successful
+        if ($remember) {
+            $user->setRememberToken(Str::random(60)); // Set remember_token baru jika "Ingat Saya" dicentang
+            $user->save();
         }
-        
+
+        auth()->login($user);
+
+        if ($user->role == 'admin') {
+            return redirect()->route('dashboard-admin');
+        } elseif ($user->role == 'warga') {
+            return redirect()->route('dashboard');
+        }
+    } else {
+        if (!$user) {
+            return redirect('login')->withErrors([
+                'username' => 'Data tidak ada. Username atau NIK yang dimasukkan tidak ditemukan.',
+            ]);
+        } else {
+            return redirect('login')->withErrors([
+                'password' => 'Password salah.',
+            ]);
+        }
     }
+}
+
 
 
     protected function validator(array $data)
@@ -82,10 +115,24 @@ class AuthController extends Controller
         'password' => ['required', 'confirmed', 'min:8'], 
     ]);
 }
-    public function logout()
+
+public function logout()
 {
+    // Clear the remember_token cookie
+    Cookie::queue(Cookie::forget('remember_token'));
+
+    // Clear the remember_token field in the users table
+    $user = Auth::user();
+    if ($user) {
+        $user->remember_token = null;
+        $user->save();
+    }
+
+    // Perform the logout
     Auth::logout();
+
     return redirect('/login');
 }
+
 
 }

@@ -55,6 +55,14 @@
 					<p id="invalid-password" style="display:none;color:red">password min 6 karakter dan maks 20 karakter </p>
 				  </div>
                         {{-- button --}}
+					<div class="form-group">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+						<label class="form-check-label" for="remember">
+							Ingat saya
+						</label>
+					</div>
+				</div>
 				  <div class="form-group">
 					  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
 				  </div>

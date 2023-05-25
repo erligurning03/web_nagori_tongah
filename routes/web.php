@@ -23,9 +23,6 @@ use Illuminate\Contracts\Cache\Store;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // Route::get('/tes', function () {
 //     return view('landing_page/tes');
@@ -138,19 +135,19 @@ Route::get('/', function () {
 
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
 Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => 'role:admin || operator'], function () {
+    Route::group(['middleware' => 'role:admin,operator'], function () {
         // Route yang hanya dapat diakses oleh admin
         Route::get('/dashboard-admin', function () { return view('admin.index'); })->name('dashboard-admin');
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
         // Route halaman CRUD pendapatan
         Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan.anggaran');
@@ -175,7 +172,6 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => 'role:warga'], function () {
         // Route yang hanya dapat diakses oleh warga
         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});
