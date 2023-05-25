@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Square - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Landing Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset ('landing_assets/assets/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset ('landing_assets/assets/css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset ('landing_assets/assets/css/animate.css') }}">
     
     <link rel="stylesheet" href="{{ asset ('landing_assets/assets/css/owl.carousel.min.css') }}">
@@ -26,40 +26,49 @@
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html"><span>Square.</span></a>
+	      <a class="navbar-brand" href="newlanding"><img src="url('{{ asset('landing_assets/assets/images/logo.png') }}')" alt=""></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="about"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="team"><span>Team</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="testimony"><span>Testimony</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="blog"><span>Blog</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>Contact</span></a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Request a quote</a></li>
-
+	          <li class="nav-item"><a href="#" class="nav-link"><span>Utama</span></a></li>
+	          <li class="nav-item dropdown">
+				<a href="#" class="nav-link  dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">layanan</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				  </ul>
+			</li>
+	          <li class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown" >Informasi</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				  </ul>
+			</li>
+	          <li class="nav-item"><a href="#" class="nav-link"><span>Wisata</span></a></li>
+	          <li class="nav-item">
+				<a href="{{ route('login') }}"><button class="btn btn-primary me-md-2" type="button">MASUK</button></a>
+                <a href="{{ route('register') }}"><button class="btn btn-primary1" type="button">DAFTAR</button></a>
+			  </li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');" data-section="home">
+    <section class="hero-wrap js-fullheight" style="background-image:url('{{ asset('landing_assets/assets/images/component_3.png') }}');" data-section="home">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
-          	<p class="d-flex align-items-center" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-							<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center mr-3">
-    						<span class="ion-ios-play play mr-2"></span>
-    						<span class="watch">Watch Video</span>
-    					</a>
-						</p>
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have a passion in creating new and unique spaces</h1>
-            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">NAGORI NAGORITONGAH</h1>
+            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Nagori Nagoritongah adalah sebuah desa di Sumatera Utara dengan keindahan alam dan masyarakat yang ramah. Terdapat berbagai destinasi wisata seperti air terjun, hutan pinus, dan kebun teh yang menarik untuk dikunjungi.</p>
           </div>
         </div>
       </div>
@@ -281,8 +290,8 @@
             	<div class="item">
             		<div class="project">
 		    					<div class="img">
-				    				<img src="{{('landing_assets/assets/images/project-6.jpg') }} " class="img-fluid" alt="Colorlib Template">
-				    				<a href="{{('landing_assets/assets/images/project-6.jpg' ) }}" class="icon image-popup d-flex justify-content-center align-items-center">
+				    				<img src="{{ asset('landing_assets/assets/images/project-6.jpg') }} " class="img-fluid" alt="Colorlib Template">
+				    				<a href="{{ asset('landing_assets/assets/images/project-6.jpg' ) }}" class="icon image-popup d-flex justify-content-center align-items-center">
 				    					<span class="icon-expand"></span>
 				    				</a>
 			    				</div>

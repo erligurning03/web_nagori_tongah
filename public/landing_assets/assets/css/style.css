@@ -2026,6 +2026,16 @@ textarea.form-control {
     .form-inline .custom-control-label {
       margin-bottom: 0; } }
 
+.btn.btn-primary {
+    background: #3A655D !important;
+    border: 1px #3A655D !important;
+    color: #fff !important;
+}
+.btn.btn-primary1 {
+  background: #2B2B2B !important;
+  border: 1px #2B2B2B !important;
+  color: #fff !important;
+}
 .btn {
   display: inline-block;
   font-weight: 400;
