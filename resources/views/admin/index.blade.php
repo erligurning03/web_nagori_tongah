@@ -1,6 +1,7 @@
 @extends('admin.layouts.navbar')
 @section('container')
 
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 

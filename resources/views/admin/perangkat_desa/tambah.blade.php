@@ -5,13 +5,16 @@
     @csrf
       <div class="row">
         <div class="col-md-12">
+      
+          <div class="form-group">
+            <label for="nama_guru">Nama</label>
+            <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror">
+        </div>
+      
     <div class="form-group">
         <label for="nama_mapel">Periode Jabatan</label><br>
         <select   class="js-example-basic-single" id="id_periode" name="mapel_id" data-width="100%">
           <option value="">--- Pilih Periode---</option>
-          @foreach ($periode as $data)
-            <option value="{{ $data->id }}">{{ $data->periode_awal }}/{{$data->periode_akhir}}</option>
-          @endforeach
         </select>
     </div>
     <div class="mb-3">

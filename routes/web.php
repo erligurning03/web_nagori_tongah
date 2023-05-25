@@ -109,8 +109,7 @@ use Illuminate\Contracts\Cache\Store;
 //     return view('admin.charts');
 // })->name('charts');
 
-// Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/show');});
-// Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+
 // Route::post('/submit-form', 'FormController@submit')->name('submit-form');
 
 // Route::get('/admin/wisata', function() {return view('admin/wisata_desa/daftarwisata');});
@@ -136,6 +135,7 @@ use Illuminate\Contracts\Cache\Store;
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
@@ -167,6 +167,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
         Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
 
+        
+
     });
 
     Route::group(['middleware' => 'role:warga'], function () {
@@ -179,6 +181,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/chart/data', [ChartController::class, 'getData']);
         Route::get('/chart/dataa', [ChartController::class, 'getDataa']);
 
+        
+
     });
 
 });
@@ -188,3 +192,7 @@ Route::get('/pengajuan/form', function () { return view('pengajuan/form'); })->n
 // Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 
         
+// Route halaman CRUD perangkat desa
+Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/show');});
+Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+Route::post('/admin/perangkatdesa', [PerangkatDesaBaruController::class, 'store'])->name('perangkatdesa.store');
