@@ -311,7 +311,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/team-1.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{asset('landing_assets/assets/images/team-1.jpg')}};"></div>
 							</div>
 							<div class="text d-flex align-items-center pt-3 text-center">
 								<div>

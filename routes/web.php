@@ -135,7 +135,7 @@ use Illuminate\Contracts\Cache\Store;
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
-Route::get('/', function () { return view('landing_page/newlanding'); })->name('newlanding');
+Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
