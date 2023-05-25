@@ -23,17 +23,17 @@
   <div class="container">
     <h1 class="text-center mt-4">Galeri Desa</h1>
     <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <img class="thumbnail" src="img/foto 1.jfif" alt="Gambar 1" data-toggle="modal" data-target="#modal1">
+      <div class="col-md-3 col-sm-6 d-flex justify-content-center">
+        <img class="thumbnail mx-auto" src="img/foto 1.jfif" alt="Gambar 1" data-toggle="modal" data-target="#modal1">
       </div>
-      <div class="col-md-3 col-sm-6">
-        <img class="thumbnail" src="img/foto 1.jfif" alt="Gambar 2" data-toggle="modal" data-target="#modal2">
+      <div class="col-md-3 col-sm-6 d-flex justify-content-center">
+        <img class="thumbnail mx-auto" src="img/foto 1.jfif" alt="Gambar 1" data-toggle="modal" data-target="#modal1">
       </div>
-      <div class="col-md-3 col-sm-6">
-        <img class="thumbnail" src="img/foto 1.jfif" alt="Gambar 3" data-toggle="modal" data-target="#modal3">
+      <div class="col-md-3 col-sm-6 d-flex justify-content-center">
+        <img class="thumbnail mx-auto" src="img/foto 1.jfif" alt="Gambar 1" data-toggle="modal" data-target="#modal1">
       </div>
-      <div class="col-md-3 col-sm-6">
-        <img class="thumbnail" src="img/foto 1.jfif" alt="Gambar 4" data-toggle="modal" data-target="#modal4">
+      <div class="col-md-3 col-sm-6 d-flex justify-content-center">
+        <img class="thumbnail mx-auto" src="img/foto 1.jfif" alt="Gambar 1" data-toggle="modal" data-target="#modal1">
       </div>
     </div>
   </div>

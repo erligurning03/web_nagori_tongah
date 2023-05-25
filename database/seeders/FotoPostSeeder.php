@@ -24,7 +24,7 @@ class FotoPostSeeder extends Seeder
         DB::table('foto_post')->insert([
             'id' => 2,
             'id_post' => 2,
-            'foto' => 'posting.jpg',
+            'foto' => 'kebakaran.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

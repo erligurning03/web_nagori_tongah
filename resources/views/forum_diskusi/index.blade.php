@@ -111,7 +111,9 @@ body {
         @foreach($posts->sortByDesc('created_at') as $post)
         <div class="box2 mt-5" data-judul="{{ $post->judul }}" data-isi="{{ $post->isi_post }}" data-penulis="{{ $post->user->nama_lengkap }}" data-tanggal="{{ $post->created_at->toDateString() }}">
             <div class="post-header">
-                <img src="img/foto_profil.jpg" alt="Foto Profil" class="profile-picture">
+                <div class="profile-picture">
+                  <img src="{{ asset('img/'.$post->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
+              </div>
                 <div class="post-info">
                     <span style="font-weight: bold;">{{ $post->user->nama_lengkap }}</span>
                     <span style="font-weight: normal;">{{ $post->created_at->diffForHumans() }}</span>
@@ -142,7 +144,9 @@ body {
 
             <div class="post-actions" style="justify-content: space-between;">
                 <div>
-                <i class="far fa-heart fa-xl love-icon action-icon" onclick="toggleLove(this)"><b style="margin-left:5px">{{ $post->jumlah_like }}</b></i>
+                <!-- Tombol Like -->
+                <i class="far fa-heart fa-xl love-icon action-icon" onclick="toggleLove(this, {{ $post->id }})"></i>
+                <b id="like-count">{{ $post->jumlah_like }}</b>
                 <i class="far fa-comment fa-xl action-icon" data-bs-toggle="modal" data-bs-target="#modalKomentar{{ $post->id }}"></i>
                 <i class="far fa-bookmark fa-xl action-icon"></i>
                 <i class="far fa-flag fa-xl action-icon"></i>
