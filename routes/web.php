@@ -24,9 +24,6 @@ use Illuminate\Contracts\Cache\Store;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // Route::get('/tes', function () {
 //     return view('landing_page/tes');
@@ -146,6 +143,7 @@ Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
 Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
@@ -153,7 +151,6 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => 'role:admin || operator'], function () {
         // Route yang hanya dapat diakses oleh admin
         Route::get('/dashboard-admin', function () { return view('admin.index'); })->name('dashboard-admin');
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
         // Route halaman CRUD pendapatan
         Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan.anggaran');
@@ -179,7 +176,6 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => 'role:warga'], function () {
         // Route yang hanya dapat diakses oleh warga
         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});
@@ -187,6 +183,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/chart/data', [ChartController::class, 'getData']);
         Route::get('/chart/dataa', [ChartController::class, 'getDataa']);
 
+        //Route halaman forum diskusi
+        Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
+        Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
+        Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
+        Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+
+        Route::get('/galeri', function () {return view('galeri/index');});
     });
 
 });
