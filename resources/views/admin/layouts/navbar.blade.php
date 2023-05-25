@@ -99,8 +99,10 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
-                        <a class="collapse-item" href="utilities-color.html">List Anggran</a>
-                        <a class="collapse-item" href="utilities-border.html">Tambah Anggaran</a>
+                        <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a>
+                        <a class="collapse-item" href="{{ route('admin.tambahpendapatan.anggaran') }}">Tambah Pendapatan</a>
+                        <a class="collapse-item" href="{{ route('pengeluaran.per-tahun') }}">List Pengeluaran</a>
+                        <a class="collapse-item" href="{{ route('admin.tambahpengeluaran.anggaran') }}">Tambah Pengeluaran</a>
                     </div>
                 </div>
             </li>
@@ -378,7 +380,7 @@
                 <!-- End of Topbar -->   
                 <div class="container">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-               @yield('contentform')
+               @yield('container')
                 </div>   
                 </div>
         <!-- End of Content Wrapper -->

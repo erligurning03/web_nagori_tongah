@@ -63,7 +63,7 @@
         <div class="card-body">
           <h5 class="card-title">Judul Card 1</h5>
           <p class="card-text">Deskripsi card 1 yang dibatasi.</p>
-          <a href="{{ route('form') }}" class="btn bgcolorhijau rounded-pill btn-bottom">Ajukan Surat</a>
+          <a href="#" class="btn bgcolorhijau rounded-pill btn-bottom">Ajukan Surat</a>
         </div>
       </div>
       <div class="card">
