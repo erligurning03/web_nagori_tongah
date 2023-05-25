@@ -11,6 +11,8 @@
     <form action="{{ route('logout') }}" method="POST">
     @csrf
     <button type="submit">Logout</button>
+    <a href="{{ route('posts.index') }}" class="btn btn-primary">Forum Diskusi</a>
+
 </form>
 </body>
 </html>

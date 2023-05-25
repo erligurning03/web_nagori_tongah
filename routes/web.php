@@ -183,6 +183,12 @@ Route::middleware(['auth'])->group(function () {
 
         
 
+        //Route halaman forum diskusi
+        Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
+        Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
+        Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
+        Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
     });
 
 });
