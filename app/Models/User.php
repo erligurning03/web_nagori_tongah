@@ -19,15 +19,6 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-
-    protected $primaryKey = 'nik';
-    public $incrementing = false;
-
-    public function getAuthIdentifierName()
-    {
-        return 'nik';
-    }
-
     protected $fillable = [
         // 'nama_lengkap',
         // 'username',

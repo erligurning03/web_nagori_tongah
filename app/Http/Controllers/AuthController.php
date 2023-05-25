@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,23 +39,9 @@ class AuthController extends Controller
     }
     
     // login
-    public function login()
-    {
-        $rememberToken = auth()->getRecallerName();
-    
-        if ($rememberToken && !empty($_COOKIE[$rememberToken])) {
-            $user = auth()->user();
-    
-            if ($user->role == 'admin' || $user->role == 'operator') {
-                return view('admin.index');
-            } elseif ($user->role == 'warga') {
-                return view('dashboard');
-            }
-        }
-    
+    public function login(){
         return view('auth.login');
     }
-    
 
     public function loginMasuk(Request $request)
     {
@@ -67,12 +52,11 @@ class AuthController extends Controller
         ->orWhere('nik', $loginField)
         ->first();
 
-        $remember = $request->has('remember'); // Mengambil nilai dari checkbox Remember Me
         if ($user && Hash::check($password, $user->password)) {
             // Authentication successful
-            auth()->login($user, $remember);
+            auth()->login($user);
         
-            if ($user->role == 'admin' || $user->role == 'operator') {
+            if ($user->role == 'admin') {
                 return view('admin.index');
             } elseif ($user->role == 'warga') {
                 return view('dashboard');
@@ -93,28 +77,15 @@ class AuthController extends Controller
 
 
     protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'password' => ['required', 'confirmed', 'min:8'], 
-        ]);
-    }
-    
+{
+    return Validator::make($data, [
+        'password' => ['required', 'confirmed', 'min:8'], 
+    ]);
+}
     public function logout()
-    {
-        // Clear the remember_token cookie
-        Cookie::queue(Cookie::forget('remember_token'));
-    
-        // Clear the remember_token field in the users table
-        $user = Auth::user();
-        if ($user) {
-            $user->remember_token = null;
-            $user->save();
-        }
-    
-        // Perform the logout
-        Auth::logout();
-    
-        return redirect('/login');
-    }
+{
+    Auth::logout();
+    return redirect('/login');
+}
 
 }

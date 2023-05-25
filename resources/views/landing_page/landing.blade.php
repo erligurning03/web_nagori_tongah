@@ -55,7 +55,7 @@
                     <a class="nav-link" aria-current="page" href="#home">wisata</a>
                   </li>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="{{ route('login') }}"><button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">MASUK</button></a>
+                    <a href="{{ route('login') }}"><button action="/login" class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">MASUK</button></a>
                     <a href="{{ route('register') }}"><button class="btn btn-primary" type="button" style="background-color:#2B2B2B;">DAFTAR</button></a>
                   </div>
                 </ul>

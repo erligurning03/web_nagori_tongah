@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PerangkatDesaController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\PengeluaranController;
@@ -24,6 +23,9 @@ use Illuminate\Contracts\Cache\Store;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/tes', function () {
 //     return view('landing_page/tes');
@@ -136,7 +138,7 @@ use Illuminate\Contracts\Cache\Store;
 
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
@@ -172,9 +174,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => 'role:warga'], function () {
         // Route yang hanya dapat diakses oleh warga
-        Route::get('/login', [AuthController::class, 'login'])->name('login');
-        // Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
         //Route halaman chart anggaran
