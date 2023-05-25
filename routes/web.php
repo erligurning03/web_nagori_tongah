@@ -136,7 +136,7 @@ use Illuminate\Contracts\Cache\Store;
 
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
 Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
 Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
@@ -148,7 +148,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //route setelah login
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => 'role:admin || operator'], function () {
+    Route::group(['middleware' => 'role:admin,operator'], function () {
         // Route yang hanya dapat diakses oleh admin
         Route::get('/dashboard-admin', function () { return view('admin.index'); })->name('dashboard-admin');
 
@@ -188,8 +188,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
         Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
         Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
-        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
+        //Route halaman galeri
         Route::get('/galeri', function () {return view('galeri/index');});
     });
 

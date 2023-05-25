@@ -122,40 +122,4 @@ class PostController extends Controller
         //
     }
 
-    public function toggleLove(Request $request)
-{
-    $postId = $request->input('postId');
-    $userNik = 1234567890123456;
-
-    // Cek apakah pengguna telah melakukan like pada post
-    $like = LikePost::where('id_post', $postId)->where('nik', $userNik)->first();
-
-    if ($like) {
-        // Pengguna telah melakukan like, maka hapus data dari tabel like_post
-        $like->delete();
-
-        // Mengurangi jumlah_like di tabel post
-        $post = Post::find($postId);
-        $post->jumlah_like -= 1;
-        $post->save();
-    } else {
-        // Pengguna belum melakukan like, maka tambahkan data ke tabel like_post
-        $like = new LikePost;
-        $like->id_post = $postId;
-        $like->nik = $userNik;
-        $like->save();
-
-        // Menambah jumlah_like di tabel post
-        $post = Post::find($postId);
-        $post->jumlah_like += 1;
-        $post->save();
-    }
-
-    // Mengembalikan respons dalam format JSON dengan data jumlah like dan status liked
-    return response()->json([
-        'likeCount' => $post->jumlah_like,
-        'isLiked' => ($like ? true : false)
-    ]);
-}
-
 }
