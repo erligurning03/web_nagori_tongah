@@ -16,8 +16,8 @@ class FotoPostSeeder extends Seeder
         DB::table('foto_post')->insert([
             'id' => 1,
             'id_post' => 1,
-            'foto' => 'posting.jpg',
-            'created_at' => date('Y-m-d H:i:s'),
+            'foto' => 'jalan_rusak.jpg',
+            'created_at' => '2023-04-04 08:00:00',
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
@@ -32,7 +32,15 @@ class FotoPostSeeder extends Seeder
         DB::table('foto_post')->insert([
             'id' => 3,
             'id_post' => 3,
-            'foto' => 'posting.jpg',
+            'foto' => 'mixue1.webp',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('foto_post')->insert([
+            'id' => 4,
+            'id_post' => 3,
+            'foto' => 'mixue2.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
