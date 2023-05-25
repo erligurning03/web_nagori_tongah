@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -25,21 +26,23 @@ class UserSeeder extends Seeder
             'foto_profil' => 'img/admin.jpg',
             'status_akun' => 'terdaftar',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'updated_at' => date('Y-m-d H:i:s'),
+            'remember_token' => Str::random(10) // Generate random remember token
         ]);
 
         DB::table('user')->insert([
             'nik' => '1234567890123456',
             'nama_lengkap' => 'Putrija Malau',
-            'username' => 'putrija.m',
-            'password' => Hash::make('12345678'),
+            'username' => 'putrija',
+            'password' => Hash::make('putrija'),
             'email' => 'putrija@gmail.com',
             'telepon' => '081234567890',
             'role' => 'warga',
             'foto_profil' => 'img/foto_profil.jpg',
             'status_akun' => 'terdaftar',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'updated_at' => date('Y-m-d H:i:s'),
+            'remember_token' => Str::random(10) // Generate random remember token
         ]);
 
         DB::table('user')->insert([
@@ -53,7 +56,8 @@ class UserSeeder extends Seeder
             'foto_profil' => 'img/foto_profil.jpg',
             'status_akun' => 'terdaftar',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'updated_at' => date('Y-m-d H:i:s'),
+            'remember_token' => Str::random(10) // Generate random remember token
         ]);
 
         DB::table('user')->insert([
@@ -67,7 +71,8 @@ class UserSeeder extends Seeder
             'foto_profil' => 'img/foto_profil2.jpg',
             'status_akun' => 'terdaftar',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'updated_at' => date('Y-m-d H:i:s'),
+            'remember_token' => Str::random(10) // Generate random remember token
         ]);
     }
 }
