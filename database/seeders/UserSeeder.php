@@ -208,7 +208,7 @@ class UserSeeder extends Seeder
             'nik' => '1234567890432156',
             'nama_lengkap' => 'Erli Gurning',
             'username' => 'erli',
-            'password' => Hash::make('erli'),
+            'password' => Hash::make('erlicantik'),
             'email' => 'erli@gmail.com',
             'telepon' => '081234568765',
             'role' => 'warga',

@@ -141,7 +141,7 @@ Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 
 // ROUTE YANG SUDAH TERATUR
 
-//route sebelum login
+//route yang semua user bisa akses  termasuk tamu tanpa akun login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
 Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
@@ -151,6 +151,8 @@ Route::get('/register',[ AuthController::class, 'register'])->name('register'); 
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
 Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+//Route halaman galeri
+Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
@@ -204,8 +206,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
         Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
-        //Route halaman galeri
-        Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
         
     });
 
