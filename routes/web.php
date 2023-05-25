@@ -140,6 +140,7 @@ Route::get('/', function () {
 //route sebelum login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
 Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register

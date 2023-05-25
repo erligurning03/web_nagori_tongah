@@ -1,4 +1,4 @@
-@extends('layouts.navbar')
+@extends('layouts.navbar_warga')
 @section('content')        
         <!-- start jumbotron -->
         <section class="jumbotron text-center my-5">
