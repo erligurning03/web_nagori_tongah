@@ -26,7 +26,7 @@
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html"><span>Square.</span></a>
+	      <img src="{{ asset('landing_assets/assets/images/logodesa.png') }}" width="50px"><a class="navbar-brand" href="index.html"><span>Square.</span></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -47,7 +47,7 @@
 	    </div>
 	  </nav>
     
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');" data-section="home">
+    <section class="hero-wrap js-fullheight" style="background-image: url('{{ asset('landing_assets/assets/images/bg_1.jpg') }}');" data-section="home">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
