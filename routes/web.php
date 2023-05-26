@@ -215,7 +215,10 @@ Route::middleware(['auth'])->group(function () {
          Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
 >>>>>>> Stashed changes
 
-
+        //route halaman perangkat desa oleh admin 
+        // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
+        Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
+        Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
 
     });
 
