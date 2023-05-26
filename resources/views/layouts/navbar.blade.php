@@ -15,8 +15,7 @@
   </head>
   <body>
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #C6C6C6;
-        ";>
+        <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top">
             <!-- atau bisa pake bg-primary -->
             <div class="container">
               <a class="navbar-brand" href="#">Nagori NagoriTongah</a>
@@ -29,30 +28,17 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#home"><b>Utama</b></a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      layanan
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Informasi
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#home">Fitur</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">wisata</a>
+                    <a class="nav-link" aria-current="page" href="#home">Visi Misi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#home">Perangkat Desa</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#home">Berita</a>
                   </li>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('login') }}"><button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">MASUK</button></a>

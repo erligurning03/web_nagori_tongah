@@ -1,110 +1,158 @@
-.jumbotron {
-    background-image: url("../img/component_3.png");
-    background-repeat: repeat;
-    /* background-size: cover; */
-    background-position: center;
-    margin-top: 70px;
-    padding: 100px;
-    padding-top: 5rem;
-    padding-buttom: 10rem;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing; border-box;
+}
+header{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/back.png");
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
-    font-family: 'Lato';
+}
+.header-content{
+  margin-bottom: 250px;
+  color: whitesmoke;
+  font-family: 'Lato';
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 42px;
-    /* or 131% */
-
-
-    color: #FFFFFF;
-  }
-
-  .jumbotron .card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 1px;
-    margin-bottom: 5px;
-  }
-  
-  .jumbotron .card h5 {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
-
     text-align: center;
-
-    color: #000000;
-
-    margin-bottom: 10px;
-  }
-  .jumbotron h1 {
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 76px;
-    line-height: 101px;
-    
-    color: #FFFFFF;
-
-    text-align: center;
-
-    margin-bottom: 10px;
-  }
-  
-  .jumbotron .card p {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-
-    color: #000000;
-
-    margin-bottom: 1px;
-  }
-  /* .jumbotron .container .row .col-4{
-    width:500px;
-    height:800x;
-  } */
-  
-  .jumbotron .card img {
-    max-width: 40%;
-    height: auto;
-    padding: 1px;
-  }
-  
- /* .jumbotron .container .row{
-    padding-buttom: 1000rem;
- } */
-
- .container h1{
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 101px;
-    text-align : center;
-
-    color: #000000;
-
- }
-
- .perangkat .container .row{
-  background-image: url("../img/bg_section3.png");
-  /* background-color: #3C6255;  */
+}
+.header-content h2{
+  font-size: 4vmin;
+  text-align: center;
+}
+.header-content h1{
+  font-size: 7vmin;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: bolder;
 }
 
-
-/* .perangkat{
-  background-image: url("../img/component_3.png");
-  background-position: center; 
-} */
-
+.card-group {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: -90px;
+}
+.card-img-top-1 {
+  width: 40%;
+}
+.card-img-top-2 {
+  width: 80%;
+}
+.col {
+  flex: 1 0 0%;
+  margin-top: 60px;
+}
+.col {
+  flex: 100%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+.container2 h1 {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 101px;
+  text-align: center;
+  color: #000000;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  background-color: #3C6255;
+  width: 100000px;
+}
+.card-img-top-3 {
+  width: 80%;
+  margin-left: 35px;
+}
+hr:not([size]) {
+  height: 20px;
+  background-color: #3C6255;
+  height: 20px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+hr {
+  margin: 1rem 0;
+}
+.container3 h1 {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 101px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 60px;
+}
+.card-img-top-4 {
+  width: 80%;
+  margin-left: 35px;
+}
+.card-title-1{
+  margin-bottom: .5rem;
+  text-align: start;
+  margin-left: -15px;
+  font-weight: bolder;
+}
+.card-text-1{
+  margin-bottom: .5rem;
+  text-align: left;
+  margin-left: -15px;
+}
+.card-1 {
+  height: 100%;
+  width: 350px;
+  margin-left: 10px;
+}
+.card-text-2{
+  margin-bottom: .5rem;
+    text-align: left;
+    margin-left: -15px;
+    font-size: small;
+    color: gray;
+}
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+  width: 30%;
+  align-items: center;
+}
+.bg-light {
+  background-color: #19584F!important;
+  border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+.text-center1 {
+  color: whitesmoke;
+}
+.navbar {
+  position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    height: 83px;
+    background-color: #C6C6C6;
+}
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  background-color: #C6C6C6;
+  margin-inline: -12px;
+  text-align: center;
+  align-items: center;
+}
+  
 //untuk section perangkat
 .row {
   margin-top : 20px;
@@ -120,12 +168,6 @@
   height: 100%; /* Atur tinggi card */
   width:auto;
   text-align:center;
-}
-
-.card-img-top {
-  width: 262px; /* Atur lebar gambar menjadi 100% dari container */
-  height: 280PX; /* Atur tinggi gambar sesuai kebutuhan */
-  object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
 }
 
 //end section perangkat
