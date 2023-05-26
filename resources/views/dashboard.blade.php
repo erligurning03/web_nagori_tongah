@@ -12,6 +12,7 @@
     @csrf
     <button type="submit">Logout</button>
     <a href="{{ route('posts.index') }}" class="btn btn-primary">Forum Diskusi</a>
+    <a href="{{ route('pengajuan') }}" class="btn btn-primary">Pengajuan</a>
 
 </form>
 </body>

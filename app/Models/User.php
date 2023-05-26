@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'nik', 'nik');
     }
 
+    public function pengajuan()
+    {
+        return $this->hasMany(Pengajuan::class, 'nik', 'nik');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

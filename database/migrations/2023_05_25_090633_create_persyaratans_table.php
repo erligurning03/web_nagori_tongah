@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berkas_persy', function (Blueprint $table) {
+        Schema::create('persyaratans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pengajuan');
-            $table->foreign('id_pengajuan')->references('id')->on('pengajuan');
-            $table->unsignedBigInteger('id_persyaratan');
-            $table->foreign('id_persyaratan')->references('id')->on('persyaratan');
-            $table->string('nama_file');
-            $table->enum('status_validasi', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
+            $table->foreign('id_pengajuan')->references('id')->on('pengajuans');
+            $table->string('berkas');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('berkas_persy');
+        Schema::dropIfExists('persyaratans');
     }
 };

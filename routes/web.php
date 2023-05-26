@@ -12,9 +12,16 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
+<<<<<<< Updated upstream
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
 
+=======
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\FormPengajuanController;
+use App\Http\Controllers\SuketController;
+use App\Http\Controllers\AjuanController;
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -179,11 +186,23 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
         Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
 
+<<<<<<< Updated upstream
         //route halaman CRUD galeri oleh admin
         Route::get('/galeri_adm', [galeriController::class, 'index'])->name('galeri_adm'); //membaca data didatabase. jadi ini untuk penamaan letak file diviewsnya jadi gausah lagi kasih tau letak file manual tapi kalau ada rout ini aja pake untuk menggil viewnya
         Route::get('/galeri_admin/create_galeri', [galeriController::class, 'create']);//Route::get('/indexgaleri', function() {return view('galeri_admin.index');});          //untuk name ini biasanya nama view.functionnya, jadi sebenarnya bisa aja agak lain nanmanya
         Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
         Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
+=======
+         // Route halaman CRUD Surat Keterangan
+         Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
+         Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
+         Route::put('/admin/suket/{id}', [SuketController::class, 'update'])->name('suket.update');
+         Route::get('/admin/suket/add', [SuketController::class, 'create'])->name('admin.tambahsuket.pengajuan');
+         Route::post('/admin/suket', [SuketController::class, 'store'])->name('suket.store');
+         Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
+         Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
+         Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
+>>>>>>> Stashed changes
 
 
 
@@ -204,6 +223,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
         Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
         Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+<<<<<<< Updated upstream
         Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
         
@@ -219,3 +239,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //route index
 
 
+=======
+        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+
+        //Route halaman pengajuan
+        Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
+        Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
+        Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
+        Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
+    });
+
+});
+        
+>>>>>>> Stashed changes

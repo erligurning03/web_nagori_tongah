@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Umkm;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,9 +23,6 @@ class DatabaseSeeder extends Seeder
             BeritaSeeder::class,
             FotoBeritaSeeder::class,
             KomentarBeritaSeeder::class,
-            PengajuanSeeder::class,
-            PersyaratanSeeder::class,
-            BerkasPersyaratanSeeder::class,
             WisataSeeder::class,
             GaleriSeeder::class,
             PeriodeSeeder::class,
@@ -33,6 +32,9 @@ class DatabaseSeeder extends Seeder
             KetDesaSeeder::class,
             PendapatanSeeder::class,
             PengeluaranSeeder::class,
+            SuketSeeder::class,
+            PengajuanSeeder::class,
+            PersyaratanSeeder::class,
         ]);
     }
 }

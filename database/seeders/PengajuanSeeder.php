@@ -13,34 +13,34 @@ class PengajuanSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pengajuan')->insert([
+        DB::table('pengajuans')->insert([
             'id' => 1,
-            'nik' => '1234567890123456',
-            'nama_suket' => 'akta_lahir',
-            'deskripsi' => 'anak saya sudah lahir',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'status_pengajuan' => 'menunggu',
-        ]);
-
-        DB::table('pengajuan')->insert([
-            'id' => 2,
             'nik' => '1111111122222222',
-            'nama_suket' => 'domisili',
-            'deskripsi' => 'keperluan sekolah',
+            'id_suket' => 1,
+            'deskripsi' => 'mengurus berkas',
+            'status_pengajuan' => 'menunggu',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            'status_pengajuan' => 'menunggu',
         ]);
 
-        DB::table('pengajuan')->insert([
+        DB::table('pengajuans')->insert([
+            'id' => 2,
+            'nik' => '1234567890123456',
+            'id_suket' => 2,
+            'deskripsi' => 'mengurus berkas',
+            'status_pengajuan' => 'menunggu',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        
+        DB::table('pengajuans')->insert([
             'id' => 3,
             'nik' => '1234567890432156',
-            'nama_suket' => 'ktp',
-            'deskripsi' => 'ktp saya hilang',
+            'id_suket' => 3,
+            'deskripsi' => 'mengurus berkas',
+            'status_pengajuan' => 'menunggu',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            'status_pengajuan' => 'menunggu',
         ]);
     }
 }

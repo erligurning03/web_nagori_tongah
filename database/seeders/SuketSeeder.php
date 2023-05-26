@@ -6,41 +6,33 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PersyaratanSeeder extends Seeder
+class SuketSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('persyaratans')->insert([
+        DB::table('sukets')->insert([
             'id' => 1,
-            'id_pengajuan' => 1,
-            'berkas' => 'kk.pdf',
+            'suket' => 'Suket Mengurus KTP',
+            'syarat' => 'Kartu Keluarga(KK)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        DB::table('persyaratans')->insert([
+        DB::table('sukets')->insert([
             'id' => 2,
-            'id_pengajuan' => 1,
-            'berkas' => 'ktp.pdf',
+            'suket' => 'Suket Mengurus Akta Nikah',
+            'syarat' => 'Surat Nikah dari Gereja, Surat Pindah(jika ada), Kartu Keluarga(KK), Fotocopy Ijazah',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        DB::table('persyaratans')->insert([
+        DB::table('sukets')->insert([
             'id' => 3,
-            'id_pengajuan' => 2,
-            'berkas' => 'ktp.pdf',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-
-        DB::table('persyaratans')->insert([
-            'id' => 4,
-            'id_pengajuan' => 3,
-            'berkas' => 'ktp.pdf',
+            'suket' => 'Suket Mengurus Akta Lahir',
+            'syarat' => 'Kartu Keluarga(KK), Surat Lahir atau Surat Baptis',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

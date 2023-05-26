@@ -22,21 +22,68 @@
         Form Upload Berkas
         </h1>
         <!-- container -->
-        <div style="max-width: 500px; margin: 0 auto; background-color: #fff; padding: 20px;">
-            <div style="text-align: left; margin: 0; line-height: 0.5; margin-bottom: 1cm;">
-                <p>Persyaratan:</p>
-                <p>1. Kartu Keluarga</p>
-                <p>2. Kartu Tanda Penduduk</p>
+        <div style="max-width: 1000px; margin: 0 auto; background-color: #fff; padding: 20px;">
+          <form action="{{ !empty($suket->id) ? route('submitform', $suket->id) : '#' }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div style="text-align: left; margin: 0; line-height: 1; margin-bottom: 1cm;">
+              <p style="color: rgb(255, 41, 41)">Persyaratan: {{ $suket->syarat }}</p>
             </div>
-            <p>Silahkan Unggah File Persyaratan Yang Diminta</p>
-            <div class="container">
-                <div style="background-color:#D9D9D9;" class="dropzone" id="myDropzone"></div>
-                <button style="background-color:#3CCF4E; margin-top: 10px;" type="button" id="addFilesBtn">Add Files</button>
+            @if (!empty($suket->id))
+            <input type="hidden" name="id_suket" value="{{ $suket->id }}">
+            @endif
+            <div class="form-group">
+              <label for="file">Upload File Anda disini (harus dalam bentuk .pdf):</label>
+              <input type="file" class="form-control-file" id="file" name="file[]" multiple>
             </div>
-        </div>    
+            <!-- Tampilkan daftar file yang dipilih -->
+            <div class="form-group">
+              <label for="file">File yang dipilih:</label>
+              <ul id="selected-files"></ul>
+            </div>
+            <div class="form-group">
+              <label for="alasan">Deskripsi Alasan Mengurus</label>
+              <input type="text" class="form-control" id="alasan" name="alasan" multiple>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+            <br>
+          @if(session('success'))
+          <div class="alert alert-success">
+              {{ session('success') }}
+          </div>
+           @endif
+      
+          @if($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+                
+        </div>
+            
 </body>
 
 <script>
+  // Tampilkan nama file yang dipilih saat memilih file
+  document.getElementById('file').addEventListener('change', function(e) {
+      var files = e.target.files;
+      var selectedFilesList = document.getElementById('selected-files');
+      selectedFilesList.innerHTML = '';
+
+      for (var i = 0; i < files.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = files[i].name;
+          selectedFilesList.appendChild(listItem);
+      }
+  });
+</script>
+
+{{-- <script>
     // initialize Dropzone
     Dropzone.autoDiscover = false;
     var myDropzone = new Dropzone("#myDropzone", {
@@ -51,5 +98,5 @@
     document.getElementById("addFilesBtn").addEventListener("click", function() {
       myDropzone.hiddenFileInput.click(); // click the hidden file input
     });
-  </script>
+  </script> --}}
 </html>
