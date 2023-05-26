@@ -1,7 +1,7 @@
 .box {
   background-color: #F9F9F9;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Ubah warna bayangan menjadi lebih kontras */
   display: flex;
   align-items: center;
   padding: 10px;
@@ -31,9 +31,32 @@
   width: 100%;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Ubah warna bayangan menjadi lebih kontras */
   padding: 20px;
   margin-bottom: 20px;
+}
+
+
+.input-container {
+  display: flex;
+  align-items: center;
+   /* Menempatkan ikon di sebelah kanan */
+  background-color: #F9F9F9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
+
+.input-container input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 5px;
+}
+
+.input-container i {
+  margin-left: 5px;
 }
 
 .post-header {

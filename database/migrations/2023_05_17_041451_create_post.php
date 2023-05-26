@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('judul');
             $table->string('isi_post');
             $table->bigInteger('jumlah_like');
+            $table->bigInteger('jumlah_komentar');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

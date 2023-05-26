@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\User;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KomentarPost extends Model
+class LaporPost extends Model
 {
     use HasFactory;
 
-    protected $table = 'komentar_post';
+    protected $table = 'lapor_post';
 
-    protected $fillable = ['id', 'id_post', 'nik',  'isi_komentar'];
+    protected $fillable = ['id', 'id_post', 'nik',  'isi_laporan'];
 
     public function post()
     {

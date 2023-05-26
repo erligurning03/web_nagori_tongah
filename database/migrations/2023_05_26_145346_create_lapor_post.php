@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('komentar_post', function (Blueprint $table) {
+        Schema::create('lapor_post', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_post');
             $table->foreign('id_post')->references('id')->on('post');
             $table->char('nik', 16);
             $table->foreign('nik')-> references('nik')->on('user');
-            $table->string('isi_komentar');
+            $table->string('isi_laporan');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('komentar_post');
+        Schema::dropIfExists('lapor_post');
     }
 };
