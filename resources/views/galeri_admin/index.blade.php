@@ -51,7 +51,7 @@
                 <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">NO.</th>
                         <th scope="col">gambar kegiatan</th>
                         {{-- <th scope="col">tes</th> --}}
                         <th scope="col">aksi</th>

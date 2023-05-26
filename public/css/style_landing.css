@@ -73,11 +73,11 @@ header{
   margin-left: 35px;
 }
 hr:not([size]) {
-  height: 20px;
-  background-color: #3C6255;
-  height: 20px;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  height: 2px;
+  background-color: #black;
+  height: 2px;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 hr {
   margin: 1rem 0;

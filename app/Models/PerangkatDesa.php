@@ -11,8 +11,13 @@ class PerangkatDesa extends Model
     protected $table = 'perangkat_desa';
     protected $fillable = ['nama', 'jabatan', 'id_periode', 'foto'];
 
+    // public function periode()
+    // {
+    //     // return $this->belongsTo(Periode::class);
+    //     return $this->belongsToMany('app\Models\Periode');
+    // }
     public function periode()
     {
-        return $this->belongsTo(Periode::class);
+        return $this->belongsTo(Periode::class, 'id_periode');
     }
 }

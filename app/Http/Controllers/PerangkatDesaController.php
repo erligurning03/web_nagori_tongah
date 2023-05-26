@@ -2,27 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\PerangkatDesa;
 use App\Models\Periode;
-class PerangkatDesaController extends Controller{
-public function create()
-{
-    return view('admin.perangkat_desa.tambah');
-}
+use Illuminate\Http\Request;
 
-public function store(Request $request)
+class PerangkatDesaController extends Controller
 {
-    
-    
-    $data = $request->validate([
-        'nama' => 'required',
-        'jabatan' => 'required',
-        'foto' => 'required',
-    ]);
-    PerangkatDesa::create($data);
-    $periode = Periode::all(); // Gantikan Periode dengan model atau query yang sesuai
-    return view('admin.perangkat_desa.tambah', compact('periode'));
-    return redirect('/admin/perangkatdesa')->with('success', 'Data perangkat desa berhasil ditambahkan');
-}
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //read data
+        $perangkat_desa = PerangkatDesa::with('periode')->paginate(10);
+        $periode = Periode::all();
+        return view('admin.perangkat_desa.index', compact('perangkat_desa','periode'));//masukkan alamat dari filenya lengkap, biar ketemu hiks
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }

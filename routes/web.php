@@ -201,7 +201,10 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
          Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
 
-
+        //route halaman perangkat desa oleh admin 
+        // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
+        Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
+        Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
 
     });
 
@@ -250,7 +253,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
-//         Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
+        Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 //         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
 //         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
 //         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
