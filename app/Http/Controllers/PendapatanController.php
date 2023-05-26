@@ -7,6 +7,7 @@ use App\Models\Pendapatan;
 use App\Models\ViewPendapatan;
 
 
+
 class PendapatanController extends Controller
 {
     /**

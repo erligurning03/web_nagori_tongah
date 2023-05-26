@@ -26,60 +26,16 @@
     <!-- card -->
     <div class="container mt-4">
         <div class="row">
+            @foreach ($suket as $data)
             <div class="col-md-4 mb-4">
             <div class="card" style="background-color: #609966;">
                 <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="{{ route('form') }}" class="btn btn-light">Buat Ajuan</a>
+                <h5 class="card-title">{{ $data->suket }}</h5>
+                <a href="{{ route('form', $data->id) }}" class="btn btn-light">Buat Ajuan</a>
                 </div>
             </div>
             </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
-                <div class="card-body">
-                <h5 class="card-title">Surat Keterangan Bersih Diri (SKBD)</h5>
-                <p class="card-text">Untuk mengurus Surat Keterangan Bersih Diri (SKBD) dari Koramil Tigarunggu</p>
-                <a href="#" class="btn btn-light">Buat Ajuan</a>
-                </div>
-            </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

@@ -111,6 +111,23 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-sharp fa-light fa-file"></i>
+                    <span>Surat Keterangan</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Aksi:</h6>
+                        <a class="collapse-item" href="{{ route('admin.suket.pengajuan') }}">List Surat Keterangan</a>
+                        <a class="collapse-item" href="{{ route('admin.tambahsuket.pengajuan') }}">Tambah Surat Keterangan</a>
+                        <a class="collapse-item" href="{{ route('berkas.ajuan') }}">Ajuan Warga</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-sharp fa-solid fa-store" aria-hidden="true"></i>
                     <span>UMKM</span>
                 </a>
