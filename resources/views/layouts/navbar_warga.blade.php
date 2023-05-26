@@ -54,9 +54,6 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">wisata</a>
-                  </li>
-                  <li class="nav-item">
                     <div class="user-profile" style="margin-left: 50px">
                       <span style="margin-right: 20px">Putri Anisa</span><img src="img/foto_profil.jpg" alt="User Profile" class="profile-image rounded-circle" width="45px">
                     </div>
