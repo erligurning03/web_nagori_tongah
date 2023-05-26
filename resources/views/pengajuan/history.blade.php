@@ -35,7 +35,7 @@
                         <td>{{ $ajuan->suket->suket }}</td>
                         <td>
                             @foreach ($ajuan->persyaratan as $persyaratan)
-                                {{ $persyaratan->berkas }}
+                                <a href="{{ asset($persyaratan->berkas) }}" download>{{ $persyaratan->berkas }}</a>
                                 <br>
                             @endforeach
                         </td>

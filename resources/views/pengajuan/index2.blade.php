@@ -12,7 +12,7 @@
     <h1 class="text-center mt-4">Daftar Surat Pemohon</h1>
 
     <!-- fitur search -->
-    <div class="d-flex justify-content-center mt-4">
+    {{-- <div class="d-flex justify-content-center mt-4">
         <div style="max-width: 100%;">
             <div class="input-group">
             <input type="text" class="form-control form-control-lg" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
@@ -21,7 +21,7 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- card -->
     <div class="container mt-4">

@@ -49,7 +49,6 @@ class PengajuanController extends Controller
     // Buat record baru di tabel pengajuan
     $pengajuan = new Pengajuan();
     $pengajuan->nik = $user->nik; // Nik user yang sedang login
-    $pengajuan->nama = $user->nama_lengkap;
     $pengajuan->id_suket = $request->input('id_suket'); // ID surat keterangan yang diajukan
     $pengajuan->deskripsi = $request->input('alasan');
     $pengajuan->status_pengajuan = 'menunggu';

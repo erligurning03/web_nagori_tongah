@@ -121,6 +121,7 @@
                         <a class="collapse-item" href="{{ route('admin.suket.pengajuan') }}">List Surat Keterangan</a>
                         <a class="collapse-item" href="{{ route('admin.tambahsuket.pengajuan') }}">Tambah Surat Keterangan</a>
                         <a class="collapse-item" href="{{ route('berkas.ajuan') }}">Ajuan Warga</a>
+                        <a class="collapse-item" href="{{ route('berkas.history') }}">History Ajuan Warga</a>
                     </div>
                 </div>
             </li>

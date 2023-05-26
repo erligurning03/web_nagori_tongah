@@ -23,6 +23,7 @@
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Surat Ajuan</th>
+                                        <th>Berkas Persyaratan</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -33,6 +34,12 @@
                                         <td>{{ $item->user->nik }}</td>
                                         <td>{{ $item->user->nama_lengkap }}</td>
                                         <td>{{ $item->suket->suket }}</td>
+                                        <td>
+                                            @foreach ($item->persyaratan as $persyaratan)
+                                                <a href="{{ asset($persyaratan->berkas) }}" download>{{ $persyaratan->berkas }}</a>
+                                                <br>
+                                            @endforeach
+                                        </td>
                                         <td>{{ $item->status_pengajuan }}</td>
                                         <td>
                                             @if ($item->status_pengajuan === 'menunggu')
@@ -42,7 +49,7 @@
                                                     @method('PUT')
                                                     <button type="submit" style="width:100px;" class="btn btn-success" onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pengajuan ini?')">Terima</button>
                                                 </form>
-
+                                                <br> <br>
                                                 <!-- Tombol Penolakan -->
                                                 <button type="button" style="width:100px;" class="btn btn-danger" data-toggle="modal" data-target="#tolakModal{{ $item->id }}" onclick="return confirm('Apakah Anda yakin ingin menolak pengajuan ini?')">
                                                     Tolak

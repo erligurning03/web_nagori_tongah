@@ -10,9 +10,9 @@ class Tolak extends Model
     use HasFactory;
 
     protected $table = 'tolaks';
-    protected $fillable = ['id_pengajuan', 'alasan',];
+    protected $fillable = ['id_pengajuan', 'alasan'];
 
-    public function tolak()
+    public function pengajuan()
     {
         return $this->belongsTo(Pengajuan::class, 'id_pengajuan');
     }

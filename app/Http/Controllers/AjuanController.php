@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengajuan;
 use App\Models\Tolak;
+use App\Models\Persyaratan;
 
 
 class AjuanController extends Controller
@@ -14,9 +15,12 @@ class AjuanController extends Controller
      */
         public function index()
     {
-        $pengajuan = Pengajuan::all(); // Ambil data pengajuan dari database
+        $persyaratan = Persyaratan::all();
+        $pengajuan = Pengajuan::orderBy('status_pengajuan', 'desc')
+        ->where('status_pengajuan', 'menunggu')
+        ->get();
 
-        return view('admin.pengajuan.berkas', compact('pengajuan'));
+        return view('admin.pengajuan.berkas', compact('pengajuan', 'persyaratan' ));
     }
 
     public function konfirmasi(Request $request, Pengajuan $pengajuan)

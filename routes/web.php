@@ -14,11 +14,18 @@ use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\FormPengajuanController;
 use App\Http\Controllers\SuketController;
 use App\Http\Controllers\AjuanController;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\HistoryAjuanAdminController;
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +56,9 @@ use App\Http\Controllers\AjuanController;
 // // Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
 // // Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 // // Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
-Route::get('/pengajuan', function () {return view('pengajuan/index');});
-Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
-Route::get('/form', function () {return view('pengajuan/form');})->name('form');
+// Route::get('/pengajuan', function () {return view('pengajuan/index');});
+// Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
+// Route::get('/form', function () {return view('pengajuan/form');})->name('form');
 // Route::get('/galeri', function () {return view('galeri/index');});
 
 
@@ -189,7 +196,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
         Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
         
+<<<<<<< Updated upstream
          // Route halaman CRUD Surat Keterangan
+=======
+        // Route halaman CRUD Surat Keterangan
+>>>>>>> Stashed changes
          Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
          Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
          Route::put('/admin/suket/{id}', [SuketController::class, 'update'])->name('suket.update');
@@ -197,7 +208,12 @@ Route::middleware(['auth'])->group(function () {
          Route::post('/admin/suket', [SuketController::class, 'store'])->name('suket.store');
          Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
          Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
+<<<<<<< Updated upstream
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
+=======
+         Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
+         Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
+>>>>>>> Stashed changes
 
 
 
@@ -217,6 +233,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
         Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
         Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
+<<<<<<< Updated upstream
         Route::get('/post-anda', [PostController::class, 'postAnda'])->name('post-anda');
         Route::get('/post-simpan', [PostController::class, 'postSimpan'])->name('post-simpan');
         Route::get('/post-suka', [PostController::class, 'postSuka'])->name('post-suka');
@@ -226,8 +243,16 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/comment/delete/{id}', [PostController::class, 'deleteComment'])->name('delete.comment');
         Route::delete('/post/{id}', [PostController::class, 'deletePost'])->name('post.delete');
         Route::post('/laporan/add', [PostController::class, 'addLaporan'])->name('add.laporan');
+=======
+        Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+        Route::post('/check-like', 'PostController@checkLike')->name('check.like');
+>>>>>>> Stashed changes
 
-        
+        //Route halaman pengajuan
+        Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
+        Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
+        Route::post('/submit', [PengajuanController::class, 'submit'])->name('submitform');
+        Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
     });
 
 });
@@ -238,6 +263,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::get('/galeriadmin', function() {return view('galeri_admin.crud_galeri');});
 //Route::get('/readgaleri', [galeriController::class, 'index'])->name('readgaleri'); //namafungsinya
 //route index
+<<<<<<< Updated upstream
 
 
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
@@ -251,3 +277,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // });
         
+=======
+>>>>>>> Stashed changes
