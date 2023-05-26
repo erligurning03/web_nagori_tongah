@@ -145,7 +145,7 @@ body {
             <div class="post-actions" style="justify-content: space-between;">
                 <div>
                 <!-- Tombol Like -->
-                <i class="far fa-heart fa-xl love-icon action-icon" onclick="toggleLove(this, {{ $post->id }})"></i>
+                <i class="far fa-heart fa-xl love-icon action-icon" onclick="toggleLove(this)" data-postid="{{ $post->id }}"></i>
                 <b id="like-count">{{ $post->jumlah_like }}</b>
                 <i class="far fa-comment fa-xl action-icon" data-bs-toggle="modal" data-bs-target="#modalKomentar{{ $post->id }}"></i>
                 <i class="far fa-bookmark fa-xl action-icon"></i>
@@ -498,7 +498,10 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
+</script>
 
+<!-- script untuk like -->
+<script>
 function toggleLove(icon) {
   // Periksa apakah ikon saat ini memiliki kelas "far" atau "fas"
   if (icon.classList.contains('far')) {
@@ -512,6 +515,6 @@ function toggleLove(icon) {
   }
 }
 </script>
-   
+
 </body>
 </html> 

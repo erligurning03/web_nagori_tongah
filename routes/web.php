@@ -12,6 +12,9 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
+use App\Http\Controllers\galeriController;
+use App\Http\Controllers\galeriDashController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +45,10 @@ use Illuminate\Contracts\Cache\Store;
 // // Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
 // // Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 // // Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
+Route::get('/pengajuan', function () {return view('pengajuan/index');});
+Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
+Route::get('/form', function () {return view('pengajuan/form');})->name('form');
+// Route::get('/galeri', function () {return view('galeri/index');});
 
 
 // // Route::get('/auth', function () {return view('auth/login');});
@@ -134,9 +141,9 @@ use Illuminate\Contracts\Cache\Store;
 
 // ROUTE YANG SUDAH TERATUR
 
-//route sebelum login
+//route yang semua user bisa akses  termasuk tamu tanpa akun login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
 Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
 Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
@@ -144,11 +151,13 @@ Route::get('/register',[ AuthController::class, 'register'])->name('register'); 
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
 Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+//Route halaman galeri
+Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => 'role:admin || operator'], function () {
+    Route::group(['middleware' => 'role:admin,operator'], function () {
         // Route yang hanya dapat diakses oleh admin
         Route::get('/dashboard-admin', function () { return view('admin.index'); })->name('dashboard-admin');
 
@@ -170,6 +179,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
         Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
 
+        //route halaman CRUD galeri oleh admin
+        Route::get('/galeri_adm', [galeriController::class, 'index'])->name('galeri_adm'); //membaca data didatabase. jadi ini untuk penamaan letak file diviewsnya jadi gausah lagi kasih tau letak file manual tapi kalau ada rout ini aja pake untuk menggil viewnya
+        Route::get('/galeri_admin/create_galeri', [galeriController::class, 'create']);//Route::get('/indexgaleri', function() {return view('galeri_admin.index');});          //untuk name ini biasanya nama view.functionnya, jadi sebenarnya bisa aja agak lain nanmanya
+        Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
+        Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
+
+
 
     });
 
@@ -188,9 +204,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
         Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
         Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
-        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
-        Route::get('/galeri', function () {return view('galeri/index');});
+        
     });
 
 });
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//erli route visi misi
+//erli controller galeri
+//Route::get('/galeriadmin', function() {return view('galeri_admin.crud_galeri');});
+//Route::get('/readgaleri', [galeriController::class, 'index'])->name('readgaleri'); //namafungsinya
+//route index
+
+
