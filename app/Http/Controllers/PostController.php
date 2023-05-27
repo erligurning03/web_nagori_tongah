@@ -88,7 +88,7 @@ class PostController extends Controller
         $post->judul = $request->input('judul');
         $post->isi_post = $request->input('isi_post');
         // $post->user_id = auth()->user()->;
-        $post->nik = 1234567890123456;
+        $post->nik = Auth::user()->nik;
         $post->jumlah_like = 0;
         $post->jumlah_komentar = 0;
         $post->save();
