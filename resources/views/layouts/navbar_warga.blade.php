@@ -28,38 +28,43 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <b><a class="nav-link" href="#">Nagori NagoriTongah</a></b>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('pengajuan') }}">Pengurusan Berkas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('posts.index') }}">Forum Diskusi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Wisata Nagori</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">UMKM Nagori</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Transparansi Dana</a>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown me-auto mt-2">
+          <a class="nav-link dropdown-toggle" href="#" id="layananDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Layanan
+          </a>
+          <div class="dropdown-menu" aria-labelledby="layananDropdown">
+            <a class="dropdown-item" href="{{ route('pengajuan') }}">Pengurusan Berkas</a>
+            <a class="dropdown-item" href="{{ route('posts.index') }}">Forum Diskusi</a>
+            <a class="dropdown-item" href="#">UMKM Nagori</a>
+            <a class="dropdown-item" href="#">Transparansi Dana</a>
+          </div>
+        </li>    
+        <li class="nav-item dropdown me-auto">
+          <div class="nav-link dropdown" href="#" id="ProfileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="fals">
           <div class="profile-picture">
           @php
             $user = \App\Models\User::where('nik', Auth::user()->nik)->first();
             @endphp
-              <img src="{{ asset('img/'.$user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
+              <img src="{{ asset('img/'.$user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:40px; height: 40px; border: 1px solid black; ">
             </div>
           </div>
+          <div class="dropdown-menu" aria-labelledby="layananDropdown">
+            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" href="#">Notifikasi Saya</a>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </li>        
+        {{-- <li class="nav-item dropdown">
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">{{ $user->nama_lengkap }}</a>
-        </li>
+        </li> --}}
       </ul>
     </div>
     <div class="form-check form-switch">
@@ -88,6 +93,8 @@
   @yield('container')
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
   @yield('javascript')
 </body>
 

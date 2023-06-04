@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="css/registrasi.css">
 </head>
 <body>
+<div id="notification" style="text-align: center;">
+  @if($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
@@ -33,14 +47,17 @@
                         <p id="invalid-nama" style="display:none;color:red">Masukkan hanya huruf saja</p>
                       </div>
                       <div class="form-group mb-3">
-                        <label class="label" for="username">Username</label>
-                        <input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{4,16}$">
-                        <p id="invalid-username" style="display:none;color:red">Username maksimal 16 karakter</p>
-                      </div>
+  <label class="label" for="username">Username</label>
+  <input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{4,16}$">
+  <p id="invalid-username" style="display:none;color:red">Username maksimal 16 karakter</p>
+  <p id="username-sudah-ada" style="display:none;color:red">Username sudah ada, silahkan masukkan username lain</p>
+</div>
+
                       <div class="form-group mb-3">
                         <label class="label" for="nik">NIK</label>
                         <input type="text" class="form-control" required placeholder="Nomor Induk Keluarga" id="nik" aria-describedby="nik" name="nik" pattern="[0-9]{16}$">
                         <p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter Huruf</p>
+                        <p id="nik-sudah-ada" style="display:none;color:red">NIK sudah ada, silahkan masukkan NIK lain</p>
                       </div>
                       <div class="form-group mb-3">
                         <label class="label" for="telepon">Telepon</label>
@@ -91,17 +108,68 @@
   <script src="js/main.js"></script>
   <script src="js/registrasi.js"></script>
   <script>
-    document.getElementById("btnSubmit").addEventListener("click", function (event) {
-      var password = document.getElementById("passwordInput").value;
-      var confirmPassword = document.getElementById("confirmPasswordInput").value;
+    document.getElementById("confirmPasswordInput").addEventListener("input", function () {
+  var password = document.getElementById("passwordInput").value;
+  var confirmPassword = document.getElementById("confirmPasswordInput").value;
 
-      if (password !== confirmPassword) {
-        document.getElementById("invalid-confirmPassword").style.display = "block";
-        event.preventDefault();
-      } else {
-        document.getElementById("invalid-confirmPassword").style.display = "none";
-      }
-    });
+  if (password !== confirmPassword) {
+    document.getElementById("invalid-confirmPassword").style.display = "block";
+  } else {
+    document.getElementById("invalid-confirmPassword").style.display = "none";
+  }
+});
+
   </script>
+
+<script>
+  document.getElementById("username").addEventListener("input", function () {
+    var username = this.value;
+
+    // Mengirim permintaan ke server untuk memeriksa ketersediaan username
+    // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
+    // seperti PHP, untuk memeriksa username di database.
+    // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
+    fetch('/check-username/' + username)
+      .then(response => response.json())
+      .then(data => {
+        if (data.username_exists) {
+          // Menampilkan pesan kesalahan jika username sudah ada
+          document.getElementById("username-sudah-ada").style.display = "block";
+        } else {
+          // Menyembunyikan pesan kesalahan jika username belum ada
+          document.getElementById("username-sudah-ada").style.display = "none";
+        }
+      })
+      .catch(error => {
+        console.error('Terjadi kesalahan:', error);
+      });
+  });
+
+  // cek nik
+  document.getElementById("nik").addEventListener("input", function () {
+    var nik = this.value;
+
+    // Mengirim permintaan ke server untuk memeriksa ketersediaan nik
+    // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
+    // seperti PHP, untuk memeriksa nik di database.
+    // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
+    fetch('/check-nik/' + nik)
+      .then(response => response.json())
+      .then(data => {
+        if (data.nik_exists) {
+          // Menampilkan pesan kesalahan jika nik sudah ada
+          document.getElementById("nik-sudah-ada").style.display = "block";
+        } else {
+          // Menyembunyikan pesan kesalahan jika nik belum ada
+          document.getElementById("nik-sudah-ada").style.display = "none";
+        }
+      })
+      .catch(error => {
+        console.error('Terjadi kesalahan:', error);
+      });
+  });
+</script>
+
+
 </body>
 </html>

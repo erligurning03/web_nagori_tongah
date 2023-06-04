@@ -161,6 +161,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route halaman galeri
 Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
 //Route umkm
+Route::get('/check-username/{username}', [AuthController::class, 'checkUsername']);
+Route::get('/check-nik/{nik}', [AuthController::class, 'checknik']);
+
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
@@ -193,7 +196,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
         Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
         
-         // Route halaman CRUD Surat Keterangan
         // Route halaman CRUD Surat Keterangan
          Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
          Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
@@ -238,8 +240,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/comment/delete/{id}', [PostController::class, 'deleteComment'])->name('delete.comment');
         Route::delete('/post/{id}', [PostController::class, 'deletePost'])->name('post.delete');
         Route::post('/laporan/add', [PostController::class, 'addLaporan'])->name('add.laporan');
-        Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
-        Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
         //Route halaman pengajuan
         Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');

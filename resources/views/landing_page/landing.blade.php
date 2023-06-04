@@ -37,15 +37,6 @@
 	  <div class="col-sm-2 mx-auto">
 		  <div class="card">
 			<div class="card-body text-center">
-			  <a href="#"><img src="img/2.png" class="card-img-top-1" alt="..."></a>
-			  <h5 class="card-title"><b> Wisata Nagori</b></h5>
-			  <p class="card-text">Kumpulan informasi terkait wisata yang terdapat di Nagori</p>
-			</div>
-		  </div>
-	  </div>
-	  <div class="col-sm-2 mx-auto">
-		  <div class="card">
-			<div class="card-body text-center">
 			  <a href="umkm"><img src="img/3.png" class="card-img-top-1" alt="..."></a> 
 			  <h5 class="card-title"><b>UMKM Nagori</b></h5>
 			  <p class="card-text">Kumpulan UMKM yang terdapat di Nagori, daftarkan UKMK Anda!</p>
