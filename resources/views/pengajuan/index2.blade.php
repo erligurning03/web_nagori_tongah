@@ -4,8 +4,8 @@
     .body{font-family: 'Lato'};
 </style>
 @endsection
-@section('container');
-    <h1 class="text-center mt-5">Daftar Surat Pemohon</h1>
+@section('container')
+    <h1 class="text-center">Daftar Surat Pemohon</h1>
 
     <!-- fitur search -->
     {{-- <div class="d-flex justify-content-center mt-4">

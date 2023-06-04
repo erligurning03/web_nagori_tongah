@@ -1,6 +1,6 @@
 .hr:not([size]) {
   height: 2px;
-  background-color: #black;
+  background-color: black;
   height: 2px;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -8,7 +8,7 @@
 .hr {
   margin: 1rem 0;
 }
-.profile-picture {
+.profile-picturee {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -71,6 +71,14 @@ body {
 
   .dark-mode .belakang {
     background-color: #000;
+  }
+
+  .text-center {
+    color: #000;
+  }
+
+  .dark-mode .text-center {
+    color: #fff;
   }
   
   

@@ -30,11 +30,11 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <b><a class="nav-link" href="#">Nagori NagoriTongah</a></b>
+          <b><a class="nav-link" href="{{ route('dashboard') }}">Nagori NagoriTongah</a></b>
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item dropdown me-auto mt-2">
+        <li class="nav-item dropdown me-auto mt-1">
           <a class="nav-link dropdown-toggle" href="#" id="layananDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Layanan
           </a>
@@ -47,7 +47,7 @@
         </li>    
         <li class="nav-item dropdown me-auto">
           <div class="nav-link dropdown" href="#" id="ProfileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="fals">
-          <div class="profile-picture">
+          <div class="profile-picturee">
           @php
             $user = \App\Models\User::where('nik', Auth::user()->nik)->first();
             @endphp
@@ -55,14 +55,12 @@
             </div>
           </div>
           <div class="dropdown-menu" aria-labelledby="layananDropdown">
-            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profile</a>
             <a class="dropdown-item" href="#">Notifikasi Saya</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>        
-        <li class="nav-item dropdown">
-        </li>
-        <li class="nav-item">
+        <li class="nav-item mt-1">
           <a class="nav-link" href="{{ route('profile.edit') }}">{{ $user->username }}</a>
         </li>
       </ul>
@@ -73,6 +71,29 @@
     </div>
   </div>
 </nav>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingin Keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Logout" jika Anda ingin mengakhiri sesi Anda</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>

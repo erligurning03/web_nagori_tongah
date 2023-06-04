@@ -22,6 +22,7 @@ use App\Http\Controllers\SuketController;
 use App\Http\Controllers\AjuanController;
 use App\Http\Controllers\HistoryAjuanAdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +224,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => 'role:warga'], function () {
         // Route yang hanya dapat diakses oleh warga
-        Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});

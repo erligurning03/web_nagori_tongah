@@ -17,9 +17,9 @@ class BeritaSeeder extends Seeder
             'id' => 1,
             'nik' => '1111111122222222',
             'jenis_berita' => 'berita',
-            'judul' => 'Pembagian Bansos',
-            'isi_berita' => 'Ada bagi-bagi bansos ini',
-            'created_at' => date('Y-m-d H:i:s'),
+            'judul' => 'Info Vaksin Terbaru',
+            'isi_berita' => 'Jangan ketinggalan untuk suntik vaksin ya',
+            'created_at' => '2023-04-04 08:00:00',
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
@@ -29,7 +29,7 @@ class BeritaSeeder extends Seeder
             'jenis_berita' => 'hoax',
             'judul' => 'Vaksin Palsu',
             'isi_berita' => 'Pembagian vaksin palsu itu adalah hoaks',
-            'created_at' => date('Y-m-d H:i:s'),
+            'created_at' =>'2023-05-20 08:00:00',
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 

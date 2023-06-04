@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Daftar Akun</title>
   <meta charset="utf-8">
@@ -8,19 +9,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/registrasi.css">
 </head>
+
 <body>
-<div id="notification" style="text-align: center;">
-  @if($errors->any())
+  <div id="notification" style="text-align: center;">
+    @if($errors->any())
     <div class="alert alert-danger">
       <ul>
         @foreach($errors->all() as $error)
-          <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
       </ul>
     </div>
-  @endif
-</div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    @endif
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
   <section class="ftco-section">
@@ -37,21 +39,21 @@
                   </p>
                   <div>
                     <div class="w-100">
-                      <h3 class="mb-4 mt-5" ><b>Daftar Akun</b></h3>
+                      <h3 class="mb-4 mt-5"><b>Daftar Akun</b></h3>
                     </div>
                     <form action="{{ route('simpan_register')}}" method="POST" class="signin-form">
-                      @csrf  
+                      @csrf
                       <div class="form-group mb-3">
                         <label class="label" for="nama">Nama Lengkap</label>
                         <input type="text" class="form-control" required placeholder="Nama" id="nama" aria-describedby="nama" name="nama" pattern="^[a-zA-Z\s'-]{1,100}$">
                         <p id="invalid-nama" style="display:none;color:red">Masukkan hanya huruf saja</p>
                       </div>
                       <div class="form-group mb-3">
-  <label class="label" for="username">Username</label>
-  <input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{4,16}$">
-  <p id="invalid-username" style="display:none;color:red">Username maksimal 16 karakter</p>
-  <p id="username-sudah-ada" style="display:none;color:red">Username sudah ada, silahkan masukkan username lain</p>
-</div>
+                        <label class="label" for="username">Username</label>
+                        <input type="text" class="form-control" required placeholder="Username" id="username" aria-describedby="username" name="username" pattern="^[a-zA-Z0-9_-]{4,16}$">
+                        <p id="invalid-username" style="display:none;color:red">Username maksimal 16 karakter</p>
+                        <p id="username-sudah-ada" style="display:none;color:red">Username sudah ada, silahkan masukkan username lain</p>
+                      </div>
 
                       <div class="form-group mb-3">
                         <label class="label" for="nik">NIK</label>
@@ -108,68 +110,68 @@
   <script src="js/main.js"></script>
   <script src="js/registrasi.js"></script>
   <script>
-    document.getElementById("confirmPasswordInput").addEventListener("input", function () {
-  var password = document.getElementById("passwordInput").value;
-  var confirmPassword = document.getElementById("confirmPasswordInput").value;
+    document.getElementById("confirmPasswordInput").addEventListener("input", function() {
+      var password = document.getElementById("passwordInput").value;
+      var confirmPassword = document.getElementById("confirmPasswordInput").value;
 
-  if (password !== confirmPassword) {
-    document.getElementById("invalid-confirmPassword").style.display = "block";
-  } else {
-    document.getElementById("invalid-confirmPassword").style.display = "none";
-  }
-});
-
+      if (password !== confirmPassword) {
+        document.getElementById("invalid-confirmPassword").style.display = "block";
+      } else {
+        document.getElementById("invalid-confirmPassword").style.display = "none";
+      }
+    });
   </script>
 
-<script>
-  document.getElementById("username").addEventListener("input", function () {
-    var username = this.value;
+  <script>
+    document.getElementById("username").addEventListener("input", function() {
+      var username = this.value;
 
-    // Mengirim permintaan ke server untuk memeriksa ketersediaan username
-    // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
-    // seperti PHP, untuk memeriksa username di database.
-    // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
-    fetch('/check-username/' + username)
-      .then(response => response.json())
-      .then(data => {
-        if (data.username_exists) {
-          // Menampilkan pesan kesalahan jika username sudah ada
-          document.getElementById("username-sudah-ada").style.display = "block";
-        } else {
-          // Menyembunyikan pesan kesalahan jika username belum ada
-          document.getElementById("username-sudah-ada").style.display = "none";
-        }
-      })
-      .catch(error => {
-        console.error('Terjadi kesalahan:', error);
-      });
-  });
+      // Mengirim permintaan ke server untuk memeriksa ketersediaan username
+      // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
+      // seperti PHP, untuk memeriksa username di database.
+      // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
+      fetch('/check-username/' + username)
+        .then(response => response.json())
+        .then(data => {
+          if (data.username_exists) {
+            // Menampilkan pesan kesalahan jika username sudah ada
+            document.getElementById("username-sudah-ada").style.display = "block";
+          } else {
+            // Menyembunyikan pesan kesalahan jika username belum ada
+            document.getElementById("username-sudah-ada").style.display = "none";
+          }
+        })
+        .catch(error => {
+          console.error('Terjadi kesalahan:', error);
+        });
+    });
 
-  // cek nik
-  document.getElementById("nik").addEventListener("input", function () {
-    var nik = this.value;
+    // cek nik
+    document.getElementById("nik").addEventListener("input", function() {
+      var nik = this.value;
 
-    // Mengirim permintaan ke server untuk memeriksa ketersediaan nik
-    // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
-    // seperti PHP, untuk memeriksa nik di database.
-    // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
-    fetch('/check-nik/' + nik)
-      .then(response => response.json())
-      .then(data => {
-        if (data.nik_exists) {
-          // Menampilkan pesan kesalahan jika nik sudah ada
-          document.getElementById("nik-sudah-ada").style.display = "block";
-        } else {
-          // Menyembunyikan pesan kesalahan jika nik belum ada
-          document.getElementById("nik-sudah-ada").style.display = "none";
-        }
-      })
-      .catch(error => {
-        console.error('Terjadi kesalahan:', error);
-      });
-  });
-</script>
+      // Mengirim permintaan ke server untuk memeriksa ketersediaan nik
+      // Anda dapat menggunakan metode atau teknologi server-side yang sesuai,
+      // seperti PHP, untuk memeriksa nik di database.
+      // Berikut adalah contoh penggunaan Fetch API untuk memanggil endpoint PHP:
+      fetch('/check-nik/' + nik)
+        .then(response => response.json())
+        .then(data => {
+          if (data.nik_exists) {
+            // Menampilkan pesan kesalahan jika nik sudah ada
+            document.getElementById("nik-sudah-ada").style.display = "block";
+          } else {
+            // Menyembunyikan pesan kesalahan jika nik belum ada
+            document.getElementById("nik-sudah-ada").style.display = "none";
+          }
+        })
+        .catch(error => {
+          console.error('Terjadi kesalahan:', error);
+        });
+    });
+  </script>
 
 
 </body>
+
 </html>
