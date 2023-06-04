@@ -213,6 +213,9 @@ Route::middleware(['auth'])->group(function () {
          // Route halaman CRUD Halaman UMKM
          Route::get('/admin/listumkm', [UmkmBaruController::class, 'index'])->name('admin.listumkm.umkm');
          Route::get('/admin/umkm/add', [UmkmBaruController::class, 'create'])->name('admin.tambahumkm.umkm');
+         Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
+         Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
+         Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
 
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});

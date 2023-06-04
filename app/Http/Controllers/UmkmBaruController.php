@@ -21,7 +21,7 @@ class UmkmBaruController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.umkm.tambahumkm');
     }
 
     /**
@@ -29,7 +29,26 @@ class UmkmBaruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            // Umkm::create($validatedData);
+        
+        $validatedData = $request->validate([
+            'nik' => 'required',
+            'upload_ktp' => 'required',
+            'pas_foto' => 'required',
+            'nama_usaha' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required|numeric',
+            'gambar_produk' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        Umkm::create($validatedData);
+     } catch (\Exception $e) {
+        dd($e->getMessage());
+    }
+
+        return redirect('/admin/listumkm')->with('success', 'Data umkm berhasil ditambahkan');
     }
 
     /**
@@ -53,7 +72,17 @@ class UmkmBaruController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $umkm = Umkm::findOrFail($id);
+        $umkm->nik = $request->nik;
+        $umkm->upload_ktp = $request->upload_ktp;
+        $umkm->pas_foto = $request->pas_foto;
+        $umkm->nama_usaha = $request->nama_usaha;
+        $umkm->alamat = $request->alamat;
+        $umkm->telepon = $request->telepon;
+        $umkm->gambar_produk = $request->gambar_produk;
+        $umkm->deskripsi = $request->deskripsi;
+        $umkm->save();
+        return redirect()->back()->with('success', 'Data UMKM berhasil diperbarui');
     }
 
     /**

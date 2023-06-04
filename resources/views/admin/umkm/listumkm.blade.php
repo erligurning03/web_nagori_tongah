@@ -67,7 +67,7 @@
                                                     <!-- Form Edit -->
                                                     <form action="{{ route('umkm.update', $data->id) }}" method="POST">
                                                         @csrf
-                                                        @method('PUT')
+                                                        <input type="hidden" name="_method" value="PUT">
                                                         <!-- Form inputs for editing -->
                                                         <div class="form-group">
                                                             <label for="nik">Nomor Induk Keluarga:</label>

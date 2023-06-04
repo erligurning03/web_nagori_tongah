@@ -47,7 +47,7 @@
                                                 <input type="text" class="form-control" id="telepon" name="telepon" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="gambar_produk">Pas Foto</label>
+                                                <label for="gambar_produk">Gambar Produk</label>
                                                 <input type="file" class="form-control-file" id="gambar_produk" name="gambar_produk" required>
                                             </div>
                                             <div class="form-group">
