@@ -23,6 +23,8 @@ use App\Http\Controllers\AjuanController;
 use App\Http\Controllers\HistoryAjuanAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostAdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -219,6 +221,10 @@ Route::middleware(['auth'])->group(function () {
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
         Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
         Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+
+        //Route halaman CRUD forum diskusi
+        Route::get('/admin/semua-post', [PostAdminController::class, 'index'])->name('semua-post');
+        Route::get('/admin/report-post', [PostAdminController::class, 'report'])->name('report-post');
 
     });
 

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\LaporPost;
 use App\Models\Umkm;
 use Illuminate\Database\Seeder;
 
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
             SuketSeeder::class,
             PengajuanSeeder::class,
             PersyaratanSeeder::class,
+            LaporPostSeeder::class
         ]);
     }
 }

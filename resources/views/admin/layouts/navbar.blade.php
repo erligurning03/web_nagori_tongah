@@ -58,13 +58,13 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerangkatDesa"
+                    aria-expanded="true" aria-controls="collapsePerangkatDesa">
                     <i class="fa-solid fa-sitemap"></i>
                     <span>Perangkat Desa
                     </span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapsePerangkatDesa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ url('/admin/perangkatdesa') }}">Daftar Perangkat Desa</a>
@@ -74,12 +74,12 @@
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnggaran"
+                    aria-expanded="true" aria-controls="collapseAnggaran">
                     <i class="fa fa-money" aria-hidden="true"></i>
                     <span>Anggaran</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseAnggaran" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
@@ -92,12 +92,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa-sharp fa-light fa-file"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSuratKeterangan"
+                    aria-expanded="true" aria-controls="collapseSuratKeterangan">
+                    <i class="fa fa-file" aria-hidden="true"></i>
                     <span>Surat Keterangan</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseSuratKeterangan" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
@@ -110,17 +110,34 @@
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa fa-money" aria-hidden="true"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUMKM"
+                    aria-expanded="true" aria-controls="collapseUMKM">
+                    <i class="fa fa-shop" aria-hidden="true"></i>
                     <span>UMKM</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUMKM" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('admin.listumkm.umkm') }}">List  UMKM</a>
                         <a class="collapse-item" href="{{ route('admin.tambahumkm.umkm') }}">Tambah UMKM</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Sidebar untuk forum diskusi -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForumDiskusi"
+                    aria-expanded="true" aria-controls="collapseForumDiskusi">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                    <span>Forum Diskusi</span>
+                </a>
+                <div id="collapseForumDiskusi" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Aksi:</h6>
+                        <a class="collapse-item" href="{{ route('semua-post') }}">Semua Post</a>
+                        <a class="collapse-item" href="{{ route('report-post') }}">Post yang dilaporkan</a>
                     </div>
                 </div>
             </li>
