@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Upload Berkas</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- load Dropzone.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-    <!-- load Dropzone.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css" />
-
-</head>
-<body style="background-color:#609966; font-family: 'Lato'">
+@extends('layouts.navbar_warga')
+@section('css')
+<style>
+    .body{font-family: 'Lato';
+    background-color: #609966;
+    }
+</style>
+@endsection
+@section('container')
     <div style="padding: 10px; text-align: center;">
         <!-- judul -->
         <h1 style="background-color: #fff; border-radius: 20px; padding: 10px; display: inline-block; font-family: 'Lato'">
@@ -65,9 +56,6 @@
           @endif
                 
         </div>
-            
-</body>
-
 <script>
   // Tampilkan nama file yang dipilih saat memilih file
   document.getElementById('file').addEventListener('change', function(e) {
@@ -82,7 +70,7 @@
       }
   });
 </script>
-
+@endsection
 {{-- <script>
     // initialize Dropzone
     Dropzone.autoDiscover = false;
@@ -99,4 +87,3 @@
       myDropzone.hiddenFileInput.click(); // click the hidden file input
     });
   </script> --}}
-</html>

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Pengajuan</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-</head>
-<body style="font-family: 'Lato'">
-    <h1 class="text-center mt-4">Daftar Surat Pemohon</h1>
+@extends('layouts.navbar_warga')
+@section('css')
+<style>
+    .body{font-family: 'Lato'};
+</style>
+@endsection
+@section('container');
+    <h1 class="text-center mt-5">Daftar Surat Pemohon</h1>
 
     <!-- fitur search -->
     {{-- <div class="d-flex justify-content-center mt-4">
@@ -38,7 +34,4 @@
             @endforeach
         </div>
     </div>
-
-
-</body>
-</html>
+@endsection

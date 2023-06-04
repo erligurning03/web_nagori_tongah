@@ -13,6 +13,8 @@
     <button type="submit">Logout</button>
     <a href="{{ route('posts.index') }}" class="btn btn-primary">Forum Diskusi</a>
     <a href="{{ route('pengajuan') }}" class="btn btn-primary">Pengajuan</a>
+    <a href="{{ route('history') }}" class="btn btn-primary">History Pengajuan Berkas</a>
+    <a href="{{ route('transparasi') }}" class="btn btn-primary">Transparasi Dana</a>
 
 </form>
 </body>

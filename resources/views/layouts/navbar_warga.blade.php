@@ -60,11 +60,11 @@
             <a class="dropdown-item" href="#">Logout</a>
           </div>
         </li>        
-        {{-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ $user->nama_lengkap }}</a>
-        </li> --}}
+          <a class="nav-link" href="{{ route('profile.edit') }}">{{ $user->username }}</a>
+        </li>
       </ul>
     </div>
     <div class="form-check form-switch">

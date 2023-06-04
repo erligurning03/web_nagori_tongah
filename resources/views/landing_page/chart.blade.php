@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Chart</title>
-    <style>
-        .chart-container {
-            width: 400px; /* Ubah lebar wadah chart */
-            height: 400px; /* Ubah tinggi wadah chart */
-            margin-bottom: 20px; /* Jarak antara chart */
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    
+@extends('layouts.navbar_warga')
+@section('css')
+<style>
+    .chart-container {
+        width: 400px; /* Ubah lebar wadah chart */
+        height: 400px; /* Ubah tinggi wadah chart */
+        margin-bottom: 20px; /* Jarak antara chart */
+    }
+</style>
+@endsection
+@section('container')
+  
     <div class="chart-container">
         <canvas id="pendapatanChart"></canvas>
     </div>
@@ -84,5 +81,4 @@
                 });
             });
     </script>
-</body>
-</html>
+@endsection

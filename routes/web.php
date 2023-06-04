@@ -21,6 +21,7 @@ use App\Http\Controllers\FormPengajuanController;
 use App\Http\Controllers\SuketController;
 use App\Http\Controllers\AjuanController;
 use App\Http\Controllers\HistoryAjuanAdminController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,6 +197,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
         Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
         
+         // Route halaman CRUD Surat Keterangan
         // Route halaman CRUD Surat Keterangan
          Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
          Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
@@ -205,6 +207,7 @@ Route::middleware(['auth'])->group(function () {
          Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
          Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
+         Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
          Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
 
          // Route halaman CRUD Halaman UMKM
@@ -224,7 +227,7 @@ Route::middleware(['auth'])->group(function () {
 
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});
-        Route::get('/chart', [ChartController::class, 'index']);
+        Route::get('/chart', [ChartController::class, 'index'])->name('transparasi');
         Route::get('/chart/data', [ChartController::class, 'getData']);
         
         //Route halaman forum diskusi
@@ -240,12 +243,19 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/comment/delete/{id}', [PostController::class, 'deleteComment'])->name('delete.comment');
         Route::delete('/post/{id}', [PostController::class, 'deletePost'])->name('post.delete');
         Route::post('/laporan/add', [PostController::class, 'addLaporan'])->name('add.laporan');
+        Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
+        Route::post('/check-like', 'PostController@checkLike')->name('check.like');
 
         //Route halaman pengajuan
         Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
         Route::post('/submit', [PengajuanController::class, 'submit'])->name('submitform');
         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
+
+        //Route halaman profil
+        Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
     });
 
 });
@@ -262,7 +272,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
-        Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
+        // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 //         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
 //         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
 //         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
