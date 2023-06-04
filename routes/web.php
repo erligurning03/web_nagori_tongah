@@ -9,11 +9,13 @@ use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\UmkmBaruController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
+
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\FormPengajuanController;
 use App\Http\Controllers\SuketController;
@@ -153,10 +155,12 @@ Route::get('/newlanding', function () { return view('landing_page/newlanding'); 
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
-Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
+// Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
+Route::get('/umkm_landing', [UmkmController::class, 'index'])->name('umkm.index');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route halaman galeri
 Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
+//Route umkm
 
 //route setelah login
 Route::middleware(['auth'])->group(function () {
@@ -200,6 +204,10 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
          Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
+
+         // Route halaman CRUD Halaman UMKM
+         Route::get('/admin/listumkm', [UmkmBaruController::class, 'index'])->name('admin.listumkm.umkm');
+         Route::get('/admin/umkm/add', [UmkmBaruController::class, 'create'])->name('admin.tambahumkm.umkm');
 
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
@@ -251,12 +259,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
         Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 //         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
 //         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
 //         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
+        Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
+        Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
+        Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
 //     });
 
 // });

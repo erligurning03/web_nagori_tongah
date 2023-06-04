@@ -1,37 +1,43 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Umkm;
 
-class UmkmController extends Controller
+use Illuminate\Http\Request;
+
+class UmkmBaruController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $umkm = Umkm::all();
-        return view('umkm.index', compact('umkm'));
-    }
-    public function create()
-    {
-        return view('umkm.index');
+        $umkm = Umkm::simplePaginate(4);
+        return view('admin.umkm.listumkm', compact('umkm'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'nama_usaha' => 'required',
-            'alamat' => 'required',
-            'gambar_produk.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'telepon' => 'required',
-            'deskripsi' => 'required',
-        ]);
-        Umkm::create($data);
-        return redirect('/admin/umkm')->with('success', 'UMKM berhasil ditambahkan');
+        //
     }
+
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
-            //
+        //
     }
 
     /**
@@ -55,7 +61,8 @@ class UmkmController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $umkm = Umkm::findOrFail($id);
+        $umkm->delete();
+        return redirect()->back()->with('success', 'Data UMKM berhasil dihapus');
     }
-
 }

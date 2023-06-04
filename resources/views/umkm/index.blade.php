@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>UMKM Desa</title>
+@extends('layouts.navbar_warga')
+@section('css')
   <style>
     .card {
       margin-bottom: 20px;
@@ -14,7 +8,8 @@
         background-color: gray;
     }
   </style>
-</head>
+@endsection
+@section('container')
 <body>
   <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #C6C6C6;
     ";>
@@ -66,7 +61,7 @@
       <!-- end of navbar -->
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-6">
+          {{-- <div class="col-lg-4 col-md-6">
             <div class="card">
               <img src="img/umkm1.png" class="card-img-top" alt="Gambar 1">
               <div class="card-body">
@@ -76,31 +71,39 @@
                 <p class="card-text">Toko ini menyediakan berbagai macam kebutuhan pokok sehari-hari seperti beras, gula, minyak goreng, tepung, telur, sayuran, dan buah-buahan segar.</p>
               </div>
             </div>
-          </div>
+          </div> --}}
+          
+          @foreach($umkm as $data)
           <div class="col-lg-4 col-md-6">
             <div class="card">
               <img src="img/umkm2.png" class="card-img-top" alt="Gambar 2">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-utensils"></i><b>  Sate  Madura</b></h5>
-                <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot"></i> Jalan Gondang Jati No. 88</p>
-                <p class="card-text"><i class="fa-solid fa-phone-volume"></i>  0856-2162-0977 (Imelda Purba)</p>
-                <p class="card-text">Toko ini menyediakan berbagai macam kebutuhan pokok sehari-hari seperti beras, gula, minyak goreng, tepung, telur, sayuran, dan buah-buahan segar.</p>
+                <h5 class="card-title"><i class="fa-solid fa-utensils"></i><b> {{ $data->nama_usaha }}</b></h5>
+                <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot"></i> {{ $data->alamat }}</p>
+                <p class="card-text"><i class="fa-solid fa-phone-volume"></i> {{ $data->telepon }}</p>
+                <p class="card-text">{{ $data->deskripsi }}</p>
               </div>
             </div>
           </div>
+          @endforeach
+          {{-- @foreach ($umkm as $data)
+
+
           <div class="col-lg-4 col-md-6">
             <div class="card">
               <img src="img/umkm3.png" class="card-img-top" alt="Gambar 3">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-cake-candles"></i><b>  Amanda</b></h5>
-                <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot"></i>  Jalan Mawar No. 03</p>
-                <p class="card-text"><i class="fa-solid fa-phone-volume"></i> 0822-2120-0003 (Amanda Naibaho)</p>
-                <p class="card-text">Toko ini menyediakan berbagai macam kebutuhan pokok sehari-hari seperti beras, gula, minyak goreng, tepung, telur, sayuran, dan buah-buahan segar.</p>
+                <h5 class="card-title"><i class="fa-solid fa-cake-candles"></i><b>{{ $data->nama_usaha }} </b></h5>
+                <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot"></i>{{ $data->alamat}}</p>
+                <p class="card-text"><i class="fa-solid fa-phone-volume"></i> {{ $data->telepon}}</p>
+                <p class="card-text">{{ $data-> }}</p>
               </div>
             </div>
           </div>
+          @endforeach --}}
         </div>
-        <div class="row">
+
+        {{-- <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="card">
               <img src="img/umkm4.png" class="card-img-top" alt="Gambar 4">
@@ -134,11 +137,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+@endsection
     
