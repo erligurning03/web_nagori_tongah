@@ -276,10 +276,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
 //         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
 //         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-        Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
-        Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
-        Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-//     });
+//         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
+//         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
+//         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
+// //     });
 
 // });
         
