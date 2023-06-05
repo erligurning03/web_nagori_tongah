@@ -104,11 +104,12 @@ class ProfileController extends Controller
     
         $user = Auth::user();
         $password_lama = $request->input('password_lama');
-
+        
         if (Hash::check($password_lama, $user->password)) {
             if ($password_lama == $request->input('password')) {
                 return redirect()->back()->with('error', 'Maaf, password yang Anda masukkan sama!');
-            } else {
+            } 
+            else {
                 $user->password = Hash::make($request->input('password'));
                 $user->save();
                 return redirect()->back()->with('success', 'Password Anda berhasil diperbarui!');
@@ -116,6 +117,7 @@ class ProfileController extends Controller
         }
 
         return redirect()->back()->with('error', 'Tolong masukkan password lama Anda dengan benar!');
+        
     }
 
 
