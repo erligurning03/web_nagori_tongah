@@ -75,7 +75,7 @@
                     <div class="card-header">
                         <h6 class="card-title text-capitalize">Ubah Password</h6>
                     </div>
-                    <form action="{{route('profile.updatePassword')}}" method="post">
+                    <form action="{{route('profile.updatePassword')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="row">
