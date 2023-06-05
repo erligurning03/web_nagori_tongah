@@ -13,19 +13,17 @@
 
     <!-- Custom fonts for this template-->
     <!--<link href="{{ asset('admin_assets/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css"> -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin_assets/assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
-     <!-- font awesome untuk icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Font Lato -->
-  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-  <!-- icon bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- font awesome untuk icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Lato -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <!-- icon bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
     @yield('css')
 </head>
 
@@ -64,8 +62,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerangkatDesa"
-                    aria-expanded="true" aria-controls="collapsePerangkatDesa">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerangkatDesa" aria-expanded="true" aria-controls="collapsePerangkatDesa">
                     <i class="fa-solid fa-sitemap"></i>
                     <span>Perangkat Desa
                     </span>
@@ -80,13 +77,11 @@
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnggaran"
-                    aria-expanded="true" aria-controls="collapseAnggaran">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnggaran" aria-expanded="true" aria-controls="collapseAnggaran">
                     <i class="fa fa-money" aria-hidden="true"></i>
                     <span>Anggaran</span>
                 </a>
-                <div id="collapseAnggaran" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseAnggaran" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a>
@@ -98,13 +93,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSuratKeterangan"
-                    aria-expanded="true" aria-controls="collapseSuratKeterangan">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSuratKeterangan" aria-expanded="true" aria-controls="collapseSuratKeterangan">
                     <i class="fa fa-file" aria-hidden="true"></i>
                     <span>Surat Keterangan</span>
                 </a>
-                <div id="collapseSuratKeterangan" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseSuratKeterangan" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('admin.suket.pengajuan') }}">List Surat Keterangan</a>
@@ -116,16 +109,14 @@
             </li>
             <!-- Sidebar untuk UMKM -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUMKM"
-                    aria-expanded="true" aria-controls="collapseUMKM">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUMKM" aria-expanded="true" aria-controls="collapseUMKM">
                     <i class="fa fa-shop" aria-hidden="true"></i>
                     <span>UMKM</span>
                 </a>
-                <div id="collapseUMKM" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUMKM" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
-                        <a class="collapse-item" href="{{ route('admin.listumkm.umkm') }}">List  UMKM</a>
+                        <a class="collapse-item" href="{{ route('admin.listumkm.umkm') }}">List UMKM</a>
                         <a class="collapse-item" href="{{ route('admin.tambahumkm.umkm') }}">Tambah UMKM</a>
                     </div>
                 </div>
@@ -133,13 +124,11 @@
 
             <!-- Sidebar untuk Berita -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBerita"
-                    aria-expanded="true" aria-controls="collapseBerita">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBerita" aria-expanded="true" aria-controls="collapseBerita">
                     <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
                     <span>Berita</span>
                 </a>
-                <div id="collapseBerita" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseBerita" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('admin.semuaberita.berita') }}">Semua Berita</a>
@@ -149,14 +138,12 @@
             </li>
 
             <!-- Sidebar untuk forum diskusi -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForumDiskusi"
-                    aria-expanded="true" aria-controls="collapseForumDiskusi">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForumDiskusi" aria-expanded="true" aria-controls="collapseForumDiskusi">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     <span>Forum Diskusi</span>
                 </a>
-                <div id="collapseForumDiskusi" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseForumDiskusi" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('semua-post') }}">Semua Post</a>
@@ -165,15 +152,13 @@
                 </div>
             </li>
 
-             <!-- Sidebar untuk User -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
-                    aria-expanded="true" aria-controls="collapseUser">
+            <!-- Sidebar untuk User -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>User</span>
                 </a>
-                <div id="collapseUser" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUser" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="">Validasi Akun Warga</a>
@@ -192,7 +177,7 @@
 
 
             <!-- Nav Item - Tables -->
-           
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -202,7 +187,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-         
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -251,15 +236,13 @@
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Alerts Center
                                 </h6>
@@ -302,22 +285,19 @@
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -328,8 +308,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -340,8 +319,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -352,8 +330,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
@@ -369,16 +346,18 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        @php
+                        $user = \App\Models\User::where('nik', Auth::user()->nik)->first();
+                        @endphp
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Putrija BR Malau</span>
-                                <img class="img-profile rounded-circle"
-                                    src="/admin_assets/assets/img/undraw_profile.svg">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $user->username }}</span>
+                                <div class="profile-picturee">
+                                    <img src="{{  asset('img/foto_profile/'.$user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:40px; height: 40px; border: 1px solid black; ">
+                                </div>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -400,74 +379,74 @@
                         </li>
 
                     </ul>
-                
+
                 </nav>
-                
-                <!-- End of Topbar -->   
+
+                <!-- End of Topbar -->
                 <div class="container">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-               @yield('container')
-                </div>   
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        @yield('container')
+                    </div>
                 </div>
-        <!-- End of Content Wrapper -->
-    </div>
-
-     
+                <!-- End of Content Wrapper -->
+            </div>
 
 
-  
-   
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Logout</button>
-                    </form>
+
+
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Logout</button>
+                                         
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src=" {{ asset('admin_assets/assets/vendor/jquery/jquery.min.js')}}" ></script>
-    <script src="{{ asset('admin_assets/vendor/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src=" {{ asset('admin_assets/assets/vendor/jquery/jquery.min.js')}}"></script>
+            <script src="{{ asset('admin_assets/vendor/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('admin_assets/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="{{ asset('admin_assets/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('admin_assets/assets/js/sb-admin-2.min.js')}}"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="{{ asset('admin_assets/assets/js/sb-admin-2.min.js')}}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{ asset('admin_assets/assets/vendor/chart.js/Chart.min.js') }}"></script>
+            <!-- Page level plugins -->
+            <script src="{{ asset('admin_assets/assets/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('admin_assets/assets/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('admin_assets/assets/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="https://kit.fontawesome.com/a87d4ae636.js" crossorigin="anonymous"></script>
+            <!-- Page level custom scripts -->
+            <script src="{{ asset('admin_assets/assets/js/demo/chart-area-demo.js') }}"></script>
+            <script src="{{ asset('admin_assets/assets/js/demo/chart-pie-demo.js') }}"></script>
+            <script src="https://kit.fontawesome.com/a87d4ae636.js" crossorigin="anonymous"></script>
 
-    <!-- Chat GPT Recommendation Why the drop down doesn't work -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <!-- Chat GPT Recommendation Why the drop down doesn't work -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 
