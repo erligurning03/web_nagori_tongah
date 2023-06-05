@@ -6,7 +6,10 @@ use App\Models\Berita;
 use App\Models\FotoBerita;
 use App\Models\Post;
 use App\Models\FotoPost;
-
+use App\Models\Pengajuan;
+use App\Models\Persyaratan;
+use App\Models\Suket;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -35,6 +38,15 @@ class DashboardController extends Controller
         }
 
         return view('dashboard', compact('latestPost', 'latestPhoto', 'latestBerita', 'latestPhotoBerita'));
+    }
+
+    public function indexAdmin()
+    {
+        $persyaratan = Persyaratan::all();
+        $pengajuan = Pengajuan::orderBy('status_pengajuan', 'desc')
+        ->where('status_pengajuan', 'menunggu')
+        ->get();
+        return view('admin.index',  compact('pengajuan', 'persyaratan' ));
     }
 
     /**

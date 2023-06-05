@@ -21,7 +21,7 @@
                                 <div class="form-group">
                                     <label for="foto_profil">Foto Profil</label> <br>
                                     @if($user->foto_profil)
-                                    <img src="{{ asset('img/foto_profile/'.$user->foto_profil) }}" style="width: 200px; height: 200px;" alt="Foto Profil" class="img-thumbnail">
+                                    <img src="{{ asset('img/foto_profile/'.$user->foto_profil) }}" style="height: 200px;" alt="Foto Profil" class="img-thumbnail">
                                     @else
                                     <div class="alert alert-warning">Belum ada foto profil. Pilih gambar untuk mengunggah.</div>
                                     @endif
