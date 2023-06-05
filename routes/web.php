@@ -177,7 +177,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => 'role:admin,operator'], function () {
         // Route yang hanya dapat diakses oleh admin
-        Route::get('/dashboard-admin', [DashboardController::class, 'indexAdmin'])->name('dashboard');
+        Route::get('/dashboard-admin', [DashboardController::class, 'indexAdmin'])->name('dashboard-admin');
 
         // Route halaman CRUD pendapatan
         Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan.anggaran');
