@@ -196,6 +196,7 @@ class PostController extends Controller
         $post->komentarPosts()->delete();
         $post->likes()->delete();
         $post->fotoPosts()->delete();
+        $post->laporPost()->delete();
         $post->delete();
 
         session()->flash("post_success", "Post berhasil dihapus.");

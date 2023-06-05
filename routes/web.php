@@ -236,6 +236,8 @@ Route::middleware(['auth'])->group(function () {
         //Route halaman CRUD forum diskusi
         Route::get('/admin/semua-post', [PostAdminController::class, 'index'])->name('semua-post');
         Route::get('/admin/report-post', [PostAdminController::class, 'report'])->name('report-post');
+        Route::delete('/admin/comment/delete/{id}', [PostAdminController::class, 'deleteComment'])->name('delete.comment.admin');
+        Route::delete('/admin/post/{id}', [PostAdminController::class, 'deletePost'])->name('post.delete.admin');
 
     });
 
@@ -292,7 +294,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-        //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        // Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
         // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');

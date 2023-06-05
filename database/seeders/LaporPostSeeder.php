@@ -27,7 +27,7 @@ class LaporPostSeeder extends Seeder
             'id_post' => 2,
             'nik' => '1516403572360194',
             'isi_laporan' => 'Post menggunakan kata-kata yang kasar',
-            'created_at' => '2023-05-20 09:00:00',
+            'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
     }
