@@ -62,7 +62,7 @@
                                                 <div class="box2 mt-5" id="post-{{ $post->id }}" data-judul="{{ $post->judul }}" data-isi="{{ $post->isi_post }}" data-penulis="{{ $post->user->nama_lengkap }}" data-tanggal="{{ $post->created_at->toDateString() }}">
                                                     <div class="post-header">
                                                         <div class="profile-picture">
-                                                            <img src="{{ asset('img/'.$post->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
+                                                            <img src="{{ asset('img/foto_profile/'.$post->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
                                                         </div>
                                                         <div class="post-info">
                                                             <span style="font-weight: bold;">{{ $post->user->nama_lengkap }}</span>

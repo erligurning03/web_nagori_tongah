@@ -46,14 +46,11 @@
                     <h6 class="m-0 font-weight-bold text-primary">Warga</h6>
                 </div>
                 <div class="card-body">
-                    <div class="text-center">
-                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="...">
-                    </div>
-                    <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                        constantly updated collection of beautiful svg images that you can use
-                        completely free and without attribution!</p>
-                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                        unDraw &rarr;</a>
+                <a href=""><button type="button" class="btn btn-success mb-2">LihatSelengkapnya</button></a>
+                    <h4 class="small font-weight-bold">Nama <span class="float-right">Aldi Taher</span></h4>
+                    <h4 class="small font-weight-bold">NIK <span class="float-right">1234512345123451</span></h4>
+                    <h4 class="small font-weight-bold" style="color:red">Status Akun<span class="float-right">Menunggu</span></h4>
+                    <br>
                 </div>
             </div>
 
