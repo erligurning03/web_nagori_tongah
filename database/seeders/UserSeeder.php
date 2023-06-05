@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
             'nik' => '1516403572360194',
             'nama_lengkap' => 'Agnes Tryani Simbolon',
             'username' => 'agnes',
-            'password' => Hash::make('agnes'),
+            'password' => Hash::make('agnes123'),
             'email' => 'agnes@gmail.com',
             'telepon' => '08425637374',
             'role' => 'warga',

@@ -10,6 +10,8 @@ use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UmkmBaruController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\BeritaAdminController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
@@ -161,6 +163,7 @@ Route::get('/register',[ AuthController::class, 'register'])->name('register'); 
 Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
 // Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 Route::get('/umkm_landing', [UmkmController::class, 'index'])->name('umkm.index');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route halaman galeri
 Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');
@@ -219,6 +222,12 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
          Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
          Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
+        // Route halaman CRUD Berita
+         Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');
+         Route::get('/admin/berita/add', [BeritaAdminController::class, 'create'])->name('admin.tambahberita.berita');
+         Route::put('/admin/berita/{id}', [BeritaAdminController::class, 'update'])->name('berita.update');
+         Route::post('/admin/berita', [BeritaAdminController::class, 'store'])->name('berita.store');
+         Route::delete('/admin/berita/{id}', [BeritaAdminController::class, 'destroy'])->name('berita.destroy');
 
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});

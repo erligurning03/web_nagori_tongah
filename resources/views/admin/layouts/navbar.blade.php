@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Sidebar untuk UMKM -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUMKM"
                     aria-expanded="true" aria-controls="collapseUMKM">
@@ -121,6 +121,23 @@
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('admin.listumkm.umkm') }}">List  UMKM</a>
                         <a class="collapse-item" href="{{ route('admin.tambahumkm.umkm') }}">Tambah UMKM</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Sidebar untuk Berita -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUMKM"
+                    aria-expanded="true" aria-controls="collapseUMKM">
+                    <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+                    <span>Berita</span>
+                </a>
+                <div id="collapseUMKM" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Aksi:</h6>
+                        <a class="collapse-item" href="{{ route('admin.semuaberita.berita') }}">Semua Berita</a>
+                        <a class="collapse-item" href="{{ route('admin.tambahberita.berita') }}">Tambah Berita</a>
                     </div>
                 </div>
             </li>
