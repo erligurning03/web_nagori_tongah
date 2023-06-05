@@ -232,6 +232,7 @@ Route::middleware(['auth'])->group(function () {
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
         Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
         Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+        Route::post('/admin/perangkatdesa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');
 
         //Route halaman CRUD forum diskusi
         Route::get('/admin/semua-post', [PostAdminController::class, 'index'])->name('semua-post');
