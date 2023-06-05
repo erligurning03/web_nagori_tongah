@@ -21,10 +21,13 @@ use App\Http\Controllers\FormPengajuanController;
 use App\Http\Controllers\SuketController;
 use App\Http\Controllers\AjuanController;
 use App\Http\Controllers\HistoryAjuanAdminController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostAdminController;
 
+=======
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -212,10 +215,13 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
          Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
          Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
+<<<<<<< Updated upstream
 
          // Route halaman CRUD Halaman UMKM
          Route::get('/admin/listumkm', [UmkmBaruController::class, 'index'])->name('admin.listumkm.umkm');
          Route::get('/admin/umkm/add', [UmkmBaruController::class, 'create'])->name('admin.tambahumkm.umkm');
+=======
+>>>>>>> Stashed changes
 
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});

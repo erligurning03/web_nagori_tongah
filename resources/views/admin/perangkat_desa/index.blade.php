@@ -79,48 +79,49 @@
 
                     </div>
                 </div>
-                <div class="d-grid gap-2 d-md-block">
-                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">tambah</button>
-               </div>
-               <!-- start Modal -->
-               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                   <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLabel">INPUT GALLERY</h5>
-                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                       </div>
-                       <div class="modal-body">
-                           <form action="galeri_admi" method="POST" enctype="multipart/form-data">
-                             {{-- pergi ke web.php untuk carik route ini yang bertipe post--}}
-                             @csrf
-                               <div class="mb-3">
-                                 <label for="id" class="form-label" >id</label>
-                                 <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="id">
-                               </div>
-                               {{-- <div class="mb-3">
-                                 <label for="tes" class="form-label" >tes</label>
-                                 <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="tes">
-                               </div> --}}
-                               <div class="mb-3">
-                                 <label for="exampleInputPassword1" class="form-label">input gambar</label>
-                                 <input type="file" class="form-control" id="gambar" name="gambar">
-                               </div>
-                               <button type="submit" class="btn btn-primary">Submit</button>
-                             </form>
-                       </div>
-                       <div class="modal-footer">
-                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                       {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                       </div>
-                   </div>
-                   </div>
-               </div>
-               {{-- end of modal --}}
+
                
                     <!-- Data tabel-->
                     <div class="card-body">
+                        <div class="d-grid gap-2 d-md-block">
+                            <!-- Button trigger modal -->
+                           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalTambah">tambah</button>
+                       </div>
+                       <!-- start Modal -->
+                       <div class="modal fade" id="ModalTambah" tabindex="-1" aria-labelledby="ModalTambah" aria-hidden="true">
+                           <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                               <h5 class="modal-title" id="ModalTambah">INPUT GALLERY</h5>
+                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                               </div>
+                               <div class="modal-body">
+                                   <form action="galeri_admi" method="POST" enctype="multipart/form-data">
+                                     {{-- pergi ke web.php untuk carik route ini yang bertipe post--}}
+                                     @csrf
+                                       <div class="mb-3">
+                                         <label for="id" class="form-label" >id</label>
+                                         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="id">
+                                       </div>
+                                       {{-- <div class="mb-3">
+                                         <label for="tes" class="form-label" >tes</label>
+                                         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="tes">
+                                       </div> --}}
+                                       <div class="mb-3">
+                                         <label for="exampleInputPassword1" class="form-label">input gambar</label>
+                                         <input type="file" class="form-control" id="gambar" name="gambar">
+                                       </div>
+                                       <button type="submit" class="btn btn-primary">Submit</button>
+                                     </form>
+                               </div>
+                               <div class="modal-footer">
+                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                               </div>
+                           </div>
+                           </div>
+                       </div>
+                       {{-- end of modal --}}
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -282,4 +283,8 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
+
