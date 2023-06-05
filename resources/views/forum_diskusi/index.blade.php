@@ -52,7 +52,7 @@
       <div class="box2 mt-5" id="post-{{ $post->id }}" data-judul="{{ $post->judul }}" data-isi="{{ $post->isi_post }}" data-penulis="{{ $post->user->nama_lengkap }}" data-tanggal="{{ $post->created_at->toDateString() }}">
         <div class="post-header">
           <div class="profile-picture">
-            <img src="{{ asset('img/'.$post->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
+            <img src="{{ asset('img/foto_profile/'.$post->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black; ">
           </div>
           <div class="post-info">
             <span style="font-weight: bold;">{{ $post->user->nama_lengkap }}</span>
@@ -284,7 +284,7 @@
           @foreach($post->komentarPosts->where('id_post', $post->id)->sortByDesc('created_at') as $comment)
           <div class="mb-3">
             <div class="d-flex align-items-start">
-              <img src="{{ asset('img/'.$comment->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black;">
+              <img src="{{ asset('img/foto_profile/'.$comment->user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:45px; height: 45px; border: 1px solid black;">
               <div class="ms-2">
                 <b><span>{{ $comment->user->nama_lengkap }}</span></b>
                 <span class="ms-2 text-muted">{{ $comment->created_at->diffForHumans() }}</span>

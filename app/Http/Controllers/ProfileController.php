@@ -65,25 +65,13 @@ class ProfileController extends Controller
     $user->email = $request->input('email');
     $user->telepon = $request->input('telepon');
     // Periksa jika input password tidak kosong
-    if (!empty($request->input('password'))) {
-        $user->password = bcrypt($request->input('password'));
-    }
+    // if (!empty($request->input('password'))) {
+    //     $user->password = bcrypt($request->input('password'));
+    // }
 
     $request->validate([
         'foto_profil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Hanya menerima file gambar dengan tipe yang diizinkan dan ukuran maksimum 2MB
     ]);
-
-    // if ($request->hasFile('gambar')) {
-    //     foreach ($request->file('gambar') as $file) {
-    //         $filename = $file->getClientOriginalName();
-    //         $file->move(public_path('gambar'), $filename);
-
-    //         $fotoPost = new FotoPost();
-    //         $fotoPost->id_post = $post->id;
-    //         $fotoPost->foto = $filename;
-    //         $fotoPost->save();
-    //     }
-    // }
 
     if ($request->hasFile('foto_profil')) {
         $file = $request->file('foto_profil');
@@ -91,11 +79,13 @@ class ProfileController extends Controller
         // Validasi hanya satu file yang diizinkan
         if ($file->isValid()) {
             $filename = $file->getClientOriginalName();
-            $file->move(public_path('foto_profile'), $filename);
+            $file->move(public_path('img/foto_profile'), $filename);
             $data['foto_profil'] = $filename;
         } else {
             return redirect()->back()->withErrors(['foto_profil' => 'Inputan Anda salah. Hanya satu file gambar yang diizinkan.']);
         }
+        //$file->move(public_path('img/foto_profile'), $filename);
+
     }
 
     $user->update($data);
@@ -105,6 +95,31 @@ class ProfileController extends Controller
     return redirect()->route('profile.edit');
 }
 
+        public function updatePassword(Request $request)
+        {
+            $this->validate($request, [
+                'password_lama' => 'required|string',
+                'password' => 'required|string|min:6|confirmed'
+            ]);
+
+            $user = User::findOrFail(auth()->user()->id);
+
+            $password_lama = $request->input('password_lama');
+
+            if (Hash::check($password_lama, $user->password)) {
+                if ($password_lama == $request->input('password')) {
+                    return redirect()->back()->with('error', 'Maaf, password yang Anda masukkan sama!');
+                } else {
+                    $user->password = Hash::make($request->input('password'));
+                    $user->save();
+                    return redirect()->back()->with('success', 'Password Anda berhasil diperbarui!');
+                }
+            }
+
+            return redirect()->back()->with('error', 'Tolong masukkan password lama Anda dengan benar!');
+        }
+
+        
 
 
 

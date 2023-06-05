@@ -42,7 +42,7 @@
             <a class="dropdown-item" href="{{ route('pengajuan') }}">Pengurusan Berkas</a>
             <a class="dropdown-item" href="{{ route('posts.index') }}">Forum Diskusi</a>
             <a class="dropdown-item" href="#">UMKM Nagori</a>
-            <a class="dropdown-item" href="#">Transparansi Dana</a>
+            <a class="dropdown-item" href="{{ route('transparasi') }}">Transparansi Dana</a>
           </div>
         </li>    
         <li class="nav-item dropdown me-auto">
@@ -51,7 +51,7 @@
           @php
             $user = \App\Models\User::where('nik', Auth::user()->nik)->first();
             @endphp
-              <img src="{{ asset('img/'.$user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:40px; height: 40px; border: 1px solid black; ">
+              <img src="{{  asset('img/foto_profile/'.$user->foto_profil) }}" alt="Foto Profil" style="border-radius: 50%; object-fit: contain; width:40px; height: 40px; border: 1px solid black; ">
             </div>
           </div>
           <div class="dropdown-menu" aria-labelledby="layananDropdown">

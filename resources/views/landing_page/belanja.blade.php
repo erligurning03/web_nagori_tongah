@@ -10,103 +10,10 @@
 @endsection
 @section('container')
 
-      {{-- start section1 --}}
-      {{-- <section class="container mt-5">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>Diagram Lingkaran</h2>
-            <div class="chart-container">
-              <canvas id="pieChart"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h2>Keterangan Warna</h2>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Kategori 1
-                <span class="badge bg-primary"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Kategori 2
-                <span class="badge bg-success"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Kategori 3
-                <span class="badge bg-warning"> </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section> --}}
-      
-      {{-- end section grafiki --}}
-
-      {{-- start pernaikan grafik --}}
-      {{-- <section class="container mt-5">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>TRANSPARANSI BELANJA NAGORI NAGORI TONGAH TAHUN 2023</h2>
-            <div class="chart-container">
-              <canvas id="incomeChart"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h2>Keterangan Warna</h2>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                bidang pemerintahan nagori
-                <span class="badge bg-primary"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                bidang pembangunan nagori
-                <span class="badge bg-success"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                bidang pembinaan nagori
-                <span class="badge bg-warning"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                bidang pemberdayaan nagori
-                <span class="badge bg-warning"> </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>TRANSPARANSI PENDAPATAN NAGORI NAGORI TONGAH TAHUN 2023</h2>
-            <div class="chart-container">
-              <canvas id="expenseChart"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h2>Keterangan Warna</h2>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Dana Desa (DD)
-                <span class="badge bg-primary"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Alokasi Dana Nagori
-                <span class="badge bg-success"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Bagi Hasil Pajak dann Retribusi Daerah
-                <span class="badge bg-warning"> </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                pendapatan lain-lain
-                <span class="badge bg-success"> </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section> --}}
-
       <section class="container mt-5">
         <div class="row">
           <div class="col-lg-6">
-            <h2>TRANSPARANSI PENDAPATAN NAGORI NAGORI TONGAH TAHUN 2023</h2>
+            <h2>TRANSPARANSI PENDAPATAN NAGORI NAGORI TONGAH TAHUN <?php echo date('Y'); ?></h2>
             <div class="chart-container">
               <canvas id="incomeChart"></canvas>
             </div>
@@ -119,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col-lg-6">
-            <h2>TRANSPARANSI BELANJA NAGORI NAGORI TONGAH TAHUN 2023</h2>
+            <h2>TRANSPARANSI BELANJA NAGORI NAGORI TONGAH TAHUN <?php echo date('Y'); ?></h2>
             <div class="chart-container">
               <canvas id="expenseChart"></canvas>
             </div>
@@ -135,16 +42,10 @@
       {{-- start card --}}
       <section class="container mt-5">
         <div class="row">
-          {{-- <div class="col-lg-6">
-            <h2>Diagram Batang</h2>
-            <div class="chart-container">
-              <canvas id="barChart"></canvas>
-            </div>
-          </div> --}}
-          <div class="col-lg-4">
+          <div class="col-lg-4 mb-5">
             <div class="card shadow">
               <div class="card-body">
-                <h5 class="card-title">APBDES 2023 PELAKSANAAN </h5>
+                <h5 class="card-title">APBDES <?php echo date('Y'); ?> PELAKSANAAN </h5>
                 <ul class="list-group">
                   <li class="list-group-item">
                     <div class="row">
@@ -168,10 +69,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 mb-5">
             <div class="card shadow">
               <div class="card-body">
-                <h5 class="card-title">APBEDES 2023 PENDAPATAN</h5>
+                <h5 class="card-title">APBEDES <?php echo date('Y'); ?> PENDAPATAN</h5>
                 <ul class="list-group">
                   <li class="list-group-item">
                       <div class="row">
@@ -186,10 +87,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 mb-5">
             <div class="card shadow">
               <div class="card-body">
-                <h5 class="card-title">APBEDES 2023 PEMBELANJAAN</h5>
+                <h5 class="card-title">APBEDES <?php echo date('Y'); ?> PEMBELANJAAN</h5>
                 <ul class="list-group">
                   <li class="list-group-item">
                       <div class="row">
@@ -200,34 +101,6 @@
                         @endforeach
                       </div>
                   </li>
-                  {{-- <li class="list-group-item">
-                    <div class="row">
-                      <div class="col-lg-6 col-sm-6">bidang pelaksanaan pembangunan Nagori</div>
-                      <div class="col-lg-1 col-sm-1">:</div>
-                      <div class="col-lg-5 col-sm-5">Rp371.000.100</div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="col-lg-6 col-sm-6">bidang pembinaan nagori</div>
-                      <div class="col-lg-1 col-sm-1">:</div>
-                      <div class="col-lg-5 col-sm-5">Rp0,-</div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="col-lg-6 col-sm-6">bidang pemberdayaan masyarakat</div>
-                      <div class="col-lg-1 col-sm-1">:</div>
-                      <div class="col-lg-5 col-sm-5">Rp16.000.100</div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="col-lg-6 col-sm-6">bidang penanggulangan bencana, darurat, dan mendesak</div>
-                      <div class="col-lg-1 col-sm-1">:</div>
-                      <div class="col-lg-5 col-sm-5">Rp327.000.100</div>
-                    </div>
-                  </li> --}}
                 </ul>
               </div>
             </div>

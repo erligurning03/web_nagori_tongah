@@ -8,54 +8,67 @@
 @endsection
 @section('container')
     <div style="padding: 10px; text-align: center;">
-        <!-- judul -->
-        <h1 style="background-color: #fff; border-radius: 20px; padding: 10px; display: inline-block; font-family: 'Lato'">
-        Form Upload Berkas
-        </h1>
-        <!-- container -->
-        <div style="max-width: 1000px; margin: 0 auto; background-color: #fff; padding: 20px;">
-          <form action="{{ !empty($suket->id) ? route('submitform', $suket->id) : '#' }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div style="text-align: left; margin: 0; line-height: 1; margin-bottom: 1cm;">
-              <p style="color: rgb(255, 41, 41)">Persyaratan: {{ $suket->syarat }}</p>
+    <div style="background-color: #ffff; border-radius: 10px; padding: 10px; display: inline-block; font-family: 'Lato'">
+        <h1>Form Upload Berkas</h1>
+    </div>
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <div style="background-color: #50915671; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <form action="{{ !empty($suket->id) ? route('submitform', $suket->id) : '#' }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div style="text-align: left; margin: 0; line-height: 1; margin-bottom: 1cm;">
+                  <p style="color: rgb(255, 41, 41); font-size: 20px; font-weight: bold;">Persyaratan: {{ $suket->syarat }}</p>
+                </div>                
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="file">Upload File Anda disini <a style=" font-weight: bold;">(harus dalam bentuk .pdf)</a>:</label>
+                        </td>
+                        <td>
+                            <input type="file" class="form-control-file" id="file" name="file[]" multiple>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="file">File yang dipilih:</label>
+                        </td>
+                        <td>
+                            <ul id="selected-files"></ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="alasan">Deskripsi Alasan Mengurus:</label>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="alasan" name="alasan" rows="5"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div style="text-align: right;">
+                  <button type="button" class="btn btn-secondary" onclick="window.history.back()" style="margin-right: 10px;">Kembali</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <br>
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
-            @if (!empty($suket->id))
-            <input type="hidden" name="id_suket" value="{{ $suket->id }}">
             @endif
-            <div class="form-group">
-              <label for="file">Upload File Anda disini (harus dalam bentuk .pdf):</label>
-              <input type="file" class="form-control-file" id="file" name="file[]" multiple>
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <!-- Tampilkan daftar file yang dipilih -->
-            <div class="form-group">
-              <label for="file">File yang dipilih:</label>
-              <ul id="selected-files"></ul>
-            </div>
-            <div class="form-group">
-              <label for="alasan">Deskripsi Alasan Mengurus</label>
-              <input type="text" class="form-control" id="alasan" name="alasan" multiple>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-            <br>
-          @if(session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-           @endif
-      
-          @if($errors->any())
-              <div class="alert alert-danger">
-                  <ul>
-                      @foreach($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-          @endif
-                
+            @endif
         </div>
+    </div>
+</div>
+
 <script>
   // Tampilkan nama file yang dipilih saat memilih file
   document.getElementById('file').addEventListener('change', function(e) {

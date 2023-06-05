@@ -24,7 +24,7 @@
         <div class="row">
             @foreach ($suket as $data)
             <div class="col-md-4 mb-4">
-            <div class="card" style="background-color: #609966;">
+            <div class="card" style="background-color: #50915671;">
                 <div class="card-body">
                 <h5 class="card-title">{{ $data->suket }}</h5>
                 <a href="{{ route('form', $data->id) }}" class="btn btn-light">Buat Ajuan</a>

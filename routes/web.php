@@ -203,7 +203,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
         Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
         
-         // Route halaman CRUD Surat Keterangan
         // Route halaman CRUD Surat Keterangan
          Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
          Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
@@ -274,6 +273,11 @@ Route::middleware(['auth'])->group(function () {
         //Route halaman profil
         Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+        Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
+
+
+
+        
 
     });
 
@@ -288,7 +292,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-        Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
         // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
