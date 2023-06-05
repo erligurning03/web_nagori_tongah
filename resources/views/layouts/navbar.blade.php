@@ -11,6 +11,8 @@
     <link href="{{ asset('css/style_landing.css') }}" rel="stylesheet">
     {{-- font awesome untuk icon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {{-- ini adalah AOS untuk animasi website --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Nagori NagoriTongah</title>
   </head>
   <body>
@@ -26,19 +28,19 @@
                 <ul class="navbar-nav ms-auto">
                   <!--  ms-auto margin start auto memungkinkan tammpilan meper kanan -->
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home"><b>Utama</b></a>
+                    <a class="nav-link active" aria-current="page" href="#utama"><b>Utama</b></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">Fitur</a>
+                    <a class="nav-link" aria-current="page" href="#fitur">Fitur</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">Visi Misi</a>
+                    <a class="nav-link" aria-current="page" href="#visimisi">Visi Misi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">Perangkat Desa</a>
+                    <a class="nav-link" aria-current="page" href="#perangkat">Perangkat Desa</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#home">Berita</a>
+                    <a class="nav-link" aria-current="page" href="#berita">Berita</a>
                   </li>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('login') }}"><button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">MASUK</button></a>
@@ -51,5 +53,10 @@
           <!-- end of navbar -->
 @yield('content')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{{-- ini adalah script untuk AOS untuk animasi website --}}
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>

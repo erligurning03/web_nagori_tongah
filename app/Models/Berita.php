@@ -22,6 +22,11 @@ class Berita extends Model
         return $this->belongsTo(User::class, 'nik', 'nik');
     }
 
+    public function fotoBeritas()
+    {
+        return $this->hasMany(FotoBerita::class, 'id_berita');
+    }
+
     public function getCreatedAtAttribute($value)
     {
         return date('d-m-Y H:i:s', strtotime($value));

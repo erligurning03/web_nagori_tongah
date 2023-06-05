@@ -1,5 +1,8 @@
 @extends('layouts.navbar_warga')
 @section('css')
+<style>
+    .body{font-family: 'Lato'};
+</style>
 <link rel="stylesheet" href="{{ asset('css/forum_diskusi.css') }}">
 @endsection
 
@@ -24,7 +27,8 @@
 @endif
 
 <!-- container tengah -->
-<div class="container mt-2">
+<div class="container">
+<h1 class="text-center">Forum Diskusi</h1>
   <div class="row">
     <div class="col-12 col-md-6 mx-auto">
       <!-- fitur tambahkan post -->

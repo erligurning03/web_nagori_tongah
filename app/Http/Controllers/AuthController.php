@@ -63,20 +63,21 @@ class AuthController extends Controller
         if (auth()->check()) {
             $user = auth()->user();
 
-            if ($user->role == 'admin' || $user->role == 'operator') {
-                return redirect()->route('dashboard-admin');
-            } elseif ($user->role == 'warga') {
-                return redirect()->route('dashboard');
-            }
-        } elseif (auth()->viaRemember()) {
-            // Logout user and redirect to login if remember_token is empty
-            $user = auth()->user();
-            if (!$user->remember_token) {
+            if ($user->remember_token) {
+                // Redirect to dashboard if remember_token exists
+                if ($user->role == 'admin' || $user->role == 'operator') {
+                    return redirect()->route('dashboard-admin');
+                } elseif ($user->role == 'warga') {
+                    return redirect()->route('dashboard');
+                }
+            } else {
+                // Clear authentication and redirect to login if remember_token is null
                 auth()->logout();
                 return redirect()->route('login');
             }
         }
 
+        // Show login view if user is not authenticated
         return view('auth.login');
     }
 
@@ -143,13 +144,17 @@ class AuthController extends Controller
         // Perform the logout
         Auth::logout();
 
-        return redirect('/login');
+        return redirect()->route('landing')->withHeaders([
+            'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+            'Pragma' => 'no-cache',
+            'Expires' => 'Sat, 01 Jan 2000 00:00:00 GMT',
+        ]);
     }
 
     public function checkUsername($username)
     {
         $user = User::where('username', $username)->first();
-    
+
         return response()->json([
             'username_exists' => $user ? true : false,
         ]);
@@ -158,7 +163,7 @@ class AuthController extends Controller
     public function checknik($nik)
     {
         $user = User::where('nik', $nik)->first();
-    
+
         return response()->json([
             'nik_exists' => $user ? true : false,
         ]);
