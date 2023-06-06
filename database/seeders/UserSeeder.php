@@ -112,6 +112,20 @@ class UserSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        DB::table('user')->insert([
+            'nik' => '1898923235656787',
+            'nama_lengkap' => 'Aldi Taher',
+            'username' => 'operator123',
+            'password' => Hash::make('operator123'),
+            'email' => 'operator@gmail.com',
+            'telepon' => '08287481177',
+            'role' => 'operator',
+            'foto_profil' => 'admin.jpg',
+            'status_akun' => 'terdaftar',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
         
         $faker = Faker::create('id_ID');
 
