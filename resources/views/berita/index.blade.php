@@ -32,7 +32,7 @@
               </div>
               <div class="row">
                   <div class="col-lg-8">
-                      <div class="trending-top mb-30">
+                      {{-- <div class="trending-top mb-30">
                           <div class="trend-top-img">
                               <img src="img/berita/berita1.jpg" alt="">
                               <div class="trend-top-cap">
@@ -41,7 +41,7 @@
                                   <span>Hiburan yang dibuat oleh rakyat</span>
                               </div>
                           </div>
-                      </div>
+                      </div> --}}
                       <!-- Trending Bottom -->
                       <div class="trending-bottom">
                           <div class="row">

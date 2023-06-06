@@ -11,54 +11,7 @@
 @endsection
 @section('container')
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #C6C6C6;
-    ";>
-        <!-- atau bisa pake bg-primary -->
-        <div class="container">
-          <a class="navbar-brand" href="#">Nagori NagoriTongah</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <!--  ms-auto margin start auto memungkinkan tammpilan meper kanan -->
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home"><b>Utama</b></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  layanan
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Informasi
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#home">wisata</a>
-              </li>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">MASUK</button>
-                <button class="btn btn-primary" type="button" style="background-color:#2B2B2B;">DAFTAR</button>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- end of navbar -->
+  <h1 class="text-center mt-3">Daftar UMKM Desa Nagori</h1>
       <div class="container">
         <div class="row">
           {{-- <div class="col-lg-4 col-md-6">
@@ -76,7 +29,7 @@
           @foreach($umkm as $data)
           <div class="col-lg-4 col-md-6">
             <div class="card">
-              <img src="img/umkm2.png" class="card-img-top" alt="Gambar 2">
+              <img src="img/umkm3.png" class="card-img-top" alt="Gambar 2">
               <div class="card-body">
                 <h5 class="card-title"><i class="fa-solid fa-utensils"></i><b> {{ $data->nama_usaha }}</b></h5>
                 <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot"></i> {{ $data->alamat }}</p>
