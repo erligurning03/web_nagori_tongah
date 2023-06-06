@@ -27,53 +27,59 @@ class PengajuanController extends Controller
     public function submit(Request $request)
     {
 
-        // dd($request->all());
-        // Validasi request
-    $request->validate([
-        'file' => 'required|array|max:8', // Memastikan setidaknya 1 dan maksimal 8 file terlampir
-        'file.*' => 'required|mimes:pdf|max:8048', // Memastikan setiap file adalah file PDF dengan ukuran maksimum 8MB
-        'alasan' => 'required',
-    ], [
-        'file.required' => 'File harus diunggah.',
-        'file.array' => 'File harus diunggah.',
-        'file.max' => 'Maksimal 8 file dapat diunggah.',
-        'file.*.required' => 'Semua file harus diunggah.',
-        'file.*.mimes' => 'File harus berformat PDF.',
-        'file.*.max' => 'Ukuran file maksimal 8MB.',
-        'alasan.required' => 'Alasan harus diisi.',
-    ]);
+            // dd($request->all());
+            // Validasi request
+        $request->validate([
+            'file' => 'required|array|max:8', // Memastikan setidaknya 1 dan maksimal 8 file terlampir
+            'file.*' => 'required|mimes:pdf,jpg,jpeg,png|max:8048', // Memastikan setiap file adalah file PDF dengan ukuran maksimum 8MB
+            'alasan' => 'required',
+        ], [
+            'file.required' => 'File harus diunggah.',
+            'file.array' => 'File harus diunggah.',
+            'file.max' => 'Maksimal 8 file dapat diunggah.',
+            'file.*.required' => 'Semua file harus diunggah.',
+            'file.*.mimes' => 'File harus berformat PDF, JPG, JPEG, atau PNG.',
+            'file.*.max' => 'Ukuran file maksimal 8MB.',
+            'alasan.required' => 'Alasan harus diisi.',
+        ]);
 
-    // Dapatkan user yang sedang login
-    $user = Auth::user();
+        // Dapatkan user yang sedang login
+        $user = Auth::user();
 
-    // Buat record baru di tabel pengajuan
-    $pengajuan = new Pengajuan();
-    $pengajuan->nik = $user->nik; // Nik user yang sedang login
-    $pengajuan->id_suket = $request->input('id_suket'); // ID surat keterangan yang diajukan
-    $pengajuan->deskripsi = $request->input('alasan');
-    $pengajuan->status_pengajuan = 'menunggu';
-    $pengajuan->user()->associate($user); // Menghubungkan pengajuan dengan user yang sedang login
-    $pengajuan->save();
+        // Buat record baru di tabel pengajuan
+        $pengajuan = new Pengajuan();
+        $pengajuan->nik = $user->nik; // Nik user yang sedang login
+        $pengajuan->id_suket = $request->input('id_suket'); // ID surat keterangan yang diajukan
+        $pengajuan->deskripsi = $request->input('alasan');
+        $pengajuan->status_pengajuan = 'menunggu';
+        $pengajuan->user()->associate($user); // Menghubungkan pengajuan dengan user yang sedang login
+        $pengajuan->save();
 
-    // Simpan file PDF ke tabel persyaratan
-    if ($request->hasFile('file')) {
-        foreach ($request->file('file') as $file) {
-            if ($file->isValid()) { // Memeriksa apakah file yang diunggah valid
-                $fileName = $file->getClientOriginalName();
-                $file->storeAs('pdfs', $fileName); // Simpan file di direktori 'storage/app/pdfs'
+            // Simpan file ke tabel persyaratan
+        if ($request->hasFile('file')) {
+            foreach ($request->file('file') as $file) {
+                if ($file->isValid()) { // Memeriksa apakah file yang diunggah valid
+                    $fileExtension = $file->getClientOriginalExtension(); // Mendapatkan ekstensi file asli
+                    $allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf']; // Ekstensi yang diizinkan
 
-                $persyaratan = new Persyaratan();
-                $persyaratan->id_pengajuan = $pengajuan->id;
-                $persyaratan->berkas = $fileName;
-                $persyaratan->save();
-            } else {
-                return redirect()->back()->withErrors('Ada masalah dengan salah satu file yang diunggah. Pastikan semua file adalah file PDF dengan ukuran maksimum 8MB.');
+                    if (in_array($fileExtension, $allowedExtensions)) {
+                        $fileName = $file->getClientOriginalName();
+
+                        $file->storeAs('berkas', $fileName, 'public'); // Simpan file PDF di dalam folder 'public/berkas'                          
+
+                        $persyaratan = new Persyaratan();
+                        $persyaratan->id_pengajuan = $pengajuan->id;
+                        $persyaratan->berkas = $fileName;
+                        $persyaratan->save();
+                    } else {
+                        return redirect()->back()->withErrors('Tipe file tidak diizinkan. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
+                    }
+                } else {
+                    return redirect()->back()->withErrors('Ada masalah dengan salah satu file yang diunggah. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
+                }
             }
         }
-    }
-
-    return redirect()->back()->with('success', 'Pengajuan berhasil disimpan.');
-
+        return redirect()->back()->with('success', 'Pengajuan berhasil disimpan.');
     }
 
     public function history()

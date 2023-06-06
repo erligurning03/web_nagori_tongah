@@ -24,7 +24,7 @@
                         <td>{{ $ajuan->suket->suket }}</td>
                         <td>
                             @foreach ($ajuan->persyaratan as $persyaratan)
-                                <a href="{{ asset($persyaratan->berkas) }}" download>{{ $persyaratan->berkas }}</a>
+                            <a href="{{ asset('storage/berkas/' . $persyaratan->berkas) }}" download>{{ $persyaratan->berkas }}</a>
                                 <br>
                             @endforeach
                         </td>

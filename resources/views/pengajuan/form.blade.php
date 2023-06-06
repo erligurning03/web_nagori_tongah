@@ -14,14 +14,16 @@
     <div style="max-width: 1000px; margin: 0 auto;">
         <div style="background-color: #50915671; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
             <form action="{{ !empty($suket->id) ? route('submitform', $suket->id) : '#' }}" method="POST" enctype="multipart/form-data">
+
                 @csrf
                 <div style="text-align: left; margin: 0; line-height: 1; margin-bottom: 1cm;">
                   <p style="color: rgb(255, 41, 41); font-size: 20px; font-weight: bold;">Persyaratan: {{ $suket->syarat }}</p>
-                </div>                
+                </div> 
+                <input type="hidden" name="id_suket" value="{{ $suket->id }}">               
                 <table style="width: 100%;">
                     <tr>
                         <td style="text-align: left;">
-                            <label for="file">Upload File Anda disini <a style=" font-weight: bold;">(harus dalam bentuk .pdf)</a>:</label>
+                            <label for="file">Upload File Anda disini <a style=" font-weight: bold;">(harus dalam bentuk .pdf atau file gambar)</a>:</label>
                         </td>
                         <td>
                             <input type="file" class="form-control-file" id="file" name="file[]" multiple>
@@ -46,7 +48,7 @@
                 </table>
                 <br>
                 <div style="text-align: right;">
-                  <button type="button" class="btn btn-secondary" onclick="window.history.back()" style="margin-right: 10px;">Kembali</button>
+                  <a class="btn btn-secondary" href="{{ route('dashboard') }}" style="margin-right: 10px;">Kembali</a>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
