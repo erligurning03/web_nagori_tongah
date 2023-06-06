@@ -106,9 +106,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes
 @endsection

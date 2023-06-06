@@ -146,4 +146,19 @@
     </div>
     <!-- End of Page Wrapper -->
 
+    <!-- notifikasi 3 detik alert -->
+<script>
+  // Mencari elemen notifikasi
+  const notification = document.querySelector('.alert');
+
+  // Cek apakah notifikasi ada
+  if (notification) {
+    // Setelah 3 detik, sembunyikan notifikasi
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 3000);
+  }
+</script>
+
+
 @endsection
