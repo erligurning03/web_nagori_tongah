@@ -30,7 +30,7 @@
                     <h4 class="small font-weight-bold">Nama <span class="float-right">{{ $item->user->nama_lengkap }}</span></h4>
                     <h4 class="small font-weight-bold">NIK <span class="float-right">{{ $item->user->nik }}</span></h4>
                     <h4 class="small font-weight-bold">Surat Pengajuan <span class="float-right">{{ $item->suket->suket }}</span></h4>
-                    <h4 class="small font-weight-bold" style="color:red">Status <span class="float-right">Menunggu</span></h4>
+                    <h4 class="small font-weight-bold" style="color:red">Status <span class="float-right">{{ $item->status_pengajuan }}</span></h4>
                     <br>
                     @endforeach
                 </div>
@@ -46,11 +46,14 @@
                     <h6 class="m-0 font-weight-bold text-primary">Warga</h6>
                 </div>
                 <div class="card-body">
-                <a href=""><button type="button" class="btn btn-success mb-2">LihatSelengkapnya</button></a>
-                    <h4 class="small font-weight-bold">Nama <span class="float-right">Aldi Taher</span></h4>
-                    <h4 class="small font-weight-bold">NIK <span class="float-right">1234512345123451</span></h4>
-                    <h4 class="small font-weight-bold" style="color:red">Status Akun<span class="float-right">Menunggu</span></h4>
+                
+                <a href="{{ route('validasi-user') }}"><button type="button" class="btn btn-success mb-2">LihatSelengkapnya</button></a>
+                @foreach($users as $data)
+                    <h4 class="small font-weight-bold">Nama <span class="float-right">{{ $data->nama_lengkap }}</span></h4>
+                    <h4 class="small font-weight-bold">NIK <span class="float-right">{{ $data->nik }}</span></h4>
+                    <h4 class="small font-weight-bold" style="color:red">Status Akun<span class="float-right">{{ $data->status_akun }}</span></h4>
                     <br>
+                @endforeach
                 </div>
             </div>
 

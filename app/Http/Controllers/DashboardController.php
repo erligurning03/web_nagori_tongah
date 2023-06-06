@@ -46,7 +46,8 @@ class DashboardController extends Controller
         $pengajuan = Pengajuan::orderBy('status_pengajuan', 'desc')
         ->where('status_pengajuan', 'menunggu')
         ->get();
-        return view('admin.index',  compact('pengajuan', 'persyaratan' ));
+        $users = User::where('role', 'warga')->where('status_akun', 'menunggu')->get();;
+        return view('admin.index',  compact('pengajuan', 'persyaratan', 'users' ));
     }
 
     /**
