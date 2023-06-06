@@ -20,9 +20,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-     protected $primaryKey = 'nik';
+    protected $primaryKey = 'nik';
 
-     public $incrementing = false;
+    public $incrementing = false;
 
     protected $fillable = [
         // 'nama_lengkap',

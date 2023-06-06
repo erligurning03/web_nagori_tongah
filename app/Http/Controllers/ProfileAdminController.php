@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
 
-class ProfileController extends Controller
+class ProfileAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -50,7 +50,7 @@ class ProfileController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        return view('warga.editprofile', compact('user'));
+        return view('admin.adminprofile', compact('user'));
     }
 
     /**
@@ -106,7 +106,7 @@ class ProfileController extends Controller
 
         Session::flash('success', 'Profil berhasil diubah.');
 
-        return redirect()->route('profile.edit');
+        return redirect()->route('admin.edit');
     }
 
     public function updatePassword(Request $request)
