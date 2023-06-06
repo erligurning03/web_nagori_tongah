@@ -228,7 +228,7 @@
 			</div>
 		</div>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-			<a href="#"><button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">Lihat Selengkapnya</button></a>
+			<a href="{{ route('berita.index') }}"><button class="btn btn-primary me-md-2" type="button" style="background-color:#3A655D;">Lihat Selengkapnya</button></a>
 		  </div>
 	  </div>
 </section>

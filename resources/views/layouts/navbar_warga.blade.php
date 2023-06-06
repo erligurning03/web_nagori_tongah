@@ -41,7 +41,7 @@
           <div class="dropdown-menu" aria-labelledby="layananDropdown">
             <a class="dropdown-item" href="{{ route('pengajuan') }}">Pengurusan Berkas</a>
             <a class="dropdown-item" href="{{ route('posts.index') }}">Forum Diskusi</a>
-            <a class="dropdown-item" href="#">UMKM Nagori</a>
+            <a class="dropdown-item" href="{{ route('umkm.index') }}">UMKM Nagori</a>
             <a class="dropdown-item" href="{{ route('transparasi') }}">Transparansi Dana</a>
           </div>
         </li>    
@@ -89,7 +89,7 @@
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Logout</button>
-                    </form>
+                    </form>
                 </div>
             </div>
         </div>
