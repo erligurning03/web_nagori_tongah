@@ -132,7 +132,7 @@ class UserSeeder extends Seeder
                 'telepon' => $telepon,
                 'role' => 'warga',
                 'foto_profil' => 'foto_profil.webp',
-                'status_akun' => 'terdaftar',
+                'status_akun' => 'menunggu',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);

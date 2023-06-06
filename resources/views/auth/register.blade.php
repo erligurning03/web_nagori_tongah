@@ -88,7 +88,7 @@
                         <p>Sudah punya akun?</p>
                       </div>
                       <div class="form-group">
-                        <a href="login" type="submit" class="button form-control btn btn-primary rounded submit px-3">Masuk</a>
+                        <a href="login" type="submit" class="button form-control btn btn-primary-1 rounded submit px-3">Masuk</a>
                       </div>
                       <div class="form-group d-md-flex">
                         <div class="w-50 text-left"></div>

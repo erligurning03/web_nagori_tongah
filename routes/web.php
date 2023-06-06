@@ -26,6 +26,7 @@ use App\Http\Controllers\HistoryAjuanAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostAdminController;
+use App\Http\Controllers\AdminUserController;
 
 
 /*
@@ -239,6 +240,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/report-post', [PostAdminController::class, 'report'])->name('report-post');
         Route::delete('/admin/comment/delete/{id}', [PostAdminController::class, 'deleteComment'])->name('delete.comment.admin');
         Route::delete('/admin/post/{id}', [PostAdminController::class, 'deletePost'])->name('post.delete.admin');
+
+        //Route halaman User
+        Route::get('/admin/validasi-user', [AdminUserController::class, 'index'])->name('validasi-user');
+        Route::delete('admin/tolak-user/{nik}', [AdminUserController::class, 'tolakUser'])->name('tolak-user');
+        Route::post('/admin/terima-user/{nik}', [AdminUserController::class, 'terimaUser'])->name('terima-user');
 
     });
 
