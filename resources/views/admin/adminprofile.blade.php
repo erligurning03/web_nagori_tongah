@@ -1,10 +1,5 @@
-@extends('layouts.navbar_warga')
-@section('css')
-<style>
-    .body{font-family: 'Lato'};
-</style>
-@endsection
-@section('container');
+@extends('admin.layouts.navbar')
+@section('container')
     <br>
     <div class="container">
         <div class="col-md-8 mx-auto">
@@ -12,7 +7,7 @@
                 <div class="card-header">
                     <h6 class="card-title text-capitalize">Ubah Data</h6>
                 </div>
-                <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="card-body">
@@ -68,20 +63,26 @@
                                 <br>
                                 <div class="d-flex justify-content-between">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>                                 
+                                </div> <br>
+
+                                @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+
+                                <div id="error-alert" class="alert alert-danger" style="display: none;"></div>
 
                             </div>
                         </div>
                     </div>
                 </form>
     
-                <br>
-    
                 <div class="card card-primary">
                     <div class="card-header">
                         <h6 class="card-title text-capitalize">Ubah Password</h6>
                     </div>
-                    <form action="{{route('profile.updatePassword')}}" method="post">
+                    <form action="{{route('admin.updatePassword')}}" method="post">
                         @csrf
                         <div class="card-body">
                             <div class="row">

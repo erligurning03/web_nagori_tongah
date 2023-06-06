@@ -63,7 +63,7 @@
                     </form>
                     <form action="{{ route('users.index') }}" method="GET" class="form-inline">
                         <div class="form-group">
-                            <label for="role" class="mr-2">Filter Peran:</label>
+                            <label for="role" class="mr-2">Filter Role:</label>
                             <select name="role" id="role" class="form-control">
                                 <option value="">Semua</option>
                                 <option value="operator" {{ $roleFilter === 'operator' ? 'selected' : '' }}>Operator</option>
@@ -119,15 +119,12 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
-
-                    <!-- Paginations -->
-                    <div class="pagination pagination-sm justify-content-center">
-                        {{ $users->links() }}
-                    </div>
-                    
-
-                    </div>
+                    </table> 
+                </div>
+                <!-- Paginations -->
+                <div class="pagination pagination-sm justify-content-center">
+                    {{ $users->links() }}
+                </div>
                 </div>
                                        
                 
