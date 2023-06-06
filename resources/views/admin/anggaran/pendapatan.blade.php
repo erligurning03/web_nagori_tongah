@@ -28,7 +28,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="submit" class="btn btn-secondary">Filter</button>
                         </form>
                     </div>
                 </div>

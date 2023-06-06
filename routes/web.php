@@ -17,7 +17,6 @@ use App\Models\PerangkatDesa;
 use Illuminate\Contracts\Cache\Store;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
-
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\FormPengajuanController;
 use App\Http\Controllers\SuketController;
@@ -27,6 +26,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostAdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AddUserController;
 
 
 /*
@@ -176,8 +176,25 @@ Route::get('/check-nik/{nik}', [AuthController::class, 'checknik']);
 //route setelah login
 Route::middleware(['auth'])->group(function () {
 
-    Route::group(['middleware' => 'role:admin,operator'], function () {
+    Route::group(['middleware' => 'role:admin'], function () {
         // Route yang hanya dapat diakses oleh admin
+        
+
+    });
+
+    Route::group(['middleware' => 'role:admin,operator'], function () {
+        // Route yang hanya dapat diakses oleh admin dan operator
+
+        Route::get('/users', [AddUserController::class, 'index'])->name('users.index');
+        Route::get('/users/create', [AddUserController::class, 'create'])->name('users.create');
+        Route::post('/users',  [AddUserController::class, 'store'])->name('users.store');
+        Route::get('/users/{user}/edit',  [AddUserController::class, 'edit'])->name('users.edit');
+        Route::put('/users/{user}',  [AddUserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{user}',  [AddUserController::class, 'destroy'])->name('users.destroy');
+        Route::put('/users/{user}/update-role',  [AddUserController::class, 'updateRole'])->name('users.updateRole');
+
+
+        // Route halaman dashboard
         Route::get('/dashboard-admin', [DashboardController::class, 'indexAdmin'])->name('dashboard-admin');
 
         // Route halaman CRUD pendapatan

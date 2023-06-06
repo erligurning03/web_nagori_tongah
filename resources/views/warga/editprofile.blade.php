@@ -25,7 +25,7 @@
                                     @else
                                     <div class="alert alert-warning">Belum ada foto profil. Pilih gambar untuk mengunggah.</div>
                                     @endif
-                                    <input type="file" name="foto_profil" id="foto_profil" class="form-control-file" accept=".jpg, .jpeg, .png, .gif, .img" required>
+                                    <input type="file" name="foto_profil" id="foto_profil" class="form-control-file" accept=".jpg, .jpeg, .png, .gif, .img"  required>
                                     @error('foto_profil')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                                     @enderror

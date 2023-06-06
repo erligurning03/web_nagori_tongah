@@ -59,41 +59,38 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $user = auth()->user();
-
+    
         $user->nik = $request->input('nik');
         $user->nama_lengkap = $request->input('nama_lengkap');
+        $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->telepon = $request->input('telepon');
-        // Periksa jika input password tidak kosong
-        // if (!empty($request->input('password'))) {
-        //     $user->password = bcrypt($request->input('password'));
-        // }
-
-        $request->validate([
-            'foto_profil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Hanya menerima file gambar dengan tipe yang diizinkan dan ukuran maksimum 2MB
-        ]);
-
+    
+        // Cek apakah ada file foto_profil dalam permintaan
         if ($request->hasFile('foto_profil')) {
+            $request->validate([
+                'foto_profil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Hanya menerima file gambar dengan tipe yang diizinkan dan ukuran maksimum 2MB
+            ]);
+    
             $file = $request->file('foto_profil');
-
+    
             // Validasi hanya satu file yang diizinkan
             if ($file->isValid()) {
                 $filename = $file->getClientOriginalName();
                 $file->move(public_path('img/foto_profile'), $filename);
-                $data['foto_profil'] = $filename;
+                $user->foto_profil = $filename;
             } else {
                 return redirect()->back()->withErrors(['foto_profil' => 'Inputan Anda salah. Hanya satu file gambar yang diizinkan.']);
             }
-            //$file->move(public_path('img/foto_profile'), $filename);
-
         }
-
-        $user->update($data);
-
+    
+        $user->save();
+    
         Session::flash('success', 'Profil berhasil diubah.');
-
+    
         return redirect()->route('profile.edit');
     }
+    
 
     public function updatePassword(Request $request)
     {

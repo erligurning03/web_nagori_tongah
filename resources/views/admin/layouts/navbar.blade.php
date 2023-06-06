@@ -162,7 +162,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('validasi-user') }}">Validasi Akun Warga</a>
-                        <a class="collapse-item" href="">Semua Akun</a>
+                        <a class="collapse-item" href="{{ route('users.index') }}">Semua Akun</a>
                     </div>
                 </div>
             </li>
