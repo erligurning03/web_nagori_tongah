@@ -43,6 +43,7 @@
             <a class="dropdown-item" href="{{ route('posts.index') }}">Forum Diskusi</a>
             <a class="dropdown-item" href="{{ route('umkm.index') }}">UMKM Nagori</a>
             <a class="dropdown-item" href="{{ route('transparasi') }}">Transparansi Dana</a>
+            <a class="dropdown-item" href="{{ route('galeri_dash') }}">Galeri Desa</a>
           </div>
         </li>    
         <li class="nav-item dropdown me-auto">

@@ -71,11 +71,28 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ url('/admin/perangkatdesa') }}">Daftar Perangkat Desa</a>
-                        <a class="collapse-item" href="{{ url('/admin/tambah/perangkat') }}">Tambah Perangkat Desa</a>
+                        {{-- <a class="collapse-item" href="{{ url('/admin/tambah/perangkat') }}">Tambah Perangkat Desa</a> --}}
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGaleri" aria-expanded="true" aria-controls="collapseGaleri">
+                <i class="fa-solid fa-sitemap"></i>
+                <span>Galeri
+                </span>
+            </a>
+            <div id="collapseGaleri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Pilih Aksi:</h6>
+                    <a class="collapse-item" href="{{ route('galeri_adm') }}">Galeri Desa</a>
+                </div>
+            </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnggaran" aria-expanded="true" aria-controls="collapseAnggaran">
                     <i class="fa fa-money" aria-hidden="true"></i>
@@ -84,7 +101,8 @@
                 <div id="collapseAnggaran" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
-                        <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a>
+                        <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a> 
+                        {{-- ini route nya adalah name yang ada pada web.php --}}
                         <a class="collapse-item" href="{{ route('admin.tambahpendapatan.anggaran') }}">Tambah Pendapatan</a>
                         <a class="collapse-item" href="{{ route('pengeluaran.per-tahun') }}">List Pengeluaran</a>
                         <a class="collapse-item" href="{{ route('admin.tambahpengeluaran.anggaran') }}">Tambah Pengeluaran</a>
@@ -442,11 +460,11 @@
             <script src="{{ asset('admin_assets/assets/js/demo/chart-pie-demo.js') }}"></script>
             <script src="https://kit.fontawesome.com/a87d4ae636.js" crossorigin="anonymous"></script>
 
-            <!-- Chat GPT Recommendation Why the drop down doesn't work -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Chat GPT Recommendation Why the drop down doesn't work ini yang bikin modal jalan bro-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 

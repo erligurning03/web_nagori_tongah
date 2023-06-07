@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-3 mx-auto">
+              {{-- <div class="col-sm-3 mx-auto">
 				<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
 					<div class="card text-center">
 					<img src="../img/perangkat1.png" class="card-img-top-3" alt="...">
@@ -133,21 +133,27 @@
 					</div>
 					</div>
 				</div>
-              </div>
+              </div> --}}
+			  @foreach($perangkat_desa as $data)	
+			 
               <div class="col-sm-3 mx-auto">
 				<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
 					<div class="card text-center">
-					<img src="../img/Perangkat1.png" class="card-img-top-3" alt="...">
+						{{-- <img src="../img/Perangkat1.png" class="card-img-top-3" alt="..."> --}}
+						<img src="{{asset('foto_perangkat/'.$data->foto)}}" class="card-img-top-3" alt="" style="width: 350px;">
 					<div class="card-body">
-						<h5 class="card-title">Wakil Sekretaris Desa</h5>
-						<p class="card-text">Agnes Tryani</p>
+						<h5 class="card-title">{{$data->jabatan}}</h5>
+						<p class="card-text">{{$data->nama}}</p>
 					</div>
 					</div>
 				</div>
               </div>
+			  @endforeach
 			  {{-- line baru --}}
 			  <br>
 			  <div class="row">
+				@foreach($Perangkat_desa as $key => $data)
+					
 				<div class="col-sm-3 mx-auto">
 					<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
 						<div class="card text-center">
@@ -159,7 +165,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 mx-auto">
+				@endforeach
+				{{-- <div class="col-sm-3 mx-auto">
 					<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
 						<div class="card text-center">
 							<img src="../img/Perangkat1.png" class="card-img-top-3" alt="...">
@@ -180,7 +187,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
             </div>
           </div>
 </section>

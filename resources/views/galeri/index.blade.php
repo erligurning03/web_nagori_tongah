@@ -3,9 +3,14 @@
 
 <style>
   .thumbnail {
-    margin-top: 10px;
+    /* margin-top: 10px;
     height: 250px;
     width: 250px;
+    cursor: pointer; */
+    margin-top: 10px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
     cursor: pointer;
   }
   .body{
@@ -13,9 +18,12 @@
   }
 
   .card-img-top {
-   width: 262px; /* Atur lebar gambar menjadi 100% dari container */
-  height: 280PX; Atur tinggi gambar sesuai kebutuhan 
-  object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
+   //width: 262px; /* Atur lebar gambar menjadi 100% dari container */
+  //height: 280PX; //Atur tinggi gambar sesuai kebutuhan 
+  //object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>
 @endsection
@@ -30,7 +38,8 @@
     <div class="row">
    <?php $no = 1;?>
       @foreach($galeri as $gal)
-        <div class="col-md-3 col-sm-6 d-flex justify-content-center">
+        {{-- <div class="col-md-3 col-sm-6 d-flex justify-content-center"> --}}
+          <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
           <img class="thumbnail mx-auto card-img-top" src="{{asset('foto_galeri/'.$gal->gambar)}}" alt="Gambar 1" data-toggle="modal" data-target="#modal<?php $no++?>">
         </div>
       @endforeach

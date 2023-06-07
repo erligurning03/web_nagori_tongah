@@ -79,7 +79,59 @@
 
                     </div>
                 </div>
+                    <!-- start Modal tambah -->
+                    <div id="ModalTambah" class="modal fade"  tabindex="-1" aria-labelledby="ModalTambah" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="ModalTambah">INPUT PERANGKAT DESA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/tambah_perangkat_desa" method="POST" enctype="multipart/form-data">
+                                {{-- pergi ke web.php untuk carik route ini yang bertipe post. actionnya ini adalah yang diketikkan route getnya termasuk tanda slashnya '/'--}}
+                                @csrf
+                                    <div class="mb-3">
+                                        <label for="nama" class="form-label" >Nama</label>
+                                        <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" name="nama">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="jabatan" class="form-label" >Jabatan</label>
+                                        <input type="text" class="form-control" id="jabatan" aria-describedby="emailHelp" name="jabatan">
+                                    </div>
+                                    <div class="mb-3">
+                                        {{-- <label for="periode" class="form-label" >Periode</label>
+                                        <input type="text" class="form-control" id="periode" aria-describedby="emailHelp" name="periode"> --}}
+                                        <label for="periode" class="form-label" >Periode</label>
+                                        <select name="id_periode" id="id_periode">
+                                            <option disabled value>pilih periode</option>
+                                            @foreach($periode as $value)
+                                            <option value="{{$value->id}}">{{$value->periode_mulai}}/{{$value->periode_akhir}}</option>
+                                            @endforeach
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">input gambar</label>
+                                        <input type="file" class="form-control" id="foto" name="foto">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
 
+                    {{-- end of modal --}}
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                
                     <!-- Data tabel-->
                     <div class="card-body">
@@ -87,41 +139,7 @@
                             <!-- Button trigger modal -->
                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalTambah">tambah</button>
                        </div>
-                       <!-- start Modal -->
-                       <div class="modal fade" id="ModalTambah" tabindex="-1" aria-labelledby="ModalTambah" aria-hidden="true">
-                           <div class="modal-dialog">
-                           <div class="modal-content">
-                               <div class="modal-header">
-                               <h5 class="modal-title" id="ModalTambah">INPUT GALLERY</h5>
-                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                               </div>
-                               <div class="modal-body">
-                                   <form action="galeri_admi" method="POST" enctype="multipart/form-data">
-                                     {{-- pergi ke web.php untuk carik route ini yang bertipe post--}}
-                                     @csrf
-                                       <div class="mb-3">
-                                         <label for="id" class="form-label" >id</label>
-                                         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="id">
-                                       </div>
-                                       {{-- <div class="mb-3">
-                                         <label for="tes" class="form-label" >tes</label>
-                                         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="tes">
-                                       </div> --}}
-                                       <div class="mb-3">
-                                         <label for="exampleInputPassword1" class="form-label">input gambar</label>
-                                         <input type="file" class="form-control" id="gambar" name="gambar">
-                                       </div>
-                                       <button type="submit" class="btn btn-primary">Submit</button>
-                                     </form>
-                               </div>
-                               <div class="modal-footer">
-                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                               {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                               </div>
-                           </div>
-                           </div>
-                       </div>
-                       {{-- end of modal --}}
+
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -142,9 +160,14 @@
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->jabatan }}</td>
                                         <td>{{ $data->periode->periode_mulai}}/{{ $data->periode->periode_akhir}}</td>
-                                        <td>{{ $data->foto}}</td>
+                                        {{-- <td>{{ $data->foto}}</td> --}}
                                         <td>
-                                        <form action="{{ route('pendapatan.destroy', $data->id) }}" method="POST">
+                                            <img src="{{asset('foto_perangkat/'.$data->foto)}}" alt="" style="width: 350px;">
+                                            {{-- panggil gambar dengan cara ini udah benar --}}
+                                          </td>
+                                        <td>
+                                        <form action="/perangkat_desa/{{$data->id}}" method="POST">
+                                        {{-- <form action="{{ route('.destroy', $data->id) }}" method="POST"> --}}
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" style="width:100px;" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
@@ -153,6 +176,8 @@
                                         <button type="button"  style="width:100px;" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $data->id }}">Edit</button>
                                         </td>
                                     </tr>
+
+
 
                                     <!-- Modal Edit -->
                                     <div class="modal fade" id="editModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $data->id }}Label" aria-hidden="true">
@@ -198,8 +223,15 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <!-- Pagination -->
+                            <div class="pagination pagination-sm justify-content-center">
+                                {{ $perangkat_desa->links() }}
+                            </div>
                             
-                            
+                        </div>
+                    </div>
+                                <!-- Tautan navigasi paginasi -->
+                                {{-- {{ $perangkat_desa->links() }} --}}
                             {{-- <!-- Pagination -->
                             <div class="pagination pagination-sm justify-content-center">
                                 {{ $pendapatan->links() }}
@@ -263,7 +295,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+    {{-- <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -281,7 +313,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -18,7 +18,7 @@ class PerangkatDesaSeeder extends Seeder
             'id_periode' => 2,
             'nama' => 'Gideo Manurung',
             'jabatan' => 'Kepala Desa',
-            'foto' => 'foto.jpg',
+            'foto' => 'gideon.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -39,6 +39,33 @@ class PerangkatDesaSeeder extends Seeder
             'nama' => 'Erli Gurning',
             'jabatan' => 'Bendahara Desa',
             'foto' => 'foto.jpg',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('perangkat_desa')->insert([
+            'id' => 4,
+            'id_periode' => 2,
+            'nama' => 'Gabryyelle Ninna',
+            'jabatan' => 'Sekretaris Desa',
+            'foto' => 'gaby.jpeg',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('perangkat_desa')->insert([
+            'id' => 5,
+            'id_periode' => 2,
+            'nama' => 'Putri Anisa',
+            'jabatan' => 'Kaur Pembangunan',
+            'foto' => 'putan.jpeg',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('perangkat_desa')->insert([
+            'id' => 6,
+            'id_periode' => 2,
+            'nama' => 'Agnes Tryani Simbolon',
+            'jabatan' => 'Kaur keuangan',
+            'foto' => 'agnes.jpeg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

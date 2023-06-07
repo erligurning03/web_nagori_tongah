@@ -15,14 +15,26 @@ class GaleriSeeder extends Seeder
     {
         DB::table('galeri')->insert([
             'id' => 1,
-            'gambar' => 'galeri.jpg',
+            'gambar' => 'galeri.jfif',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('galeri')->insert([
             'id' => 2,
-            'gambar' => 'galeri.jpg',
+            'gambar' => 'tanampohon.jfif',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('galeri')->insert([
+            'id' => 3,
+            'gambar' => 'galeri.jfif',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+        DB::table('galeri')->insert([
+            'id' => 4,
+            'gambar' => 'kerjabakti.jfif',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

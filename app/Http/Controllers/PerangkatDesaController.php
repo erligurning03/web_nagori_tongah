@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PerangkatDesa;
 use App\Models\Periode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PerangkatDesaController extends Controller
 {
@@ -14,7 +15,7 @@ class PerangkatDesaController extends Controller
     public function index()
     {
         //read data
-        $perangkat_desa = PerangkatDesa::with('periode')->paginate(10);
+        $perangkat_desa = PerangkatDesa::with('periode')->simplePaginate(10);
         $periode = Periode::all();
         return view('admin.perangkat_desa.index', compact('perangkat_desa','periode'));//masukkan alamat dari filenya lengkap, biar ketemu hiks
     }
@@ -33,6 +34,22 @@ class PerangkatDesaController extends Controller
     public function store(Request $request)
     {
         //
+        $perangkat = PerangkatDesa::create($request->all());
+
+        if ($request->hasFile('foto')) {
+            $gambar = $request->file('foto');
+            $gambarName = $gambar->getClientOriginalName();
+            $gambarPath = 'foto_perangkat/';
+
+            $gambar->move($gambarPath, $gambarName);
+
+            $perangkat->foto =$gambarName;//disini foto adalah field yang ditarik dari atasnya atau field pada database
+            $perangkat->save();
+        }
+        //$periode = $perangkat->id_periode;
+
+        //return redirect('/admin/perangkat_desa');//redirect ke route pada index yang diphp
+        return redirect()->back()->with('success', 'data berhasil ditambahkan'); 
     }
 
     /**
@@ -65,5 +82,7 @@ class PerangkatDesaController extends Controller
     public function destroy(string $id)
     {
         //
+        DB::table('perangkat_desa')->where('id', $id)->delete();
+        return back();
     }
 }

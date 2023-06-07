@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PerangkatDesaController;
+use App\Http\Controllers\PerangkatDesaLandingController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\PengeluaranController;
@@ -13,7 +14,7 @@ use App\Http\Controllers\UmkmBaruController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BeritaAdminController;
 use App\Http\Controllers\WisataController;
-use App\Models\PerangkatDesa;
+use App\Models\PerangkatDesa;//kok ada models ini disini bro ??? ada yang tau ??
 use Illuminate\Contracts\Cache\Store;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
@@ -157,7 +158,8 @@ use App\Http\Controllers\ProfileAdminController;
 
 //route yang semua user bisa akses  termasuk tamu tanpa akun login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
+//Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
+Route::get('/', [PerangkatDesaLandingController::class, 'index'])->name('landing');
 Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
 Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
@@ -245,8 +247,9 @@ Route::middleware(['auth'])->group(function () {
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
         Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
-        Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
-        Route::post('/admin/perangkatdesa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');
+        //Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
+        Route::post('/tambah_perangkat_desa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');//menyimpan kedatabase
+        Route::delete('/perangkat_desa/{id}',[PerangkatDesaController::class,'destroy']);
 
         //Route halaman CRUD forum diskusi
         Route::get('/admin/semua-post', [PostAdminController::class, 'index'])->name('semua-post');
@@ -316,7 +319,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-        // Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
+        //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
 //         //Route halaman pengajuan
         // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');

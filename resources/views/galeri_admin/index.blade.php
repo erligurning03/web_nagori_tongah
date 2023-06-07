@@ -24,10 +24,10 @@
                             <form action="galeri_admi" method="POST" enctype="multipart/form-data">
                               {{-- pergi ke web.php untuk carik route ini yang bertipe post--}}
                               @csrf
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                   <label for="id" class="form-label" >id</label>
                                   <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="id">
-                                </div>
+                                </div> --}}
                                 {{-- <div class="mb-3">
                                   <label for="tes" class="form-label" >tes</label>
                                   <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="tes">
