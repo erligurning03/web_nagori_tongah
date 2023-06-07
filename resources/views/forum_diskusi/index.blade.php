@@ -26,6 +26,7 @@
 </div>
 @endif
 
+
 <!-- container tengah -->
 <div class="container">
 <h1 class="text-center">Forum Diskusi</h1>
@@ -152,6 +153,7 @@
   <div class="modal-dialog modal-l">
     <div class="modal-content">
       <div class="modal-header">
+      <div id="notification1" style="text-align: center;"></div>
         <h5 class="modal-title" id="exampleModalLabel">Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="checkFormChanges()"></button>
       </div>
@@ -247,22 +249,22 @@
       var notification = document.createElement('div');
       notification.className = 'alert alert-success';
       notification.innerHTML = 'Post berhasil ditambahkan';
-      document.getElementById('notification').appendChild(notification);
+      document.getElementById('notification1').appendChild(notification);
 
       // Hapus notifikasi setelah 3 detik
       setTimeout(function() {
-        document.getElementById('notification').removeChild(notification);
+        document.getElementById('notification1').removeChild(notification);
       }, 5000);
     } else {
       // Tampilkan pesan gagal jika form tidak valid
       var notification = document.createElement('div');
       notification.className = 'alert alert-danger';
       notification.innerHTML = 'Gagal menambahkan post';
-      document.getElementById('notification').appendChild(notification);
+      document.getElementById('notification1').appendChild(notification);
 
       // Hapus notifikasi setelah 3 detik
       setTimeout(function() {
-        document.getElementById('notification').removeChild(notification);
+        document.getElementById('notification1').removeChild(notification);
       }, 5000);
     }
   });

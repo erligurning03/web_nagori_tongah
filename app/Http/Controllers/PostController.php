@@ -105,7 +105,9 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route('posts.index')->with('success', 'Post berhasil ditambahkan.');
+        // return redirect()->route('posts.index')->with('success', 'Post berhasil ditambahkan.');
+        session()->flash("post_success", "Post berhasil ditambahkan.");
+        return redirect()->back();
     }
 
 
