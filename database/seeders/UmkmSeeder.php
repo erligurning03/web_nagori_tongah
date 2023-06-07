@@ -28,7 +28,7 @@ class UmkmSeeder extends Seeder
             'id' => 1,
             'nama_usaha' => 'Rumah Makan Halak Kita',
             'alamat' => 'Jl. Arteri Raya N0. 17',
-            'gambar_produk' => 'gambar1.jpg',
+            'gambar_produk' => 'gambar2.jpg',
             'telepon' => '08234567890',
             'deskripsi' => 'Toko ini menyediakan berbagai macam kebutuhan pokok sehari-hari seperti beras, gula, minyak goreng, tepung, telur, sayuran, dan buah-buahan segar.',
             'created_at' => date('Y-m-d H:i:s'),

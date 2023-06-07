@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use App\Models\FotoBerita;
 use Illuminate\Http\Request;
 
-class BeritaController extends Controller
+class BeritaLengkapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class BeritaController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        return view('berita.index', compact('berita'));
+        return view('berita.beritalengkap', compact('beritalengkap'));
     }
 
     /**

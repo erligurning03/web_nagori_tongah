@@ -166,6 +166,7 @@ Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('
 // Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 Route::get('/umkm_landing', [UmkmController::class, 'index'])->name('umkm.index');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+Route::get('/beritalengkap', [BeritaLengkapController::class, 'index'])->name('berita.beritalengkap');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route halaman galeri
 Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri_dash');

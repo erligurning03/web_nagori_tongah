@@ -21,7 +21,7 @@
                                             @csrf
 
                                             <div class="form-group">
-                                                <label for="nik">Nomor Induk Keluarga</label>
+                                                <label for="nik">NIK</label>
                                                 <input type="text" class="form-control" id="nik" name="nik" required>
                                             </div>
                                             <div class="form-group">

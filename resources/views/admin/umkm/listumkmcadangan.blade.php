@@ -6,12 +6,12 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Berita</h1>
+                <h1 class="h3 mb-2 text-gray-800">Laporan UMKM Desa</h1>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Semua Berita</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Data UMKM Desa</h6>
                     </div>
 
                     <!-- Data -->
@@ -20,22 +20,31 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nomor Induk Keluarga</th>
-                                        <th>Jenis Berita</th>
-                                        <th>Judul</th>
-                                        <th>Isi Berita</th>
+                                        <th>NIK</th>
+                                        <th>Foto KTP</th>
+                                        <th>Pas Foto</th>
+                                        <th>Nama Usaha</th>
+                                        <th>Alamat</th>
+                                        <th>Nomor Telepon</th>
+                                        <th>Gambar Produk</th>
+                                        <th>Deskripsi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($berita as $data )
+                                    @foreach ($umkm as $data )
                                     <tr>
                                         <td>{{ $data->nik }}</td>
-                                        <td>{{ $data->jenis_berita}}</td>
-                                        <td>{{ $data->judul }}</td>
-                                        <td>{{ $data->isi_berita }}</td>>
+                                        {{-- <td>{{ $data->upload_ktp }}</td> --}}
+                                        <td ><img src="{{ asset('img/umkm/ktp/'.$data->upload_ktp) }}" style="width: 200px; object-fit: contain; "  alt="KTP" class="img-thumbnail"></td>
+                                        <td>{{ $data->pas_foto }}</td>
+                                        <td>{{ $data->nama_usaha }}</td>
+                                        <td>{{ $data->alamat }}</td>
+                                        <td>{{ $data->telepon }}</td>
+                                        <td>{{ $data->gambar_produk }}</td>
+                                        <td>{{ $data->deskripsi}}</td>
                                         <td>
-                                        <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
+                                        <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button style="width:100px;" type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</i></button>
@@ -50,32 +59,48 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="editModal{{ $data->id }}Label">Edit Berita</h5>
+                                                    <h5 class="modal-title" id="editModal{{ $data->id }}Label">Edit Data UMKM</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <!-- Form Edit -->
-                                                    <form action="{{ route('berita.update', $data->id) }}" method="POST">
+                                                    <form action="{{ route('umkm.update', $data->id) }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="PUT">
                                                         <!-- Form inputs for editing -->
                                                         <div class="form-group">
-                                                            <label for="nik">NIK:</label>
+                                                            <label for="nik">Nomor Induk Keluarga:</label>
                                                             <input type="text" name="nik" id="nik" class="form-control" value="{{ $data->nik }}">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="jenis_berita">Jenis Berita:</label>
-                                                            <input type="text" name="jenis_berita" id="jenis_berita" class="form-control" value="{{ $data->jenis_berita }}">
+                                                            <label for="upload_ktp">Upload KTP:</label>
+                                                            <input type="file" name="upload_ktp" id="upload_ktp" class="form-control" value="{{ $data->upload_ktp }}">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="judul">Judul:</label>
-                                                            <input type="text" name="judul" id="judul" class="form-control" value="{{ $data->judul }}">
+                                                            <label for="pas_foto">Pas Foto:</label>
+                                                            <input type="file" name="pas_foto" id="pas_foto" class="form-control" value="{{ $data->pas_foto }}">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="isi_berita">Isi Berita:</label>
-                                                            <input type="text" name="isi_berita" id="isi_berita" class="form-control" value="{{ $data->isi_berita }}">
+                                                            <label for="nama_usaha">Nama Usaha:</label>
+                                                            <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" value="{{ $data->nama_usaha }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="alamat">Alamat:</label>
+                                                            <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $data->alamat }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="telepon">Nomor Telepon:</label>
+                                                            <input type="text" name="telepon" id="telepon" class="form-control" value="{{ $data->telepon }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="gambar_produk">Gambar Produk:</label>
+                                                            <input type="file" name="gambar_produk" id="gambar_produk" class="form-control" value="{{ $data->gambar_produk }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="deskripsi">Deskripsi</label>
+                                                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="{{ $data->deskripsi }}">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                     </form>
@@ -90,13 +115,13 @@
                             
                             <!-- Pagination -->
                             <div class="pagination pagination-sm justify-content-center">
-                                {{ $berita->links() }}
+                                {{ $umkm->links() }}
                             </div>
                             
                         </div>
                     </div>
 
-                <button onclick="window.location.href='{{ route('admin.tambahberita.berita') }}'" class="btn btn-primary">Tambahkan Berita</button>
+                <button onclick="window.location.href='{{ route('admin.tambahumkm.umkm') }}'" class="btn btn-primary">Tambah UMKM</button>
 
             </div>
 

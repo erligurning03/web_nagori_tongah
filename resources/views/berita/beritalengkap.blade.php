@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berita Lengkap</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
+@extends('layouts.navbar_warga')
+@section('css')
+<style>
     .card-img-top {
       max-height: 500px;
       object-fit: cover;
     }
-  </style>
-</head>
+</style>
+@endsection
+@section('container')
+    <h1 class="text-center"></h1>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #C6C6C6;
+  {{-- <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #C6C6C6;
     ";>
         <!-- atau bisa pake bg-primary -->
         <div class="container">
@@ -59,7 +57,7 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> --}}
       <!-- end of navbar -->
   <div class="container mt-5">
     <div class="row">
@@ -88,4 +86,4 @@
   <script src="js/main.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+@endsection

@@ -1,6 +1,6 @@
-<!doctype html>
-<html>
-    <head>
+@extends('layouts.navbar')
+@section('content')
+
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Berita</title>
@@ -9,13 +9,11 @@
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
             <link rel="stylesheet" href="css/bootstrap.min.css">
-            <link rel="stylesheet" href="css/owl.carousel.min.css">
-            <link rel="stylesheet" href="css/ticker-style.css">
             <link rel="stylesheet" href="css/flaticon.css">
-            <link rel="stylesheet" href="css/animate.min.css">
+            {{-- <link rel="stylesheet" href="css/animate.min.css"> --}}
             <link rel="stylesheet" href="css/magnific-popup.css">
             <link rel="stylesheet" href="css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="css/themify-icons.css">
+            {{-- <link rel="stylesheet" href="css/themify-icons.css"> --}}
             <link rel="stylesheet" href="css/style.css">
    </head>
 
@@ -24,7 +22,7 @@
       <div class="container">
           <div class="trending-main">
               <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 mb-5">
                       <div class="trending-tittle">
                           <strong>Berita Terkini</strong>
                       </div>
@@ -48,33 +46,33 @@
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                      <img src="img/berita/berita2.jpg" alt="">
+                                      <img src="img_berita/berita1.png" alt="">
                                   </div>
                                   <div class="trend-bottom-cap">
-                                      <span class="color1">Lifestyple</span>
-                                      <h4><a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a></h4>
+                                      <span class="color4">Diunggah 12 maret 2022</span>
+                                      <h4><a href="#"> Bantuan Program Keluarga Harapan (PKH)</a></h4>
                                   </div>
                               </div>
                               </div>
                               <div class="col-lg-4">
                                   <div class="single-bottom mb-35">
                                       <div class="trend-bottom-img mb-30">
-                                          <img src="img/berita/berita3.jpg" alt="">
+                                          <img src="img_berita/blt.png" alt="">
                                       </div>
                                       <div class="trend-bottom-cap">
-                                          <span class="color2">Sports</span>
-                                          <h4><h4><a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a></h4></h4>
+                                          <span class="color4">Diunggah 30 november 2022</span>
+                                          <h4><h4><a href="#"> BLT Dana Desa Mulai Diberikan April 2023 Hingga Juni 2023</a></h4></h4>
                                       </div>
                                   </div>
                               </div>
                               <div class="col-lg-4">
                                   <div class="single-bottom mb-35">
                                       <div class="trend-bottom-img mb-30">
-                                          <img src="img/berita/berita4.jpg" alt="">
+                                          <img src="img_berita/fesbud.png" alt="">
                                       </div>
                                       <div class="trend-bottom-cap">
-                                          <span class="color3">Travels</span>
-                                          <h4><a href="details.html"> Welcome To The Best Model Winner Contest</a></h4>
+                                          <span class="color4">Diunggah 30 mei 2023</span>
+                                          <h4><a href="#"> Pesona Budaya Batak Toba Lewat Desa Nagori NagoriTongah</a></h4>
                                       </div>
                                   </div>
                               </div>
@@ -83,49 +81,43 @@
                   </div>
                   <!-- Riht content -->
                   <div class="col-lg-4">
+                        <div class="trending-tittle">
+                            <strong>Hoax</strong>
+                        </div>
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="img/berita/right1.jpg" alt="">
+                              <img src="img_berita/hoax1.png" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
-                              <span class="color1">Concert</span>
-                              <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                              <span class="color4">Diunggah 12 mei 2023</span>
+                              <h4><a href="details.html">Telah terjadi pencurian 1 unit motor</a></h4>
                           </div>
                       </div>
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="img/berita/right2.jpg" alt="">
+                            <img src="img_berita/hoax2.png" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
-                              <span class="color3">sea beach</span>
-                              <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                              <span class="color4">Diunggah 29 januari 2023</span>
+                              <h4><a href="details.html">Kekerasan dalam rumah tangga kembali terjadi di desa nagori</a></h4>
                           </div>
                       </div>
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="img/berita/right3.jpg" alt="">
+                            <img src="img_berita/hoax3.png" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
-                              <span class="color2">Bike Show</span>
-                              <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                              <span class="color4">Diunggah 02 maret 2023</span>
+                              <h4><a href="details.html">Longsor yang terjadi di desa Nagori NagoriTongah memakan korban</a></h4>
                           </div>
                       </div> 
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="img/berita/right4.jpg" alt="">
+                            <img src="img_berita/hoax4.png" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
-                              <span class="color4">See beach</span>
-                              <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                          </div>
-                      </div>
-                      <div class="trand-right-single d-flex">
-                          <div class="trand-right-img">
-                              <img src="img/berita/right5.jpg" alt="">
-                          </div>
-                          <div class="trand-right-cap">
-                              <span class="color1">Skeping</span>
-                              <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                              <span class="color4">Diunggah 15 april 2023</span>
+                              <h4><a href="details.html">Gempa 7,6 SR Mengguncang Desa Nagori NagoriTongah Sumatera Utara</a></h4>
                           </div>
                       </div>
                   </div>
@@ -151,4 +143,5 @@
       <script src="./js/main.js"></script>
       
   </body>
-</html>
+@endsection
+  
