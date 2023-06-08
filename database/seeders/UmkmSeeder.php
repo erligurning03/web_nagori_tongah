@@ -36,7 +36,7 @@ class UmkmSeeder extends Seeder
             'nama_usaha' => 'Rumah Makan Halak Kita',
             'alamat' => 'Jl. Harmoni',
             'telepon' => '08234567890',
-            'gambar_produk' => 'gambar2.jpg',
+            'gambar_produk' => 'umkm2.png',
             'deskripsi' => 'Toko ini menyediakan berbagai macam kebutuhan pokok sehari-hari seperti beras, gula, minyak goreng, tepung, telur, sayuran, dan buah-buahan segar.',
             'status_validasi' => 'menunggu',
             'created_at' => date('Y-m-d H:i:s'),
