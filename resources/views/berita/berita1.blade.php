@@ -1,6 +1,6 @@
 @extends('layouts.navbar_warga')
 @section('css')
-        <link rel="manifest" href="site.webmanifest">
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
 		<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
             <link rel="stylesheet" href="css/bootstrap.min.css">
             <link rel="stylesheet" href="css/flaticon.css">
@@ -38,11 +38,11 @@
                       
                       <div class="trending-bottom">
                           <div class="row">
-                            @foreach($berita as $data)
+                            <!-- @foreach($berita as $data)
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                    <img src="{{ asset('img_berita/' . $data->foto) }}" style="width: 200px; object-fit: contain; "  alt="" class="img-thumbnail">
+                                    <img src="{{asset('img_berita/'.$data->foto)}}" style="width: 200px; object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
                                   </div>
                 
                                     
@@ -54,8 +54,7 @@
         
                               </div>
                               </div>
-                              @endforeach
-                              {{-- </div>
+                              @endforeach -->
                               <div class="col-lg-4">
                                   <div class="single-bottom mb-35">
                                       <div class="trend-bottom-img mb-30">
@@ -77,7 +76,7 @@
                                           <h4><a href="#"> Pesona Budaya Batak Toba Lewat Desa Nagori NagoriTongah</a></h4>
                                       </div>
                                   </div>
-                              </div> --}}
+                              </div>
                           </div>
                       </div>
                   </div>

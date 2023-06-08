@@ -16,7 +16,7 @@ class FotoBeritaSeeder extends Seeder
         DB::table('foto_berita')->insert([
             'id' => 1,
             'id_berita' => 1,
-            'foto' => 'bansos.jpg',
+            'foto' => 'berita1.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -24,7 +24,7 @@ class FotoBeritaSeeder extends Seeder
         DB::table('foto_berita')->insert([
             'id' => 2,
             'id_berita' => 2,
-            'foto' => 'berita.jpg',
+            'foto' => 'blt.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -32,7 +32,7 @@ class FotoBeritaSeeder extends Seeder
         DB::table('foto_berita')->insert([
             'id' => 3,
             'id_berita' => 3,
-            'foto' => 'bansos.jpg',
+            'foto' => 'fesbud.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
