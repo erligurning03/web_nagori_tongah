@@ -1,15 +1,13 @@
 @extends('layouts.navbar_warga')
 @section('css')
-
-
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
             <link rel="stylesheet" href="css/bootstrap.min.css">
             <link rel="stylesheet" href="css/flaticon.css">
             {{-- <link rel="stylesheet" href="css/animate.min.css"> --}}
             <link rel="stylesheet" href="css/magnific-popup.css">
             <link rel="stylesheet" href="css/fontawesome-all.min.css">
-            {{-- <link rel="stylesheet" href="css/themify-icons.css"> --}}
+            {{-- <link rel="stylesheet" href="css/themify-icons.css"> --}} -->
             <link rel="stylesheet" href="css/style.css">
 @endsection
 @section('container')

@@ -18,9 +18,9 @@
   }
 
   .card-img-top {
-   //width: 262px; /* Atur lebar gambar menjadi 100% dari container */
-  //height: 280PX; //Atur tinggi gambar sesuai kebutuhan 
-  //object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
+    width: 262px; /* Atur lebar gambar menjadi 100% dari container */
+    height: 280PX;  /*Atur tinggi gambar sesuai kebutuhan */
+    object-fit: cover; /* Memaksa gambar sesuai dengan ukuran yang ditentukan dan menjaga aspek rasio */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -71,9 +71,9 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 @endsection
 
