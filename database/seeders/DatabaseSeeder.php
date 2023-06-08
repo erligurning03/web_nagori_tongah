@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
             SuketSeeder::class,
             PengajuanSeeder::class,
             PersyaratanSeeder::class,
-            LaporPostSeeder::class
+            LaporPostSeeder::class,
+            UmkmSeeder::class
         ]);
     }
 }
