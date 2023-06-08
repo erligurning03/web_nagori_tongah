@@ -13,7 +13,7 @@ class PerangkatDesaLandingController extends Controller
      */
     public function index()
     {
-        $perangkat_desa = PerangkatDesa::with('periode');//->simplePaginate(10);
+        $perangkat_desa = PerangkatDesa::all();//->simplePaginate(10);
         $periode = Periode::all();
         return view('landing_page.landing', compact('perangkat_desa','periode'));//masukkan alamat dari filenya lengkap, biar ketemu hiks
     }

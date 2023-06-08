@@ -40,27 +40,27 @@
       @foreach($galeri as $gal)
         {{-- <div class="col-md-3 col-sm-6 d-flex justify-content-center"> --}}
           <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-          <img class="thumbnail mx-auto card-img-top" src="{{asset('foto_galeri/'.$gal->gambar)}}" alt="Gambar 1" data-toggle="modal" data-target="#modal<?php $no++?>">
+          <img class="thumbnail mx-auto card-img-top" src="{{asset('foto_galeri/'.$gal->gambar)}}" alt="Gambar 1" data-toggle="modal" data-target="#modal{{$gal->id}}">
         </div>
       @endforeach
     </div>
   </div>
 
-    <?php $noo = 1;?>
+    
   
    @foreach($galeri as $gal)
   <!-- Modal 1 -->
-  <div class="modal fade" id="modal<?php $noo++?>" tabindex="-1" role="dialog" aria-labelledby="modal.<?php $noo++?>.Label" aria-hidden="true">
+  <div class="modal fade" id="modal{{$gal->id}}" tabindex="-1" role="dialog" aria-labelledby="#modal{{$gal->id}}Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal.<?php $no++?>.Label">Gambar <?php $no++?></h5>
+          <h5 class="modal-title" id="#modal{{$gal->id}}Label">Gambar <?php $no++?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <img src="{{asset('foto_galeri/'.$gal->gambar)}}" alt="Gambar <?php $noo++?>" style="width: 100%;">
+          <img src="{{asset('foto_galeri/'.$gal->gambar)}}" alt="#modal{{$gal->id}}" style="width: 100%;">
         </div>
       </div>
     </div>

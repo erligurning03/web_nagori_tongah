@@ -18,7 +18,7 @@ class PerangkatDesaSeeder extends Seeder
             'id_periode' => 2,
             'nama' => 'Gideo Manurung',
             'jabatan' => 'Kepala Desa',
-            'foto' => 'gideon.jpg',
+            'foto' => 'gideon.jpeg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -28,7 +28,7 @@ class PerangkatDesaSeeder extends Seeder
             'id_periode' => 2,
             'nama' => 'Putrija Malau',
             'jabatan' => 'Sekretaris Desa',
-            'foto' => 'foto.jpg',
+            'foto' => 'putrija.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -38,7 +38,7 @@ class PerangkatDesaSeeder extends Seeder
             'id_periode' => 2,
             'nama' => 'Erli Gurning',
             'jabatan' => 'Bendahara Desa',
-            'foto' => 'foto.jpg',
+            'foto' => 'erli.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

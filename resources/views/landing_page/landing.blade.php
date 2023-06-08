@@ -99,7 +99,7 @@
 	 <div class="container2">
             <div class="row">
               <h1><b>STRUKTUR PERANGKAT DESA</b></h1>
-              <div class="col-sm-3 mx-auto">
+              {{-- <div class="col-sm-3 mx-auto">
                 <div class="card text-center">
 					<div class="box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                   		<img src="../img/gideon.jpg" class="card-img-top-3" alt="...">
@@ -109,7 +109,7 @@
                     <p class="card-text">Gideon Manurung</p>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
             <div class="row">
               {{-- <div class="col-sm-3 mx-auto">
@@ -134,7 +134,9 @@
 					</div>
 				</div>
               </div> --}}
+
 			  @foreach($perangkat_desa as $data)	
+			  
 			 
               <div class="col-sm-3 mx-auto">
 				<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
@@ -150,9 +152,9 @@
               </div>
 			  @endforeach
 			  {{-- line baru --}}
-			  <br>
+			  {{-- <br>
 			  <div class="row">
-				@foreach($Perangkat_desa as $key => $data)
+				@foreach($perangkat_desa as $key => $data)
 					
 				<div class="col-sm-3 mx-auto">
 					<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
@@ -165,7 +167,7 @@
 						</div>
 					</div>
 				</div>
-				@endforeach
+				@endforeach --}}
 				{{-- <div class="col-sm-3 mx-auto">
 					<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
 						<div class="card text-center">
