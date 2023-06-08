@@ -36,6 +36,10 @@
                                                 <label for="isi_berita">Isi Berita</label>
                                                 <input type="text" class="form-control" id="isi_berita" name="isi_berita" required>
                                             </div>
+                                            {{-- <div class="form-group">
+                                                <label for="foto">Gambar:</label>
+                                                <input type="text" name="foto" id="foto" class="form-control" value="{{ $data->foto }}">
+                                            </div> --}}
 
                                             <button type="submit" class="btn btn-primary float-right" >Tambah</button>
                                         </form>

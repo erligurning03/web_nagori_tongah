@@ -35,11 +35,11 @@
                                         <td>{{ $data->jenis_berita}}</td>
                                         <td>{{ $data->judul }}</td>
                                         <td>{{ $data->isi_berita }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @foreach ($data->foto_berita as $foto)
-                                            <img src="{{ asset('img_berita/'.$foto->foto_berita) }}" style="height: 200px; object-fit: contain; "  alt="foto" class="img-thumbnail">
+                                            <img src="{{ asset('img_berita/'.$foto->foto) }}" style="height: 200px; object-fit: contain; "  alt="foto" class="img-thumbnail">
                                             @endforeach
-                                        </td>
+                                        </td> --}}
                                         <td>
                                         <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
                                             @csrf
@@ -83,6 +83,10 @@
                                                             <label for="isi_berita">Isi Berita:</label>
                                                             <input type="text" name="isi_berita" id="isi_berita" class="form-control" value="{{ $data->isi_berita }}">
                                                         </div>
+                                                        {{-- <div class="form-group">
+                                                            <label for="isi_berita">Gambar:</label>
+                                                            <input type="text" name="foto_berita" id="foto_berita" class="form-control" value="{{ $data->foto_berita }}">
+                                                        </div> --}}
                                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                     </form>
                                                 </div>

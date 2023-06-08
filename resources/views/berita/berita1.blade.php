@@ -38,17 +38,24 @@
                       
                       <div class="trending-bottom">
                           <div class="row">
+                            @foreach($berita as $data)
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                      <img src="img_berita/berita1.png" alt="">
+                                    <img src="{{ asset('img_berita/' . $data->foto) }}" style="width: 200px; object-fit: contain; "  alt="" class="img-thumbnail">
                                   </div>
+                
+                                    
                                   <div class="trend-bottom-cap">
-                                      <span class="color4">Diunggah 12 maret 2022</span>
-                                      <h4><a href="#"> Bantuan Program Keluarga Harapan (PKH)</a></h4>
+                                      <span class="color4">{{ $data->created_at }}</span>
+                                      <h4><a href="#"> {{ $data->judul }}</a></h4>
+                                      <p>{{ $data->isi_berita }}</p>
                                   </div>
+        
                               </div>
                               </div>
+                              @endforeach
+                              {{-- </div>
                               <div class="col-lg-4">
                                   <div class="single-bottom mb-35">
                                       <div class="trend-bottom-img mb-30">
@@ -70,7 +77,7 @@
                                           <h4><a href="#"> Pesona Budaya Batak Toba Lewat Desa Nagori NagoriTongah</a></h4>
                                       </div>
                                   </div>
-                              </div>
+                              </div> --}}
                           </div>
                       </div>
                   </div>
