@@ -28,7 +28,7 @@ class PerangkatDesaSeeder extends Seeder
             'id_periode' => 2,
             'nama' => 'Putrija Malau',
             'jabatan' => 'Sekretaris Desa',
-            'foto' => 'putrija.jpg',
+            'foto' => 'putrija_1.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

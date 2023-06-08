@@ -48,7 +48,7 @@ class PengeluaranSeeder extends Seeder
             'bidang' => 'Bidang Pelaksanaan Pembangunan Nagori',
             'keterangan' => 'PMT',
             'jumlah' => 505589000,
-            'tahun' => 2022,
+            'tahun' => 2023,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -58,7 +58,7 @@ class PengeluaranSeeder extends Seeder
             'bidang' => 'Bidang Pelaksanaan Pembangunan Nagori',
             'keterangan' => 'Insetif Kader Posyandu',
             'jumlah' => 805589000,
-            'tahun' => 2022,
+            'tahun' => 2023,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -68,7 +68,7 @@ class PengeluaranSeeder extends Seeder
             'bidang' => 'Bidang Pembinaan Kemasyarakatan Nagori',
             'keterangan' => 'Insetif Kader Posyandu',
             'jumlah' => 505589000,
-            'tahun' => 2022,
+            'tahun' => 2023,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

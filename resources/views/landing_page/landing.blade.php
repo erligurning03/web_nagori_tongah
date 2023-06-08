@@ -98,7 +98,7 @@
 <section id="perangkat">
 	 <div class="container2">
             <div class="row">
-              <h1><b>STRUKTUR PERANGKAT DESA</b></h1>
+              <h1 style="color:white;"><b>STRUKTUR PERANGKAT DESA</b></h1>
               {{-- <div class="col-sm-3 mx-auto">
                 <div class="card text-center">
 					<div class="box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
@@ -142,7 +142,7 @@
 				<div class="box" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
 					<div class="card text-center">
 						{{-- <img src="../img/Perangkat1.png" class="card-img-top-3" alt="..."> --}}
-						<img src="{{asset('foto_perangkat/'.$data->foto)}}" class="card-img-top-3" alt="" style="width: 350px;">
+						<img src="{{asset('foto_perangkat/'.$data->foto)}}" class="card-img-top-3" alt="" style="height: 350px; object-fit: contain;">
 					<div class="card-body">
 						<h5 class="card-title">{{$data->jabatan}}</h5>
 						<p class="card-text">{{$data->nama}}</p>
