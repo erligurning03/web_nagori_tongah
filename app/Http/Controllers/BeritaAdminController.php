@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Berita;
 use App\Models\FotoBerita;
@@ -30,21 +30,50 @@ class BeritaAdminController extends Controller
      */
     public function store(Request $request)
     {
-        try {
         
         $validatedData = $request->validate([
             'nik' => 'required',
             'jenis_berita' => 'required',
             'judul' => 'required',
             'isi_berita' => 'required',
+            'foto' => 'required|mimes:pdf,jpg,jpeg,png|max:8048',
         ]);
 
-        Berita::create($validatedData);
-     } catch (\Exception $e) {
-        dd($e->getMessage());
-    }
+        $user = Auth::user();
 
-        return redirect('/admin/semuaberita')->with('success', 'Berita berhasil ditambahkan');
+        $berita = new Berita();
+        $berita->nik = $user->nik; 
+        $berita->jenis_berita = $request->input('jenis_berita'); 
+        $berita->judul = $request->input('judul'); 
+        $berita->isi_berita = $request->input('isi_berita');
+        $berita->user()->associate($user); 
+        $berita->save();
+
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $foto) {
+                if ($foto->isValid()) { // Memeriksa apakah foto yang diunggah valid
+                    $fileExtension = $foto->getClientOriginalExtension(); // Mendapatkan ekstensi file asli
+                    $allowedExtensions = ['jpg', 'jpeg', 'png']; // Ekstensi yang diizinkan
+
+                    if (in_array($fileExtension, $allowedExtensions)) {
+                        $fileName = $foto->getClientOriginalName();
+
+                        $foto->storeAs('img_berita', $fileName, 'public'); 
+                        $foto_berita = new FotoBerita();
+                        $foto_berita->id_berita = $berita->id;
+                        $foto_berita->foto_berita = $fileName;
+                        $foto_berita->save();
+                    } else {
+                        return redirect()->back()->withErrors('Tipe file tidak diizinkan. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
+                    }
+                } else {
+                    return redirect()->back()->withErrors('Ada masalah dengan salah satu file yang diunggah. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
+                }
+            }
+        }
+        return redirect()->back()->with('success', 'Pengajuan berhasil disimpan.');
+
+
     }
 
     /**

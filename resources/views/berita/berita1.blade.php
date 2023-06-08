@@ -1,11 +1,7 @@
-@extends('layouts.navbar')
-@section('content')
+@extends('layouts.navbar_warga')
+@section('css')
 
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Berita</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
             <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -15,15 +11,14 @@
             <link rel="stylesheet" href="css/fontawesome-all.min.css">
             {{-- <link rel="stylesheet" href="css/themify-icons.css"> --}}
             <link rel="stylesheet" href="css/style.css">
-   </head>
-
-   <body>
+@endsection
+@section('container')
 
     <div class="trending-area fix">
       <div class="container">
           <div class="trending-main">
               <div class="row">
-                  <div class="col-lg-12 mb-5">
+                  <div class="col-lg-12">
                       <div class="trending-tittle">
                           <strong>Berita Terkini</strong>
                       </div>
@@ -82,7 +77,7 @@
                       </div>
                   </div>
                   <!-- Riht content -->
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 mb-1">
                         <div class="trending-tittle">
                             <strong>Hoax</strong>
                         </div>
@@ -144,6 +139,6 @@
       <script src="./js/plugins.js"></script>
       <script src="./js/main.js"></script>
       
-  </body>
+
 @endsection
   

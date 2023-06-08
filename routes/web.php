@@ -13,6 +13,7 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UmkmBaruController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BeritaAdminController;
+use App\Http\Controllers\BeritaWargaController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;//kok ada models ini disini bro ??? ada yang tau ??
 use Illuminate\Contracts\Cache\Store;
@@ -304,7 +305,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
-        
+         //Route halaman berita
+         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
 
     });
 

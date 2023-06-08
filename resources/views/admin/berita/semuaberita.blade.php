@@ -20,10 +20,11 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nomor Induk Keluarga</th>
+                                        <th>NIK</th>
                                         <th>Jenis Berita</th>
                                         <th>Judul</th>
                                         <th>Isi Berita</th>
+                                        <th>Gambar Berita</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -33,7 +34,12 @@
                                         <td>{{ $data->nik }}</td>
                                         <td>{{ $data->jenis_berita}}</td>
                                         <td>{{ $data->judul }}</td>
-                                        <td>{{ $data->isi_berita }}</td>>
+                                        <td>{{ $data->isi_berita }}</td>
+                                        <td>
+                                            @foreach ($data->foto_berita as $foto)
+                                            <img src="{{ asset('img_berita/'.$foto->foto_berita) }}" style="height: 200px; object-fit: contain; "  alt="foto" class="img-thumbnail">
+                                            @endforeach
+                                        </td>
                                         <td>
                                         <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
                                             @csrf

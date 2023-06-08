@@ -60,7 +60,7 @@
                                 <img src="{{ asset('img_berita/'.$latestPhotoBerita->foto) }}" alt="Gambar" style="height: 130px; object-fit: contain;">
                                 @endif
                                 <p class="card-text">{{ $latestBerita->judul }}</p>
-                                <a href="#" class="btn btn-primary">Lihat Selengkapnya</a>
+                                <a href="{{ route('berita.berita1') }}" class="btn btn-primary">Lihat Selengkapnya</a>
                             </div>
                         </div>
                     </div>
