@@ -76,7 +76,12 @@
                     </form>
                 </div>
 
-
+                <!-- Cetak PDF -->                
+                <div class="card">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{{ route('users.cetak_pdf') }}">CETAK DATA</a>
+                    </div>
+                </div>     
                     
                 <!-- Data -->
                 <div class="card-body">

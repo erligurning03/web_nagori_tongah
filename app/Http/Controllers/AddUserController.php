@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use PDF;
 
 class AddUserController extends Controller
 {
@@ -36,6 +37,16 @@ class AddUserController extends Controller
         }
     }    
         
+    public function cetak_pdf()
+    {
+        $admins = User::where('role', 'admin')->get();
+        $operators = User::where('role', 'operator')->get();
+        $wargas = User::where('role', 'warga')->get();
+
+        $pdf = PDF::loadView('admin.kelola_user.userpdf', compact('admins', 'operators', 'wargas'));
+        return $pdf->download('ListUser.pdf');
+    }
+
         public function create(User $user)
     {
 

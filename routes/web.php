@@ -195,6 +195,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/users/{user}',  [AddUserController::class, 'update'])->name('users.update');
         Route::delete('/users/{user}',  [AddUserController::class, 'destroy'])->name('users.destroy');
         Route::put('/users/{user}/update-role',  [AddUserController::class, 'updateRole'])->name('users.updateRole');
+        Route::get('/users/cetak_pdf', [AddUserController::class, 'cetak_pdf'])->name('users.cetak_pdf');
 
         // Route halaman dashboard
         Route::get('/dashboard-admin', [DashboardController::class, 'indexAdmin'])->name('dashboard-admin');
