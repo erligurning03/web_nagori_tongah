@@ -15,7 +15,11 @@
                     </div>
 
                     <!-- Filter -->
-
+                    @if(session('success'))
+							<div class="alert alert-success">
+								{{ session('success') }}
+							</div>
+					@endif
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('pendapatan.filter') }}" method="GET">

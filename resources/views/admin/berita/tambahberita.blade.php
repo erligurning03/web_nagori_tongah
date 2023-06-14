@@ -17,7 +17,7 @@
                         <div class="row justify-content-center">
 
                                     <div class="card-body">
-                                        <form action="{{ route('berita.store') }}" method="POST">
+                                        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
 
                                             <div class="form-group">
@@ -25,8 +25,11 @@
                                                 <input type="text" class="form-control" id="nik" name="nik" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="jenis_berita">Jenis Berita</label>
-                                                <input type="text" class="form-control" id="jenis_berita" name="jenis_berita" required>
+                                                <label for="sumber">Jenis Berita</label>
+                                                <select class="form-control" id="sumber" name="jenis_berita" required>
+                                                    <option value="berita">Berita</option>
+                                                    <option value="hoax">Hoax</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
@@ -36,10 +39,15 @@
                                                 <label for="isi_berita">Isi Berita</label>
                                                 <input type="text" class="form-control" id="isi_berita" name="isi_berita" required>
                                             </div>
-                                            {{-- <div class="form-group">
+
+                                        
+                                            <div class="form-group">
                                                 <label for="foto">Gambar:</label>
-                                                <input type="text" name="foto" id="foto" class="form-control" value="{{ $data->foto }}">
-                                            </div> --}}
+                                                <input type="file" name="image" id="foto" class="form-control">
+                                                @error('image')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
 
                                             <button type="submit" class="btn btn-primary float-right" >Tambah</button>
                                         </form>

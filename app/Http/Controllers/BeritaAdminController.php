@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Berita;
 use App\Models\FotoBerita;
+use App\Models\FotoPost;
+use Illuminate\Support\Facades\DB;
 
 class BeritaAdminController extends Controller
 {
@@ -29,25 +31,33 @@ class BeritaAdminController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
+    {        
         $validatedData = $request->validate([
             'nik' => 'required',
             'jenis_berita' => 'required',
             'judul' => 'required',
             'isi_berita' => 'required',
-            // 'foto' => 'required|mimes:pdf,jpg,jpeg,png|max:8048',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
+        
+
         $user = Auth::user();
+        
+        $name = $request->file('image')->getClientOriginalName();
+        $request->file('image')->store('public/img_berita');
+        $path = $request->file('image')->store('img_berita');
 
         $berita = new Berita();
         $berita->nik = $user->nik; 
         $berita->jenis_berita = $request->input('jenis_berita'); 
         $berita->judul = $request->input('judul'); 
         $berita->isi_berita = $request->input('isi_berita');
+        $berita->namaGambar = $name;
+        $berita->alamatGambar = $path;
         $berita->user()->associate($user); 
         $berita->save();
+
 
         // if ($request->hasFile('foto')) {
         //     foreach ($request->file('foto') as $foto) {
@@ -71,7 +81,7 @@ class BeritaAdminController extends Controller
         //         }
         //     }
         // }
-        return redirect()->back()->with('success', 'Berita berhasil disimpan.');
+        return redirect('/admin/semuaberita')->with('success', 'Berita berhasil disimpan.');
 
 
     }
@@ -103,14 +113,20 @@ class BeritaAdminController extends Controller
         $berita->judul = $request->judul;
         $berita->isi_berita = $request->isi_berita;
         $berita->save();
-        return redirect()->back()->with('success', 'Berita berhasil diperbarui');
+        return redirect('/admin/semuaberita')->with('success', 'Berita berhasil diperbarui');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
+        DB::table('foto_berita')
+        ->where('id_berita', '=', $id)
+        ->delete();
+        DB::table('komentar_berita')
+        ->where('id_berita', '=', $id)
+        ->delete();
         $berita = Berita::findOrFail($id);
         $berita->delete();
         return redirect()->back()->with('success', 'Berita berhasil dihapus');

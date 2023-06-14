@@ -13,6 +13,6 @@ class FotoBerita extends Model
 
     public function berita()
     {
-        return $this->belongsTo(Berita::class, 'id_berita');
+        // return $this->belongsTo(Berita::class, 'id_berita');
     }
 }

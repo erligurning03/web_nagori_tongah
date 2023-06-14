@@ -56,8 +56,8 @@
                         <div class="card mb-4" style="height:280px">
                             <div class="card-body">
                                 <h5 class="card-title">Berita Terbaru</h5>
-                                @if ($latestPhotoBerita)
-                                <img src="{{ asset('img_berita/'.$latestPhotoBerita->foto) }}" alt="Gambar" style="height: 130px; object-fit: contain;">
+                                @if ($latestBerita)
+                                <img src="{{ asset('img_berita/'.$latestBerita->namaGambar) }}" alt="Gambar" style="height: 130px; object-fit: contain;">
                                 @endif
                                 <p class="card-text">{{ $latestBerita->judul }}</p>
                                 <a href="{{ route('berita.berita1') }}" class="btn btn-primary">Lihat Selengkapnya</a>

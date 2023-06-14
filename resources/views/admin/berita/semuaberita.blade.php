@@ -13,7 +13,11 @@
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Semua Berita</h6>
                     </div>
-
+                    @if(session('success'))
+							<div class="alert alert-success">
+								{{ session('success') }}
+							</div>
+					@endif
                     <!-- Data -->
                     <div class="card-body">
                         <div class="table-responsive">
@@ -35,11 +39,7 @@
                                         <td>{{ $data->jenis_berita}}</td>
                                         <td>{{ $data->judul }}</td>
                                         <td>{{ $data->isi_berita }}</td>
-                                        {{-- <td>
-                                            @foreach ($data->foto_berita as $foto)
-                                            <img src="{{ asset('img_berita/'.$foto->foto) }}" style="height: 200px; object-fit: contain; "  alt="foto" class="img-thumbnail">
-                                            @endforeach
-                                        </td> --}}
+                                        <td><img style="width: 300px" src="{{asset('/storage/'.$data->alamatGambar)}}" alt="Gambar00"></td>
                                         <td>
                                         <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
                                             @csrf
