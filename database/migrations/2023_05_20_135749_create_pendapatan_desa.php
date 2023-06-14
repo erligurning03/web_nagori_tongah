@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pendapatan_desa', function (Blueprint $table) {
             $table->id();
             $table->string('sumber');
-            $table->integer('jumlah');
+            $table->decimal('jumlah', 32, 0);
             $table->integer('tahun');
             $table->timestamps();
         });

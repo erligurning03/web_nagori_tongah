@@ -99,7 +99,7 @@ class PengeluaranController extends Controller
         $pengeluaran->jumlah = $request->jumlah;
         $pengeluaran->tahun = $request->tahun;
         $pengeluaran->save();
-        return redirect()->back()->with('success', 'Data peneg$pengeluaran berhasil diperbarui');
+        return redirect()->back()->with('success', 'Data pengeluaran berhasil diperbarui');
     }
 
         /**
