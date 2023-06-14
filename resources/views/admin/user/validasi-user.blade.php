@@ -37,18 +37,21 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                        <th scope="col">No.</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php $no = 1; ?>
                         @foreach($users as $user)
                         <tr>
+                        <th scope="row">{{$no++}}</th>
                             <td>{{ $user->nik }}</td>
                             <td>{{ $user->nama_lengkap }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $user->nik }}">Lihat Selengkapnya</button>
+                                <button type="button" style="width:100px; margin-right: 10px; background-color: #609966; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#lihatSelengkapnya{{ $user->nik }}"><i class="fa-solid fa-circle-info"></i>  Detail</button>
                                 <!-- Modal Lihat Selengkapnya -->
 
                                 <div class="modal fade" id="lihatSelengkapnya{{ $user->nik }}" tabindex="-1" role="dialog" aria-labelledby="lihatSelengkapnya{{ $user->nik }}Label" aria-hidden="true">
@@ -73,11 +76,11 @@
                                                 <form action="{{ route('tolak-user',  $data->nik) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Tolak</button>
+                                                    <button type="submit" style="width:100px;color: white;font-weight:bold;" class="btn btn-danger"><i class="fa-solid fa-xmark"></i>  Tolak</button>
                                                 </form>
                                                 <form action="{{ route('terima-user',  $data->nik) }}" method="POST">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-success">Terima</button>
+                                                    <button type="submit" style="width:100px; margin-right: 10px; background-color: #609966; color: white; font-weight:bold;" class="btn"><i class="fa-solid fa-check"></i> Terima</button>
                                                 </form>
                                             </div>
                                             @endforeach
