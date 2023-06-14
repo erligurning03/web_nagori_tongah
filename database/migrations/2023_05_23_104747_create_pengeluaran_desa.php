@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('bidang');
             $table->string('keterangan');
-            $table->integer('jumlah');
+            $table->decimal('jumlah', 32, 0);
             $table->integer('tahun');
             $table->timestamps();
         });
