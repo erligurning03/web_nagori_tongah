@@ -176,6 +176,9 @@ Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri
 //Route umkm
 Route::get('/check-username/{username}', [AuthController::class, 'checkUsername']);
 Route::get('/check-nik/{nik}', [AuthController::class, 'checknik']);
+Route::get('/forum_diskusi/guest', [PostController::class, 'index'])->name('posts.guest');
+Route::get('/chart/guest', [ChartController::class, 'index'])->name('transparasi.guest');
+Route::get('/chart/data', [ChartController::class, 'getData']);
 
 
 //route setelah login
@@ -277,7 +280,7 @@ Route::middleware(['auth'])->group(function () {
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});
         Route::get('/chart', [ChartController::class, 'index'])->name('transparasi');
-        Route::get('/chart/data', [ChartController::class, 'getData']);
+        // Route::get('/chart/data', [ChartController::class, 'getData']);
         
         //Route halaman forum diskusi
         Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
