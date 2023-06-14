@@ -4,8 +4,9 @@
     .body {
         font-family: 'Lato'
     }
+
     .button-group {
-         display: flex;
+        display: flex;
     }
 
     .button-group button {
@@ -30,26 +31,29 @@
     </div>
     @endif
     <h1 class="h3 mb-2 text-gray-800">UMKM Nagori</h1>
-    
-    <!-- Cetak PDF -->                
-    <div class="card">
-        <div class="card-body">
-            <a class="btn btn-primary" href="{{ route('umkm.cetak_pdf') }}">CETAK DATA</a>
-        </div>
-    </div>     
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar UMKM</h6>
+            <br>
+            <a href="{{ route('admin.tambahumkm.umkm') }}"><button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;"><i class="fa-solid fa-plus"></i> Tambah UMKM</button></a>
+        </div>
+
+        <!-- Cetak PDF -->
+        <div class="card">
+            <div class="card-body">
+                <a class="btn btn-filters" href="{{ route('umkm.cetak_pdf') }}"><i class="fa-solid fa-download"></i> Cetak PDF Seluruh UMKM</a>
+            </div>
         </div>
 
         <!-- Data -->
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">No.</th>
                             <th>NIK</th>
                             <th>Nama Usaha</th>
                             <th>Alamat</th>
@@ -58,25 +62,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no = 1; ?>
                         @foreach ($umkm as $data )
                         <tr>
+                            <th scope="row">{{$no++}}</th>
                             <td>{{ $data->nik }}</td>
                             <td>{{ $data->nama_usaha }}</td>
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->telepon }}</td>
-                            <td>
-                                <div class="button-group">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
-                                    {{-- <br> --}}
-                                    <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button style="width:100px;" type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</i></button>
-                                    </form>
-                                    {{-- <br> --}}
-                                    <button style="width:100px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $data->id }}">Edit</i></button>
-                                    </td>
-                                </div>
+                            <td style="display: flex;">
+                                <button type="button" style="width:100px; margin-right: 10px; background-color: #609966; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}"><i class="fa-solid fa-circle-info"></i> Detail</button>
+                                <button type="button" style="width:100px; margin-right: 10px; background-color: orange; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#editModal{{ $data->id }}"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" style="width:100px;color: white;font-weight:bold;" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa-solid fa-trash"></i> Hapus</button>
+                                </form>
                                 <!-- Modal Lihat Selengkapnya -->
 
                                 <div class="modal fade" id="lihatSelengkapnya{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="lihatSelengkapnya{{ $data->id }}Label" aria-hidden="true">
@@ -89,17 +90,17 @@
                                                 </button>
                                             </div>
                                             @foreach($umkm->where('id', $data->id) as $datajelas)
-                                            <div class="modal-body">                                                
+                                            <div class="modal-body">
                                                 <h2 class="small">NIK <span class="float-right">{{ $datajelas->nik }}</span></h2>
                                                 <h2 class="small">Foto KTP <span class="float-right"></span></h2>
-                                                <img src="{{ asset('img/umkm/ktp/'.$data->upload_ktp) }}" style="height: 200px; object-fit: contain; "  alt="KTP" class="img-thumbnail">
+                                                <img src="{{ asset('img/umkm/ktp/'.$data->upload_ktp) }}" style="height: 200px; object-fit: contain; " alt="KTP" class="img-thumbnail">
                                                 <h2 class="small">Pas Foto <span class="float-right"></span></h2>
-                                                <img src="{{ asset('img/umkm/pas_foto/'.$data->pas_foto) }}" style="height: 200px; object-fit: contain; "  alt="Pas_Foto" class="img-thumbnail">
+                                                <img src="{{ asset('img/umkm/pas_foto/'.$data->pas_foto) }}" style="height: 200px; object-fit: contain; " alt="Pas_Foto" class="img-thumbnail">
                                                 <h2 class="small">Nama Usaha <span class="float-right">{{ $datajelas->nama_usaha }}</span></h2>
                                                 <h2 class="small">Alamat <span class="float-right">{{ $datajelas->alamat }}</span></h2>
                                                 <h2 class="small">Nomor Telepon <span class="float-right">{{ $datajelas->telepon }}</span></h2>
                                                 <h2 class="small">Gambar Produk <span class="float-right"></span></h2>
-                                                <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" style="height: 200px; object-fit: contain; "  alt="Gambar Produk" class="img-thumbnail">
+                                                <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" style="height: 200px; object-fit: contain; " alt="Gambar Produk" class="img-thumbnail">
                                                 <h2 class="small">Deskripsi <span class="float-right">{{ $datajelas->deskripsi }}</span></h2>
                                             </div>
                                             <div class="modal-footer">
@@ -171,7 +172,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </td>
                         </tr>
                         @endforeach
@@ -208,16 +208,16 @@
 
 <!-- notifikasi 3 detik alert -->
 <script>
-  // Mencari elemen notifikasi
-  const notification = document.querySelector('.alert');
+    // Mencari elemen notifikasi
+    const notification = document.querySelector('.alert');
 
-  // Cek apakah notifikasi ada
-  if (notification) {
-    // Setelah 3 detik, sembunyikan notifikasi
-    setTimeout(() => {
-      notification.style.display = 'none';
-    }, 3000);
-  }
+    // Cek apakah notifikasi ada
+    if (notification) {
+        // Setelah 3 detik, sembunyikan notifikasi
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
+    }
 </script>
 
 

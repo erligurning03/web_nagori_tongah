@@ -5,7 +5,7 @@
                 <div class="container-fluid">
 
                 <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Add UMKM</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Tambah UMKM</h1>
     
                 <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -39,7 +39,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="alamat">alamat</label>
+                                                <label for="alamat">Alamat</label>
                                                 <input type="text" class="form-control" id="alamat" name="alamat" required>
                                             </div>
                                             <div class="form-group">
@@ -51,11 +51,11 @@
                                                 <input type="file" class="form-control-file" id="gambar_produk" name="gambar_produk" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="deskripsi">deskripsi</label>
+                                                <label for="deskripsi">Deskripsi</label>
                                                 <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary float-right" >Tambah</button>
+                                            <button type="submit" style="font-weight: bold;" class="btn btn-primary float-right" >Tambah</button>
                                         </form>
                                     </div>
                                 </div>
