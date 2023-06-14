@@ -4,6 +4,13 @@
     .body {
         font-family: 'Lato'
     }
+    .button-group {
+         display: flex;
+    }
+
+    .button-group button {
+        margin-right: 10px;
+    }
 
     ;
 </style>
@@ -58,16 +65,18 @@
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->telepon }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
-                                <br>
-                                <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button style="width:100px;" type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</i></button>
-                                </form>
-                                <br>
-                                <button style="width:100px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $data->id }}">Edit</i></button>
-                                </td>
+                                <div class="button-group">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
+                                    {{-- <br> --}}
+                                    <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button style="width:100px;" type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</i></button>
+                                    </form>
+                                    {{-- <br> --}}
+                                    <button style="width:100px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $data->id }}">Edit</i></button>
+                                    </td>
+                                </div>
                                 <!-- Modal Lihat Selengkapnya -->
 
                                 <div class="modal fade" id="lihatSelengkapnya{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="lihatSelengkapnya{{ $data->id }}Label" aria-hidden="true">
@@ -94,12 +103,12 @@
                                                 <h2 class="small">Deskripsi <span class="float-right">{{ $datajelas->deskripsi }}</span></h2>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="{{ route('tolak-user',  $data->nik) }}" method="POST">
+                                                <form action="{{ route('tolak-user',  $data->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Tolak</button>
                                                 </form>
-                                                <form action="{{ route('terima-user',  $data->nik) }}" method="POST">
+                                                <form action="{{ route('terima-user',  $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-success">Terima</button>
                                                 </form>
