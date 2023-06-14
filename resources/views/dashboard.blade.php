@@ -53,11 +53,11 @@
                 <div class="row">
                 @if ($latestBerita)
                     <div class="col-md-6">
-                        <div class="card mb-4" style="height:280px">
+                        <div class="card mb-4" style="height:280px"> 
                             <div class="card-body">
                                 <h5 class="card-title">Berita Terbaru</h5>
                                 @if ($latestBerita)
-                                <img src="{{ asset('img_berita/'.$latestBerita->namaGambar) }}" alt="Gambar" style="height: 130px; object-fit: contain;">
+                                <img src="{{ asset('/storage/'.$latestBerita->alamatGambar) }}" alt="Gambar" style="height: 130px; object-fit: contain;">
                                 @endif
                                 <p class="card-text">{{ $latestBerita->judul }}</p>
                                 <a href="{{ route('berita.berita1') }}" class="btn btn-primary">Lihat Selengkapnya</a>

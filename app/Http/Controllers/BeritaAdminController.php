@@ -43,7 +43,7 @@ class BeritaAdminController extends Controller
         
 
         $user = Auth::user();
-        
+
         $name = $request->file('image')->getClientOriginalName();
         $request->file('image')->store('public/img_berita');
         $path = $request->file('image')->store('img_berita');
@@ -107,11 +107,14 @@ class BeritaAdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
+    
         $berita = Berita::findOrFail($id);
         $berita->nik = $request->nik;
         $berita->jenis_berita = $request->jenis_berita;
         $berita->judul = $request->judul;
         $berita->isi_berita = $request->isi_berita;
+        $berita->namaGambar = $request->namaGambar;
+        $berita->alamatGambar = $request->alamatGambar;
         $berita->save();
         return redirect('/admin/semuaberita')->with('success', 'Berita berhasil diperbarui');
     }

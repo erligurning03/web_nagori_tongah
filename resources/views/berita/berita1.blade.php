@@ -24,63 +24,28 @@
               </div>
               <div class="row">
                   <div class="col-lg-8">
-                      {{-- <div class="trending-top mb-30">
-                          <div class="trend-top-img">
-                              <img src="img/berita/berita1.jpg" alt="">
-                              <div class="trend-top-cap">
-                                  <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of the year</a></h2>
-                                  <h5>12 april 2023</h5>
-                                  <span>Hiburan yang dibuat oleh rakyat</span>
-                              </div>
-                          </div>
-                      </div> --}}
-                      <!-- Trending Bottom -->
-                      
+                      <!-- Berita -->
                       <div class="trending-bottom">
                           <div class="row">
-                            <!-- @foreach($berita as $data)
+                            @foreach($berita as $data)
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                    <img src="{{asset('img_berita/'.$data->foto)}}" style="width: 200px; object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
+                                    <img src="{{asset('/storage/'.$data->alamatGambar)}}" style="width: 400px; object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
                                   </div>
-                
-                                    
                                   <div class="trend-bottom-cap">
                                       <span class="color4">{{ $data->created_at }}</span>
                                       <h4><a href="#"> {{ $data->judul }}</a></h4>
                                       <p>{{ $data->isi_berita }}</p>
                                   </div>
-        
                               </div>
                               </div>
                               @endforeach -->
-                              <div class="col-lg-4">
-                                  <div class="single-bottom mb-35">
-                                      <div class="trend-bottom-img mb-30">
-                                          <img src="img_berita/blt.png" alt="">
-                                      </div>
-                                      <div class="trend-bottom-cap">
-                                          <span class="color4">Diunggah 30 november 2022</span>
-                                          <h4><h4><a href="#"> BLT Dana Desa Mulai Diberikan April 2023 Hingga Juni 2023</a></h4></h4>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-4">
-                                  <div class="single-bottom mb-35">
-                                      <div class="trend-bottom-img mb-30">
-                                          <img src="img_berita/fesbud.png" alt="">
-                                      </div>
-                                      <div class="trend-bottom-cap">
-                                          <span class="color4">Diunggah 30 mei 2023</span>
-                                          <h4><a href="#"> Pesona Budaya Batak Toba Lewat Desa Nagori NagoriTongah</a></h4>
-                                      </div>
-                                  </div>
-                              </div>
                           </div>
                       </div>
                   </div>
-                  <!-- Riht content -->
+
+                  <!-- Hoax content -->
                   <div class="col-lg-4 mb-1">
                         <div class="trending-tittle">
                             <strong>Hoax</strong>

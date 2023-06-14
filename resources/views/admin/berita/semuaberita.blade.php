@@ -72,8 +72,11 @@
                                                             <input type="text" name="nik" id="nik" class="form-control" value="{{ $data->nik }}">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="jenis_berita">Jenis Berita:</label>
-                                                            <input type="text" name="jenis_berita" id="jenis_berita" class="form-control" value="{{ $data->jenis_berita }}">
+                                                            <label for="sumber">Jenis Berita</label>
+                                                            <select class="form-control" id="sumber" name="jenis_berita" required>
+                                                                <option value="{{ $data->jenis_berita="berita" }}">Berita</option>
+                                                                <option value="{{ $data->jenis_berita="hoax" }}">Hoax</option>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="judul">Judul:</label>
@@ -83,10 +86,14 @@
                                                             <label for="isi_berita">Isi Berita:</label>
                                                             <input type="text" name="isi_berita" id="isi_berita" class="form-control" value="{{ $data->isi_berita }}">
                                                         </div>
-                                                        {{-- <div class="form-group">
-                                                            <label for="isi_berita">Gambar:</label>
-                                                            <input type="text" name="foto_berita" id="foto_berita" class="form-control" value="{{ $data->foto_berita }}">
-                                                        </div> --}}
+                                                        <div class="form-group">
+                                                            <label for="alamatGambar">Gambar: </label>
+                                                            <br>
+                                                            <img style="width: 300px" src="{{asset('/storage/'.$data->alamatGambar)}}" alt="Gambar00">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="file" name="namaGambar" id="namaGambar" class="form-control" value="{{ $data->namaGambar }}">
+                                                        </div>
                                                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                     </form>
                                                 </div>

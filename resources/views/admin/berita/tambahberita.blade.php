@@ -39,8 +39,6 @@
                                                 <label for="isi_berita">Isi Berita</label>
                                                 <input type="text" class="form-control" id="isi_berita" name="isi_berita" required>
                                             </div>
-
-                                        
                                             <div class="form-group">
                                                 <label for="foto">Gambar:</label>
                                                 <input type="file" name="image" id="foto" class="form-control">
@@ -48,7 +46,6 @@
                                                     <div>{{ $message }}</div>
                                                 @enderror
                                             </div>
-
                                             <button type="submit" class="btn btn-primary float-right" >Tambah</button>
                                         </form>
                                     </div>

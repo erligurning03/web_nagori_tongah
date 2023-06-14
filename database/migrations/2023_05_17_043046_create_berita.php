@@ -18,6 +18,8 @@ return new class extends Migration
             $table->enum('jenis_berita', ['berita', 'hoax']);
             $table->string('judul');
             $table->string('isi_berita');
+            $table->string('namaGambar');
+            $table->string('alamatGambar');
             $table->timestamps();
 
         });
