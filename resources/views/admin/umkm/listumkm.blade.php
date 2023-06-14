@@ -22,7 +22,7 @@
         {{ session("post_success") }}
     </div>
     @endif
-    <h1 class="h3 mb-2 text-gray-800">UMKM Nagoori</h1>
+    <h1 class="h3 mb-2 text-gray-800">UMKM Nagori</h1>
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -52,6 +52,15 @@
                             <td>{{ $data->telepon }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
+                                <br>
+                                <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button style="width:100px;" type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</i></button>
+                                </form>
+                                <br>
+                                <button style="width:100px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $data->id }}">Edit</i></button>
+                                </td>
                                 <!-- Modal Lihat Selengkapnya -->
 
                                 <div class="modal fade" id="lihatSelengkapnya{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="lihatSelengkapnya{{ $data->id }}Label" aria-hidden="true">
@@ -92,6 +101,61 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Modal Edit -->
+                                <div class="modal fade" id="editModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $data->id }}Label" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModal{{ $data->id }}Label">Edit Data UMKM</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Form Edit -->
+                                                <form action="{{ route('umkm.update', $data->id) }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="_method" value="PUT">
+                                                    <!-- Form inputs for editing -->
+                                                    <div class="form-group">
+                                                        <label for="nik">Nomor Induk Keluarga:</label>
+                                                        <input type="text" name="nik" id="nik" class="form-control" value="{{ $data->nik }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="upload_ktp">Upload KTP:</label>
+                                                        <input type="file" name="upload_ktp" id="upload_ktp" class="form-control" value="{{ $data->upload_ktp }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pas_foto">Pas Foto:</label>
+                                                        <input type="file" name="pas_foto" id="pas_foto" class="form-control" value="{{ $data->pas_foto }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nama_usaha">Nama Usaha:</label>
+                                                        <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" value="{{ $data->nama_usaha }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="alamat">Alamat:</label>
+                                                        <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $data->alamat }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telepon">Nomor Telepon:</label>
+                                                        <input type="text" name="telepon" id="telepon" class="form-control" value="{{ $data->telepon }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="gambar_produk">Gambar Produk:</label>
+                                                        <input type="file" name="gambar_produk" id="gambar_produk" class="form-control" value="{{ $data->gambar_produk }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="deskripsi">Deskripsi</label>
+                                                        <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="{{ $data->deskripsi }}">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </td>
                         </tr>
                         @endforeach
