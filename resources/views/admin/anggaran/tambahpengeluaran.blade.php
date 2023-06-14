@@ -48,7 +48,7 @@
                                                 <input type="number" class="form-control" id="tahun" name="tahun" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary float-right" >Tambah</button>
+                                            <button type="submit" style="font-weight: bold;" class="btn btn-primary float-right" >Tambah</button>
                                         </form>
                                     </div>
                                 </div>

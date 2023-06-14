@@ -24,6 +24,55 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <!-- icon bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .table-wrapper {
+            overflow-x: auto;
+            max-width: 100%;
+            overflow-y: hidden;
+        }
+
+        .table-scroll {
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: none;
+            /* Menghapus border pada header dan sel data */
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            white-space: nowrap;
+            border-bottom: 1px solid #ddd;
+            /* Menambahkan garis pembatas antara header dan data */
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+            /* Menambahkan garis pembatas antara baris data */
+        }
+
+        .btn-filters {
+            color: black;
+            background-color: #DBDBDB !important;
+            box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .btn-no-outline {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    </style>
     @yield('css')
 </head>
 
@@ -79,17 +128,17 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGaleri" aria-expanded="true" aria-controls="collapseGaleri">
-                <i class="fa-solid fa-sitemap"></i>
-                <span>Galeri
-                </span>
-            </a>
-            <div id="collapseGaleri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Pilih Aksi:</h6>
-                    <a class="collapse-item" href="{{ route('galeri_adm') }}">Galeri Desa</a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGaleri" aria-expanded="true" aria-controls="collapseGaleri">
+                    <i class="fa-solid fa-sitemap"></i>
+                    <span>Galeri
+                    </span>
+                </a>
+                <div id="collapseGaleri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Aksi:</h6>
+                        <a class="collapse-item" href="{{ route('galeri_adm') }}">Galeri Desa</a>
+                    </div>
                 </div>
-            </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -101,7 +150,7 @@
                 <div id="collapseAnggaran" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Aksi:</h6>
-                        <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a> 
+                        <a class="collapse-item" href="{{ route('pendapatan.per-tahun') }}">List Pendapatan</a>
                         {{-- ini route nya adalah name yang ada pada web.php --}}
                         <a class="collapse-item" href="{{ route('admin.tambahpendapatan.anggaran') }}">Tambah Pendapatan</a>
                         <a class="collapse-item" href="{{ route('pengeluaran.per-tahun') }}">List Pengeluaran</a>
@@ -460,11 +509,11 @@
             <script src="{{ asset('admin_assets/assets/js/demo/chart-pie-demo.js') }}"></script>
             <script src="https://kit.fontawesome.com/a87d4ae636.js" crossorigin="anonymous"></script>
 
-    <!-- Chat GPT Recommendation Why the drop down doesn't work ini yang bikin modal jalan bro-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <!-- Chat GPT Recommendation Why the drop down doesn't work ini yang bikin modal jalan bro-->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 

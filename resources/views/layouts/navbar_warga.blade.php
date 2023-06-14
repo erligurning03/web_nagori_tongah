@@ -15,11 +15,20 @@
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
   <!-- icon bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
+  @if(Auth::check())
+  @else
+  <style>
+    body {
+      padding: 0;
+    }
+  </style>
+@endif
   <title>Nagori NagoriTongah</title>
   @yield('css')
 </head>
 
 <body>
+@if(Auth::check())
 <nav class="navbar navbar-expand-md navbar-light fixed-top">
   <div class="container">
     <img src="{{ asset('img/logo-desa.png') }}" alt="Logo">
@@ -96,6 +105,9 @@
             </div>
         </div>
     </div>
+
+    @else
+@endif
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
 use App\Models\ViewPengeluaran;
+use PDF;
 
 
 class PengeluaranController extends Controller
@@ -19,6 +20,28 @@ class PengeluaranController extends Controller
         $tahunList = Pengeluaran::distinct()->pluck('tahun');
         return view('admin.anggaran.pengeluaran', compact('pengeluaran', 'tahunList', 'vpengeluaran'));
     }
+
+    public function cetak_pdf(Request $request)
+    {
+        $tahun = $request->tahun;
+        $vpengeluaran = ViewPengeluaran::all();
+
+        // Filter data berdasarkan tahun
+        $pengeluaran = Pengeluaran::where('tahun', $tahun)->get();
+
+        $pdf = PDF::loadView('admin.anggaran.pengeluaranpdf', compact('pengeluaran', 'vpengeluaran'));
+        return $pdf->download('Pengeluaran_'.$tahun.'.pdf');
+    }
+
+    public function cetaksemua()
+    {
+        $pengeluaran = Pengeluaran::all();
+        $vpengeluaran = ViewPengeluaran::all();
+
+        $pdf = PDF::loadView('admin.anggaran.pengeluaranpdf', compact('pengeluaran', 'vpengeluaran'));
+        return $pdf->download('Semua_Pengeluaran.pdf');
+    }
+
 
     public function filter(Request $request)
     {

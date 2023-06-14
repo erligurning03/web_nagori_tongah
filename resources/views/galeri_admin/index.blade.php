@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="d-grid gap-2 d-md-block">
                      <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">tambah</button>
+                    <button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>  Tambah Foto Galeri</button>
                 </div>
                 <!-- start Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,7 +33,7 @@
                                   <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="tes">
                                 </div> --}}
                                 <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">input gambar</label>
+                                  <label for="exampleInputPassword1" class="form-label">Input Gambar</label>
                                   <input type="file" class="form-control" id="gambar" name="gambar">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -51,10 +51,10 @@
                 <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">NO.</th>
-                        <th scope="col">gambar kegiatan</th>
+                        <th scope="col">No.</th>
+                        <th scope="col">Gambar Kegiatan</th>
                         {{-- <th scope="col">tes</th> --}}
-                        <th scope="col">aksi</th>
+                        <th scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,7 +76,7 @@
                                 <form action="/galeri_admin/{{$gal->id}}" method="post">
                                   @csrf
                                   @method("delete")
-                                  <button class="btn btn-danger" type="submit">delete</button>
+                                  <button class="btn btn-danger" style="width:100px;color: white;font-weight:bold;" type="submit"><i class="fa-solid fa-trash"></i>  Hapus</button>
                                 </form>
                                 
                             </td>

@@ -34,7 +34,7 @@
                     @endif
 
                     <!-- button tambah -->
-                        <a class="btn btn-primary" href="{{ route('users.create') }}">Tambah User</a> <br>           
+                        <a class="btn btn-primary" href="{{ route('pendapatan.cetak_pdf') }}">Tambah User</a> <br>           
                 
                 {{-- <!-- form filter -->
                 <div class="card">
@@ -76,7 +76,12 @@
                     </form>
                 </div>
 
-
+                <!-- Cetak PDF -->                
+                <div class="card">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{{ route('users.cetak_pdf') }}">CETAK DATA</a>
+                    </div>
+                </div>     
                     
                 <!-- Data -->
                 <div class="card-body">

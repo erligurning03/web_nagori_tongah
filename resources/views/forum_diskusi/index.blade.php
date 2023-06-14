@@ -1,7 +1,11 @@
 @extends('layouts.navbar_warga')
 @section('css')
 <style>
-    .body{font-family: 'Lato'};
+  .body {
+    font-family: 'Lato'
+  }
+
+  ;
 </style>
 <link rel="stylesheet" href="{{ asset('css/forum_diskusi.css') }}">
 @endsection
@@ -28,17 +32,27 @@
 
 
 <!-- container tengah -->
+@if(Auth::check())
+  @else
+  <a href="/">
+  <button type="button" class="btn btn-secondary" style="margin-left:10px; margin-top:10px;">Kembali</button>
+</a>
+  @endif
 <div class="container">
-<h1 class="text-center">Forum Diskusi</h1>
+  
+
+  <h1 class="text-center">Forum Diskusi</h1>
   <div class="row">
     <div class="col-12 col-md-6 mx-auto">
       <!-- fitur tambahkan post -->
+      @if(Auth::check())
       <div class="box" style="width: 100%; height: 50px;">
         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <span>Apa yang Anda pikirkan?</span>
           <i class="fa-solid fa-plus"></i>
         </a>
       </div>
+
       <!-- fitur search -->
       <div class="box mt-3" style="width: 100%;justify-content: space-between;">
         <input type="text" placeholder="Cari postingan..." id="searchInput" oninput="searchPosts()">
@@ -49,6 +63,8 @@
           <span>Cari Berdasarkan:</span>
         </a>
       </div>
+      @else
+      @endif
       @foreach($posts->sortByDesc('created_at') as $post)
       <div class="box2 mt-5" id="post-{{ $post->id }}" data-judul="{{ $post->judul }}" data-isi="{{ $post->isi_post }}" data-penulis="{{ $post->user->nama_lengkap }}" data-tanggal="{{ $post->created_at->toDateString() }}">
         <div class="post-header">
@@ -59,12 +75,15 @@
             <span style="font-weight: bold;">{{ $post->user->nama_lengkap }}</span>
             <span style="font-weight: normal;">{{ $post->created_at->diffForHumans() }}</span>
           </div>
+          @if(Auth::check())
           @if(Auth::user()->nik == $post->user->nik)
           <div class="delete-button" style="margin-left: auto;">
             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePostModal-{{ $post->id }}">
               <i class="far fa-trash-alt"></i>
             </button>
           </div>
+          @endif
+          @else
           @endif
           <!-- Modal Konfirmasi Hapus -->
           <div class="modal fade" id="deletePostModal-{{ $post->id }}" tabindex="-1" aria-labelledby="deletePostModalLabel-{{ $post->id }}" aria-hidden="true">
@@ -115,6 +134,7 @@
         <div class="post-actions" style="justify-content: space-between;">
           <div>
             <!-- Tombol Like -->
+            @if(Auth::check())
             <a href="{{ route('toggle.like', $post->id) }}" data-post-id="{{ $post->id }}">
               @if ($post->isLikedByUser())
               <i class="fas fa-heart fa-xl love-icon action-icon text-danger"></i>
@@ -123,10 +143,17 @@
               @endif
             </a>
             <b id="like-count">{{ $post->jumlah_like }}</b>
+            @else
+            <b id="like-count"><i class="far fa-solid fa-heart fa-xl" style="color: #bcbdbd;"></i> {{ $post->jumlah_like }}</b>
+            @endif
+
             <i class="far fa-comment fa-xl action-icon" data-bs-toggle="modal" data-bs-target="#modalKomentar{{ $post->id }}" data-post-id="{{ $post->id }}"></i>
             <b id="like-count">{{ $post->jumlah_komentar }}</b>
+            @if(Auth::check())
             @if(Auth::user()->nik != $post->user->nik)
             <i class="far fa-flag fa-xl action-icon" data-bs-toggle="modal" data-bs-target="#modalLaporan{{ $post->id }}" data-post-id="{{ $post->id }}"></i>
+            @endif
+            @else
             @endif
           </div>
           <p>{{ $post->created_at->isoFormat('dddd, D MMMM YYYY') }}</p>
@@ -153,7 +180,7 @@
   <div class="modal-dialog modal-l">
     <div class="modal-content">
       <div class="modal-header">
-      <div id="notification1" style="text-align: center;"></div>
+        <div id="notification1" style="text-align: center;"></div>
         <h5 class="modal-title" id="exampleModalLabel">Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="checkFormChanges()"></button>
       </div>
@@ -292,12 +319,15 @@
                 <span class="ms-2 text-muted">{{ $comment->created_at->diffForHumans() }}</span>
                 <p style="margin-top: 5px;">{{ $comment->isi_komentar }}</p>
               </div>
+              @if(Auth::check())
               @if ($comment->user->nik == Auth::user()->nik)
               <div class="ms-auto mt-2">
                 <button type="button" class="btn btn-danger btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $comment->id }}">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </div>
+              @endif
+              @else
               @endif
             </div>
           </div>
@@ -307,6 +337,7 @@
         <p>No comments available.</p>
         @endif
       </div>
+      @if(Auth::check())
       <div class="modal-footer">
         <form action="{{ route('add.comment') }}#post-{{ $post->id }}" method="POST" class="w-100">
           @csrf
@@ -317,10 +348,13 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
+      @else
+      @endif
     </div>
   </div>
 </div>
 
+@if(Auth::check())
 @foreach($post->komentarPosts as $comment)
 @if ($comment->user->nik == Auth::user()->nik)
 <div class="modal fade" id="deleteModal{{ $comment->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $comment->id }}" aria-hidden="true">
@@ -346,6 +380,8 @@
 </div>
 @endif
 @endforeach
+@else
+@endif
 @endforeach
 
 <!-- Modal Laporan -->

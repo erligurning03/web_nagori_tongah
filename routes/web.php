@@ -176,6 +176,9 @@ Route::get('/galeri_dash', [galeriDashController::class, 'index'])->name('galeri
 //Route umkm
 Route::get('/check-username/{username}', [AuthController::class, 'checkUsername']);
 Route::get('/check-nik/{nik}', [AuthController::class, 'checknik']);
+Route::get('/forum_diskusi/guest', [PostController::class, 'index'])->name('posts.guest');
+Route::get('/chart/guest', [ChartController::class, 'index'])->name('transparasi.guest');
+Route::get('/chart/data', [ChartController::class, 'getData']);
 
 
 //route setelah login
@@ -192,6 +195,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/users/{user}',  [AddUserController::class, 'update'])->name('users.update');
         Route::delete('/users/{user}',  [AddUserController::class, 'destroy'])->name('users.destroy');
         Route::put('/users/{user}/update-role',  [AddUserController::class, 'updateRole'])->name('users.updateRole');
+        Route::get('/users/cetak_pdf', [AddUserController::class, 'cetak_pdf'])->name('users.cetak_pdf');
 
         // Route halaman dashboard
         Route::get('/dashboard-admin', [DashboardController::class, 'indexAdmin'])->name('dashboard-admin');
@@ -204,6 +208,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('pendapatan.per-tahun');
         Route::get('/admin/pendapatan/add', [PendapatanController::class, 'create'])->name('admin.tambahpendapatan.anggaran');
         Route::post('/admin/pendapatan', [PendapatanController::class, 'store'])->name('pendapatan.store');
+        Route::get('/admin/pendapatan/cetak_pdf', [PendapatanController::class, 'cetak_pdf'])->name('pendapatan.cetak_pdf');
+        Route::get('/pendapatan/cetaksemua', [PendapatanController::class, 'cetaksemua'])->name('pendapatan.cetaksemua');
+
 
         // Route halaman CRUD pengeluaran
         Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('admin.pengeluaran.anggaran');
@@ -213,6 +220,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.per-tahun');
         Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
         Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+        Route::get('/admin/pengeluaran/cetak_pdf', [PengeluaranController::class, 'cetak_pdf'])->name('pengeluaran.cetak_pdf');
+        Route::get('/pengeluaran/cetaksemua', [PengeluaranController::class, 'cetaksemua'])->name('pengeluaran.cetaksemua');
 
         //route halaman CRUD galeri oleh admin
         Route::get('/galeri_adm', [galeriController::class, 'index'])->name('galeri_adm'); //membaca data didatabase. jadi ini untuk penamaan letak file diviewsnya jadi gausah lagi kasih tau letak file manual tapi kalau ada rout ini aja pake untuk menggil viewnya
@@ -238,6 +247,8 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
          Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
          Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
+         Route::get('/umkm/cetak_pdf', [UmkmBaruController::class, 'cetak_pdf'])->name('umkm.cetak_pdf');
+
         // Route halaman CRUD Berita
          Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');
          Route::get('/admin/berita/add', [BeritaAdminController::class, 'create'])->name('admin.tambahberita.berita');
@@ -277,7 +288,7 @@ Route::middleware(['auth'])->group(function () {
         //Route halaman chart anggaran
         Route::get('/belanja', function () {return view('landing_page/belanja');});
         Route::get('/chart', [ChartController::class, 'index'])->name('transparasi');
-        Route::get('/chart/data', [ChartController::class, 'getData']);
+        // Route::get('/chart/data', [ChartController::class, 'getData']);
         
         //Route halaman forum diskusi
         Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
@@ -305,8 +316,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
-         //Route halaman berita
-         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
+
+        //Route halaman berita
+        Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
 
     });
 
@@ -323,15 +335,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
         //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
-//         //Route halaman pengajuan
-        // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
-//         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
-//         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
-//         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-//         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
-//         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
-//         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-// //     });
-
-// });
         

@@ -1,17 +1,33 @@
-@extends('admin.layouts.navbar')
-@section('css')
-<style>
-    .body {
-        font-family: 'Lato'
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    ;
-</style>
-@endsection
-@section('container')
+<head>
+    <title>UMKM PDF</title>
 
-<!-- Begin Page Content -->
-<div id="notification" style="text-align: center;"></div>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        @page {
+            size: landscape;
+        }
+
+        html,
+        body {
+            width: 842px;
+            height: 595px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+</head>
+    <body>
 
 <div class="container-fluid">
 
@@ -24,18 +40,8 @@
     @endif
     <h1 class="h3 mb-2 text-gray-800">UMKM Nagori</h1>
     
-    <!-- Cetak PDF -->                
-    <div class="card">
-        <div class="card-body">
-            <a class="btn btn-primary" href="{{ route('umkm.cetak_pdf') }}">CETAK DATA</a>
-        </div>
-    </div>     
-
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar UMKM</h6>
-        </div>
 
         <!-- Data -->
         <div class="card-body">
@@ -45,9 +51,10 @@
                         <tr>
                             <th>NIK</th>
                             <th>Nama Usaha</th>
+                            {{-- <th>Gambar Produk </th> --}}
                             <th>Alamat</th>
                             <th>Nomor Telepon</th>
-                            <th>Aksi</th>
+                            <th>Deskripsi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,9 +62,11 @@
                         <tr>
                             <td>{{ $data->nik }}</td>
                             <td>{{ $data->nama_usaha }}</td>
+                            {{-- <td>{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}</td> --}}
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->telepon }}</td>
-                            <td>
+                            <td>{{ $data->deskripsi }}</td>
+                            {{-- <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
                                 <br>
                                 <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
@@ -163,18 +172,11 @@
                                     </div>
                                 </div>
 
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-
-                <!-- Pagination -->
-                <div class="pagination pagination-sm justify-content-center">
-                    {{-- {{ $data->links() }} --}}
-                </div>
-
             </div>
         </div>
 
@@ -189,28 +191,5 @@
 </div>
 <!-- End of Content Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- notifikasi 3 detik alert -->
-<script>
-  // Mencari elemen notifikasi
-  const notification = document.querySelector('.alert');
-
-  // Cek apakah notifikasi ada
-  if (notification) {
-    // Setelah 3 detik, sembunyikan notifikasi
-    setTimeout(() => {
-      notification.style.display = 'none';
-    }, 3000);
-  }
-</script>
-
-
-
-@endsection
+</body>
+</html>

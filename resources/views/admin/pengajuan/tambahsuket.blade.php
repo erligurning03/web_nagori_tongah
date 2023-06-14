@@ -30,7 +30,7 @@
                                                 <input type="text" class="form-control" id="syarat" name="syarat" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary float-right" >Tambah</button>
+                                            <button type="submit" class="btn btn-primary float-right" style="font-weight: bold;" >Tambah</button>
                                         </form>
                                     </div>
                                 </div>

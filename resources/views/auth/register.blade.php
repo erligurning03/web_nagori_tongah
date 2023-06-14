@@ -58,7 +58,7 @@
                       <div class="form-group mb-3">
                         <label class="label" for="nik">NIK</label>
                         <input type="text" class="form-control" required placeholder="Nomor Induk Keluarga" id="nik" aria-describedby="nik" name="nik" pattern="[0-9]{16}$">
-                        <p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter Huruf</p>
+                        <p id="invalid-nik" style="display:none;color:red">Masukkan 16 karakter Angka</p>
                         <p id="nik-sudah-ada" style="display:none;color:red">NIK sudah ada, silahkan masukkan NIK lain</p>
                       </div>
                       <div class="form-group mb-3">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pendapatan;
 use App\Models\ViewPendapatan;
+use PDF;
+
 
 
 
@@ -18,8 +20,32 @@ class PendapatanController extends Controller
         $vpendapatan = ViewPendapatan::all();
         $pendapatan = Pendapatan::simplePaginate(4);
         $tahunList = Pendapatan::distinct()->pluck('tahun');
+
         return view('admin.anggaran.pendapatan', compact('pendapatan', 'tahunList', 'vpendapatan'));
     }
+
+    public function cetak_pdf(Request $request)
+    {
+        $tahun = $request->tahun;
+        $vpendapatan = ViewPendapatan::all();
+
+        // Filter data berdasarkan tahun
+        $pendapatan = Pendapatan::where('tahun', $tahun)->get();
+
+        $pdf = PDF::loadView('admin.anggaran.pendapatanpdf', compact('pendapatan', 'vpendapatan'));
+        return $pdf->download('Pendapatan_'.$tahun.'.pdf');
+    }
+
+    public function cetaksemua()
+    {
+        $pendapatan = Pendapatan::all();
+        $vpendapatan = ViewPendapatan::all();
+
+        $pdf = PDF::loadView('admin.anggaran.pendapatanpdf', compact('pendapatan', 'vpendapatan'));
+        return $pdf->download('Semua_Pendapatan.pdf');
+    }
+
+
 
     public function filter(Request $request)
     {

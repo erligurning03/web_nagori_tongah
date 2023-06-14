@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Umkm;
-
+use PDF;
 use Illuminate\Http\Request;
 
 class UmkmBaruController extends Controller
@@ -14,6 +14,14 @@ class UmkmBaruController extends Controller
     {
         $umkm = Umkm::simplePaginate(4);
         return view('admin.umkm.listumkm', compact('umkm'));
+    }
+
+    public function cetak_pdf()
+    {
+        $umkm = Umkm::all();
+
+        $pdf = PDF::loadView('admin.umkm.umkmpdf', compact('umkm'));
+        return $pdf->download('List UMKM.pdf');
     }
 
     /**

@@ -11,6 +11,12 @@
 @endsection
 @section('container')
 <body>
+@if(Auth::check())
+@else
+<a href="/">
+  <button type="button" class="btn btn-secondary" style="margin-left:10px; margin-top:10px;">Kembali</button>
+</a>
+@endif
   <h1 class="text-center mt-3">Daftar UMKM Desa Nagori</h1>
       <div class="container">
         <div class="row">
