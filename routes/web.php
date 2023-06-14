@@ -247,6 +247,8 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
          Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
          Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
+         Route::get('/umkm/cetak_pdf', [UmkmBaruController::class, 'cetak_pdf'])->name('umkm.cetak_pdf');
+
         // Route halaman CRUD Berita
          Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');
          Route::get('/admin/berita/add', [BeritaAdminController::class, 'create'])->name('admin.tambahberita.berita');

@@ -44,7 +44,7 @@ class AddUserController extends Controller
         $wargas = User::where('role', 'warga')->get();
 
         $pdf = PDF::loadView('admin.kelola_user.userpdf', compact('admins', 'operators', 'wargas'));
-        return $pdf->download('ListUser.pdf');
+        return $pdf->download('List Users.pdf');
     }
 
         public function create(User $user)
