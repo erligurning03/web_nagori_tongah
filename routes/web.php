@@ -207,6 +207,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pendapatan', [PendapatanController::class, 'index'])->name('pendapatan.per-tahun');
         Route::get('/admin/pendapatan/add', [PendapatanController::class, 'create'])->name('admin.tambahpendapatan.anggaran');
         Route::post('/admin/pendapatan', [PendapatanController::class, 'store'])->name('pendapatan.store');
+        Route::get('/admin/pendapatan/cetak_pdf', [PendapatanController::class, 'cetak_pdf'])->name('pendapatan.cetak_pdf');
+        Route::get('/pendapatan/cetaksemua', [PendapatanController::class, 'cetaksemua'])->name('pendapatan.cetaksemua');
+
 
         // Route halaman CRUD pengeluaran
         Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('admin.pengeluaran.anggaran');
@@ -216,6 +219,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.per-tahun');
         Route::get('/admin/pengeluaran/add', [PengeluaranController::class, 'create'])->name('admin.tambahpengeluaran.anggaran');
         Route::post('/admin/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+        Route::get('/admin/pengeluaran/cetak_pdf', [PengeluaranController::class, 'cetak_pdf'])->name('pengeluaran.cetak_pdf');
+        Route::get('/pengeluaran/cetaksemua', [PengeluaranController::class, 'cetaksemua'])->name('pengeluaran.cetaksemua');
 
         //route halaman CRUD galeri oleh admin
         Route::get('/galeri_adm', [galeriController::class, 'index'])->name('galeri_adm'); //membaca data didatabase. jadi ini untuk penamaan letak file diviewsnya jadi gausah lagi kasih tau letak file manual tapi kalau ada rout ini aja pake untuk menggil viewnya
@@ -308,8 +313,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
-         //Route halaman berita
-         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
+
+        //Route halaman berita
+        Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
 
     });
 
@@ -326,15 +332,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
         //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
 
-//         //Route halaman pengajuan
-        // Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
-//         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
-//         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
-//         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-//         Route::get('/form/{id}', [FormPengajuanController::class, 'show'])->name('form');
-//         Route::post('/submit}', [PengajuanController::class, 'submit'])->name('submitform');
-//         Route::get('/pengajuan/history', [PengajuanController::class, 'history'])->name('history');
-// //     });
-
-// });
         

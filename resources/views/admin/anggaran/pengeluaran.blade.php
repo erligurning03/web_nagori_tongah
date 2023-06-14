@@ -32,6 +32,22 @@
                     </div>
                 </div>
 
+                <!-- Cetak PDF -->                
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('pengeluaran.cetak_pdf') }}" method="GET">
+                            <label for="tahun">Pilih Tahun:</label>
+                            <select name="tahun" id="tahun">
+                                @foreach ($tahunList as $tahun)
+                                    <option value="{{ $tahun }}">{{ $tahun }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit">Cetak PDF</button>
+                        </form>
+                        <a class="btn btn-primary" href="{{ route('pengeluaran.cetaksemua') }}">CETAK DATA</a>
+                    </div>
+                </div>   
+
                     <!-- Data -->
                     <div class="card-body">
                         <div class="table-responsive">
@@ -50,7 +66,7 @@
                                     <tr>
                                         <td>{{ $data->bidang }}</td>
                                         <td>{{ $data->keterangan }}</td>
-                                        <td>Rp {{ $data->jumlah }}</td>
+                                        <td>Rp {{ number_format(floatval($data->jumlah), 0, ',', '.') }}</td>
                                         <td>{{ $data->tahun}}</td>
                                         <td>
                                         <form action="{{ route('pengeluaran.destroy', $data->id) }}" method="POST">
@@ -138,7 +154,7 @@
                                 @foreach ($vpengeluaran as $item)
                                 <tr>
                                     <td>{{ $item->tahun }}</td>
-                                    <td>Rp {{ $item->total_pengeluaran }}</td>
+                                    <td>Rp {{ number_format(floatval($item->total_pengeluaran), 0, ',', '.') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
