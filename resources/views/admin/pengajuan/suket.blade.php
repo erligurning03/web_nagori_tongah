@@ -14,6 +14,12 @@
             <br>
             <a href="{{ route('admin.tambahsuket.pengajuan') }}"><button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;"><i class="fa-solid fa-plus"></i> Tambah Surat Keterangan</button></a>
         </div>
+        
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
 
         <!-- Data -->
         <div class="card-body">

@@ -33,11 +33,24 @@ class suketController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-    {
-        $suket = Suket::findOrFail($id);
-        $suket->delete();
-        return redirect()->back()->with('success', 'Data Surat Keterangan berhasil dihapus');
+{
+    $suket = Suket::findOrFail($id);
+    
+    // Menghapus entri terkait dari tabel "persyaratans"
+    foreach ($suket->pengajuan as $pengajuan) {
+        $pengajuan->persyaratan()->delete();
     }
+    
+    // Menghapus entri terkait dari tabel "pengajuans"
+    $suket->pengajuan()->delete();
+
+    // Menghapus entri dari tabel "sukets"
+    $suket->delete();
+    
+    return redirect()->back()->with('success', 'Data Surat Keterangan berhasil dihapus');
+}
+
+
 
     /**
      * Show the form for creating a new resource.
