@@ -69,9 +69,9 @@
         }
 
         .btn-no-outline {
-        outline: none !important;
-        box-shadow: none !important;
-    }
+            outline: none !important;
+            box-shadow: none !important;
+        }
     </style>
     @yield('css')
 </head>
@@ -490,6 +490,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- notifikasi 3 detik alert -->
+            <script>
+                // Mencari elemen notifikasi
+                const notification = document.querySelector('.alert');
+
+                // Cek apakah notifikasi ada
+                if (notification) {
+                    // Setelah 3 detik, sembunyikan notifikasi
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 3000);
+                }
+            </script>
 
             <!-- Bootstrap core JavaScript-->
             <script src=" {{ asset('admin_assets/assets/vendor/jquery/jquery.min.js')}}"></script>
