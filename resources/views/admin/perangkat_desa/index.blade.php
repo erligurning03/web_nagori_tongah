@@ -31,52 +31,6 @@
                         <button type="submit" class="btn btn-filters"><i class="fa-solid fa-magnifying-glass"></i>  Filter</button>
                     </div>
                 </form>
-                {{-- <div class="d-grid gap-2 d-md-block mt-2">
-                            <!-- Button trigger modal -->
-                           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">tambah</button>
-                       </div> --}}
-                {{-- start untuk tambah perangkat_desa --}}
-                <!-- start Modal -->
-                {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">TAMBAHKAN PERANGKAT DESA</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="galeri_admi" method="POST" enctype="multipart/form-data">//perbaiki route ini
-                                        {{-- pergi ke web.php untuk carik route ini yang bertipe post--}}
-                {{-- @csrf
-                                        <div class="mb-3">
-                                            <label for="nama" class="form-label" >Nama Lengkap</label>
-                                            <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" name="nama">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="jabatan" class="form-label" >Jabatan</label>
-                                            <input type="text" class="form-control" id="jabatan" aria-describedby="emailHelp" name="jabatan">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="periode" class="form-label" >Periode</label>
-                                            <input type="text" class="form-control" id="periode" aria-describedby="emailHelp" name="periode">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">input foto perangkat desa</label>
-                                            <input type="file" class="form-control" id="foto" name="foto">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        </form>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                {{-- </div>
-                            </div>
-                            </div>
-                        </div>  --}}
-                {{-- end of modal --}}
-                {{-- end of tambah perangkat_desa --}}
-
             </div>
         </div>
         <!-- start Modal tambah -->

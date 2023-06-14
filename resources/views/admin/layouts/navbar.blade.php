@@ -67,6 +67,11 @@
             background-color: #DBDBDB !important;
             box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.4) !important;
         }
+
+        .btn-no-outline {
+        outline: none !important;
+        box-shadow: none !important;
+    }
     </style>
     @yield('css')
 </head>
