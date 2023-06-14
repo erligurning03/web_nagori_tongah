@@ -28,7 +28,7 @@
                                         <th>Jenis Berita</th>
                                         <th>Judul</th>
                                         <th>Isi Berita</th>
-                                        <th>Gambar Berita</th>
+                                        {{-- <th>Gambar Berita</th> --}}
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
