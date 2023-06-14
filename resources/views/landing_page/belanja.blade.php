@@ -23,9 +23,6 @@
   <div class="row">
     <div class="col-lg-6">
       <h2>TRANSPARANSI PENDAPATAN NAGORI NAGORI TONGAH TAHUN <?php echo date('Y'); ?></h2>
-      <div class="chart-container">
-        <canvas id="incomeChart"></canvas>
-      </div>
     </div>
     <div class="col-lg-6">
       <div class="chart-container">
@@ -36,9 +33,6 @@
   <div class="row">
     <div class="col-lg-6">
       <h2>TRANSPARANSI BELANJA NAGORI NAGORI TONGAH TAHUN <?php echo date('Y'); ?></h2>
-      <div class="chart-container">
-        <canvas id="expenseChart"></canvas>
-      </div>
     </div>
     <div class="col-lg-6">
       <div class="chart-container">
@@ -60,8 +54,8 @@
               <div class="row">
                 <div class="col-sm-6 col-lg-6">total pendapatan </div>
                 <div class="col-sm-1 col-lg-1">:</div>
-                @foreach ($pendapatanDataa as $pendapatan)
-                <div class="col-sm-5 col-lg-5">Rp {{ $pendapatan->total_pendapatan }}</div>
+                @foreach ($pendapatanDataa as $pendapatan) 
+                <div class="col-sm-5 col-lg-5">Rp {{ number_format(floatval($pendapatan->total_pendapatan), 0, ',', '.') }}</div>
                 @endforeach
               </div>
             </li>
@@ -70,7 +64,7 @@
                 <div class="col-lg-6 col-sm-6">total belanja</div>
                 <div class="col-lg-1 col-sm-1">:</div>
                 @foreach ($pengeluaranDataa as $pengeluaran)
-                <div class="col-sm-5 col-lg-5">Rp {{ $pengeluaran->total_pengeluaran }}</div>
+                <div class="col-sm-5 col-lg-5">Rp {{ number_format(floatval($pengeluaran->total_pengeluaran), 0, ',', '.') }}</div>
                 @endforeach
               </div>
             </li>
@@ -85,10 +79,10 @@
           <ul class="list-group">
             <li class="list-group-item">
               <div class="row">
-                @foreach ($pendapatanData as $data)
+                @foreach ($pendapatanData as $data) 
                 <div class="col-lg-6 col-sm-6">{{ $data->sumber }}</div>
                 <div class="col-lg-1 col-sm-1">:</div>
-                <div class="col-lg-5 col-sm-5">Rp {{ $data->total }}</div>
+                <div class="col-lg-5 col-sm-5">Rp {{ number_format(floatval($data->total), 0, ',', '.') }}</div>
                 @endforeach
               </div>
             </li>
@@ -106,7 +100,7 @@
                 @foreach ($pengeluaranData as $data)
                 <div class="col-lg-6 col-sm-6">{{ $data->bidang }}</div>
                 <div class="col-lg-1 col-sm-1">:</div>
-                <div class="col-lg-5 col-sm-5">Rp {{ $data->total }}</div>
+                <div class="col-lg-5 col-sm-5">Rp {{ number_format(floatval($data->total), 0, ',', '.') }}</div>
                 @endforeach
               </div>
             </li>
@@ -184,87 +178,3 @@
     });
 </script>
 @endsection
-
-{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
-        // Inisialisasi data diagram pemasukan
-        var incomeData = {
-          labels: ["Kategori 1", "Kategori 2", "Kategori 3"],
-          datasets: [{
-            data: [40, 30, 30],
-            backgroundColor: ["#007bff", "#28a745", "#ffc107"]
-          }]
-        };
-      
-        // Inisialisasi opsi diagram pemasukan
-        var incomeOptions = {
-          responsive: true,
-          animation: {
-            animateRotate: true,
-            animateScale: true
-          }
-        };
-      
-        // Menggambar diagram pemasukan menggunakan Chart.js
-        var incomeChart = new Chart(document.getElementById('incomeChart'), {
-          type: 'doughnut',
-          data: incomeData,
-          options: incomeOptions
-        });
-      
-        // Inisialisasi data diagram pengeluaran
-        var expenseData = {
-          labels: ["Kategori A", "Kategori B", "Kategori C"],
-          datasets: [{
-            data: [20, 50, 30],
-            backgroundColor: ["#dc3545", "#6c757d", "#ffc107"]
-          }]
-        };
-      
-        // Inisialisasi opsi diagram pengeluaran
-        var expenseOptions = {
-          responsive: true,
-          animation: {
-            animateRotate: true,
-            animateScale: true
-          }
-        };
-      
-        // Menggambar diagram pengeluaran menggunakan Chart.js
-        var expenseChart = new Chart(document.getElementById('expenseChart'), {
-          type: 'doughnut',
-          data: expenseData,
-          options: expenseOptions
-        });
-      </script> --}}
-
-{{-- end perbaikan grafik --}}
-
-{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  // Inisialisasi data diagram lingkaran
-  var pieData = {
-    labels: ["Kategori 1", "Kategori 2", "Kategori 3"],
-    datasets: [{
-      data: [30, 50, 20],
-      backgroundColor: ["#007bff", "#28a745", "#ffc107"]
-    }]
-  };
-
-  // Inisialisasi opsi diagram lingkaran
-  var pieOptions = {
-    responsive: true,
-    animation: {
-      animateRotate: true,
-      animateScale: true
-    }
-  };
-
-  // Menggambar diagram lingkaran menggunakan Chart.js
-  var pieChart = new Chart(document.getElementById('pieChart'), {
-    type: 'doughnut',
-    data: pieData,
-    options: pieOptions
-  });
-</script> --}}
