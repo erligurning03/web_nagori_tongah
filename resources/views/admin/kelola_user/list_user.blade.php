@@ -33,7 +33,7 @@
     @endif
     <br>
     <!-- button tambah -->
-    <a href="{{ route('pendapatan.cetak_pdf') }}"><button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;"><i class="fa-solid fa-plus"></i> Tambah Akun</button></a>
+    <a href="{{ route('users.create') }}"><button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;"><i class="fa-solid fa-plus"></i> Tambah Akun</button></a>
     <br>
     {{-- <!-- form filter -->
                 <div class="card">
