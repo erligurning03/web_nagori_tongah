@@ -14,6 +14,7 @@ use App\Http\Controllers\UmkmBaruController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BeritaAdminController;
 use App\Http\Controllers\BeritaWargaController;
+use App\Http\Controllers\BeritaLengkapController;
 use App\Http\Controllers\WisataController;
 use App\Models\PerangkatDesa;//kok ada models ini disini bro ??? ada yang tau ??
 use Illuminate\Contracts\Cache\Store;
@@ -323,9 +324,9 @@ Route::middleware(['auth'])->group(function () {
 
         //Route halaman berita
         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
-
-    });
-
+        Route::get('/beritalengkap', [BeritaLengkapController::class, 'index'])->name('berita.beritalengkap');
+        Route::get('/beritalengkap', [BeritaLengkapController::class, 'show'])->name('berita.beritalengkap');
+    }); 
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
