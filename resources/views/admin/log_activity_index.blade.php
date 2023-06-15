@@ -5,7 +5,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Daftar Aktivitas Pengguna website Nagori-Nagori Tongah</h1>
+                <h1 class="h3 mb-2 text-gray-800">Daftar Aktivitas Pengguna Website Nagori NagoriTongah</h1>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -28,11 +28,11 @@
                                     <tr>
                                         <th scope="col">No.</th>
                                         <th>Nama Pengguna</th>
-                                        <th>Event</th>
-                                        <th>Before</th>
-                                        <th>After</th>
+                                        <th>Aksi</th>
+                                        <th>Sebelum</th>
+                                        <th>Sesudah</th>
                                         <th>Deskripsi</th>
-                                        <th>Log At</th>
+                                        <th>Waktu</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -120,8 +120,8 @@
 
     
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 @endsection
 

@@ -43,7 +43,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Telepon</th>
-                                <th>Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,7 +55,6 @@
                                     <td>{{ $admin->username }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td>{{ $admin->telepon }}</td>
-                                    <td>{{ $admin->role }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -75,7 +73,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Telepon</th>
-                                <th>Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,7 +85,6 @@
                                     <td>{{ $operator->username }}</td>
                                     <td>{{ $operator->email }}</td>
                                     <td>{{ $operator->telepon }}</td>
-                                    <td>{{ $operator->role }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -107,7 +103,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Telepon</th>
-                                <th>Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -120,7 +115,6 @@
                                     <td>{{ $warga->username }}</td>
                                     <td>{{ $warga->email }}</td>
                                     <td>{{ $warga->telepon }}</td>
-                                    <td>{{ $warga->role }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
