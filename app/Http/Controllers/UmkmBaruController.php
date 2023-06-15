@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Umkm;
 use PDF;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class UmkmBaruController extends Controller
@@ -89,8 +90,57 @@ class UmkmBaruController extends Controller
         $umkm->telepon = $request->telepon;
         $umkm->gambar_produk = $request->gambar_produk;
         $umkm->deskripsi = $request->deskripsi;
+
+
+        if ($request->hasFile('upload_ktp')) {
+            $uploadKtp = $request->file('upload_ktp');
+            $uploadKtpPath = $uploadKtp->store('public/img/umkm/ktp');
+        
+            // Menghapus file foto lama jika ada
+            if ($umkm->upload_ktp) {
+                Storage::delete($umkm->upload_ktp);
+            }
+        
+            $umkm->upload_ktp = $uploadKtpPath;
+        } else {
+            // Jika tidak ada file yang diunggah, tetap gunakan file foto lama
+            $umkm->upload_ktp = $umkm->upload_ktp;
+        }
+
+        if ($request->hasFile('pas_foto')) {
+            $pasFoto = $request->file('pas_foto');
+            $pasFotoPath = $pasFoto->store('public/img/umkm/pas_foto');
+        
+            // Menghapus file foto lama jika ada
+            if ($umkm->pas_foto) {
+                Storage::delete($umkm->pas_foto);
+            }
+        
+            $umkm->pas_foto = $pasFotoPath;
+        } else {
+            // Jika tidak ada file yang diunggah, tetap gunakan file foto lama
+            $umkm->pas_foto = $umkm->pas_foto;
+        }
+        
+        if ($request->hasFile('gambar_produk')) {
+            $gambarProduk = $request->file('gambar_produk');
+            $gambarProdukPath = $gambarProduk->store('public/img/umkm/gambar_produk');
+        
+            // Menghapus file foto lama jika ada
+            if ($umkm->gambar_produk) {
+                Storage::delete($umkm->gambar_produk);
+            }
+        
+            $umkm->gambar_produk = $gambarProdukPath;
+        } else {
+            // Jika tidak ada file yang diunggah, tetap gunakan file foto lama
+            $umkm->gambar_produk = $umkm->gambar_produk;
+        }
+
         $umkm->save();
         return redirect()->back()->with('success', 'Data UMKM berhasil diperbarui');
+
+        // dd($umkm);
     }
 
     /**
