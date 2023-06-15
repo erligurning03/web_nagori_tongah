@@ -38,6 +38,11 @@
             <h6 class="m-0 font-weight-bold text-primary">Daftar UMKM</h6>
             <br>
             <a href="{{ route('admin.tambahumkm.umkm') }}"><button type="button" class="btn" style="background-color: #609966; color:white;font-weight:bold;"><i class="fa-solid fa-plus"></i> Tambah UMKM</button></a>
+            @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         </div>
 
         <!-- Cetak PDF -->
@@ -84,7 +89,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="lihatSelengkapnya{{ $data->id }}Label">Data Warga </h5>
+                                                <h5 class="modal-title" id="lihatSelengkapnya{{ $data->id }}Label">Data UMKM </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -103,17 +108,17 @@
                                                 <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" style="height: 200px; object-fit: contain; " alt="Gambar Produk" class="img-thumbnail">
                                                 <h2 class="small">Deskripsi <span class="float-right">{{ $datajelas->deskripsi }}</span></h2>
                                             </div>
-                                            <div class="modal-footer">
-                                                <form action="{{ route('tolak-user',  $data->id) }}" method="POST">
+                                            {{-- <div class="modal-footer">
+                                                <form action="{{ route('tolak-umkm',  $data->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Tolak</button>
                                                 </form>
-                                                <form action="{{ route('terima-user',  $data->id) }}" method="POST">
+                                                <form action="{{ route('terima-umkm',  $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-success">Terima</button>
                                                 </form>
-                                            </div>
+                                            </div> --}}
                                             @endforeach
                                         </div>
                                     </div>
@@ -140,10 +145,12 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="upload_ktp">Upload KTP:</label>
+                                                        <img src="{{ asset('img/umkm/ktp/'.$data->upload_ktp) }}" style="height: 200px; object-fit: contain; " alt="KTP" class="img-thumbnail">
                                                         <input type="file" name="upload_ktp" id="upload_ktp" class="form-control" value="{{ $data->upload_ktp }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="pas_foto">Pas Foto:</label>
+                                                        <img src="{{ asset('img/umkm/pas_foto/'.$data->pas_foto) }}" style="height: 200px; object-fit: contain; " alt="Pas_Foto" class="img-thumbnail">
                                                         <input type="file" name="pas_foto" id="pas_foto" class="form-control" value="{{ $data->pas_foto }}">
                                                     </div>
                                                     <div class="form-group">
@@ -160,6 +167,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="gambar_produk">Gambar Produk:</label>
+                                                        <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" style="height: 200px; object-fit: contain; " alt="Gambar Produk" class="img-thumbnail">
                                                         <input type="file" name="gambar_produk" id="gambar_produk" class="form-control" value="{{ $data->gambar_produk }}">
                                                     </div>
                                                     <div class="form-group">

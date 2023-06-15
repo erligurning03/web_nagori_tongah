@@ -234,6 +234,21 @@
                 </div>
             </li>
 
+            <!-- Sidebar untuk log aktivitas user -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLogActivity" aria-expanded="true" aria-controls="collapseLogActivity">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                    <span>Log / Riwayat Aktivitas user</span>
+                </a>
+                <div id="collapseLogActivity" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Aksi:</h6>
+                        <a class="collapse-item" href="{{ route('logActivity.index') }}">Semua aktivitas</a>
+                        {{-- <a class="collapse-item" href="{{ route('report-post') }}">Post yang dilaporkan</a> --}}
+                    </div>
+                </div>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
 
 

@@ -29,6 +29,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostAdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AddUserController;
+use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\ProfileAdminController;
 
 
@@ -278,6 +279,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/edit', [ProfileAdminController::class, 'edit'])->name('admin.edit');
         Route::patch('admin/update', [ProfileAdminController::class, 'update'])->name('admin.update');
         Route::post('admin/update-password', [ProfileAdminController::class, 'updatePassword'])->name('admin.updatePassword');
+
+        //route ke halaman aktifitas semua user
+        Route::resource('logActivity',LogActivityController::class);//->name('logactivity');
 
     });
 
