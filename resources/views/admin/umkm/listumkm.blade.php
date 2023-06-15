@@ -108,17 +108,17 @@
                                                 <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" style="height: 200px; object-fit: contain; " alt="Gambar Produk" class="img-thumbnail">
                                                 <h2 class="small">Deskripsi <span class="float-right">{{ $datajelas->deskripsi }}</span></h2>
                                             </div>
-                                            <div class="modal-footer">
-                                                <form action="{{ route('tolak-user',  $data->id) }}" method="POST">
+                                            {{-- <div class="modal-footer">
+                                                <form action="{{ route('tolak-umkm',  $data->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Tolak</button>
                                                 </form>
-                                                <form action="{{ route('terima-user',  $data->id) }}" method="POST">
+                                                <form action="{{ route('terima-umkm',  $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-success">Terima</button>
                                                 </form>
-                                            </div>
+                                            </div> --}}
                                             @endforeach
                                         </div>
                                     </div>
