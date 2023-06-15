@@ -11,8 +11,10 @@ class BeritaWargaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::all();
-        return view('berita.berita1', compact('berita'));
+        $beritahoax = Berita::where('jenis_berita', 'hoax')->get();
+        $berita = Berita::where('jenis_berita', 'berita')->get();
+        // $berita = Berita::all();
+        return view('berita.berita1', compact('berita', 'beritahoax'));
     }
 
     /**

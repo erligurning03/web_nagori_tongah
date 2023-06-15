@@ -38,14 +38,13 @@ class BeritaAdminController extends Controller
             'judul' => 'required',
             'isi_berita' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+           
         ]);
 
-        
-
         $user = Auth::user();
-
+        
         $name = $request->file('image')->getClientOriginalName();
-        $request->file('image')->store('public/img_berita');
+        $request->file('image')->storeAs('public/img_berita',$name);
         $path = $request->file('image')->store('img_berita');
 
         $berita = new Berita();
@@ -53,11 +52,9 @@ class BeritaAdminController extends Controller
         $berita->jenis_berita = $request->input('jenis_berita'); 
         $berita->judul = $request->input('judul'); 
         $berita->isi_berita = $request->input('isi_berita');
-        $berita->namaGambar = $name;
-        $berita->alamatGambar = $path;
+        $berita->cover = $name;
         $berita->user()->associate($user); 
         $berita->save();
-
 
         // if ($request->hasFile('foto')) {
         //     foreach ($request->file('foto') as $foto) {
@@ -113,8 +110,7 @@ class BeritaAdminController extends Controller
         $berita->jenis_berita = $request->jenis_berita;
         $berita->judul = $request->judul;
         $berita->isi_berita = $request->isi_berita;
-        $berita->namaGambar = $request->namaGambar;
-        $berita->alamatGambar = $request->alamatGambar;
+        $berita->cover = $request->cover;
         $berita->save();
         return redirect('/admin/semuaberita')->with('success', 'Berita berhasil diperbarui');
     }

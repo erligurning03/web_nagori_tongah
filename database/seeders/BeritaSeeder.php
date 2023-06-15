@@ -19,8 +19,7 @@ class BeritaSeeder extends Seeder
             'jenis_berita' => 'berita',
             'judul' => 'WISATA KEBUN TEH',
             'isi_berita' => 'Kebun Teh Bahbutong adalah salah satu tempat di Sidamanik',
-            'namaGambar' => 'foto2.png',
-            'alamatGambar' => 'img_berita/lL9bAoYewIOK37eZ2xBcrwi1NlRpdXaz1gQCgsFw.png',
+            'cover' => 'foto2.png',
             'created_at' => '2023-04-04 08:00:00',
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -31,8 +30,7 @@ class BeritaSeeder extends Seeder
             'jenis_berita' => 'hoax',
             'judul' => 'Vaksin Palsu',
             'isi_berita' => 'Pembagian vaksin palsu itu adalah hoaks',
-            'namaGambar' => 'vaksin.jpg',
-            'alamatGambar' => 'img_berita/ZaNuURE9v62DLYtac8p8om9E4rrLICVymfAWKTSr.jpg',
+            'cover' => 'vaksin.jpg',
             'created_at' =>'2023-05-20 08:00:00',
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -43,8 +41,7 @@ class BeritaSeeder extends Seeder
             'jenis_berita' => 'berita',
             'judul' => 'Pembagian Bansos',
             'isi_berita' => 'Ada bagi-bagi bansos ini',
-            'namaGambar' => 'bansos.png',
-            'alamatGambar' => 'img_berita/BVF76djFgwERGvVCYvkPAdF2iFolaXzaolUC7gMI.jpg',
+            'cover' => 'bansos.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

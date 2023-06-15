@@ -43,7 +43,7 @@
                             <td>{{ $data->jenis_berita}}</td>
                             <td>{{ $data->judul }}</td>
                             <td>{{ $data->isi_berita }}</td>
-                            <td><img style="width: 300px" src="{{asset('/storage/'.$data->alamatGambar)}}" alt="Gambar00"></td>
+                            <td><img style="width: 300px" src="{{asset('storage/img_berita/'.$data->cover)}}" alt="Gambar00"></td>
                             <td style="display: flex;">
                                 <button type="button" style="width:100px; margin-right: 10px; background-color: orange; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#editModal{{ $data->id }}"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                                 <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
@@ -90,12 +90,12 @@
                                                 <input type="text" name="isi_berita" id="isi_berita" class="form-control" value="{{ $data->isi_berita }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="alamatGambar">Gambar: </label>
+                                                <label for="cover">Gambar: </label>
                                                 <br>
-                                                <img style="width: 300px" src="{{asset('/storage/'.$data->alamatGambar)}}" alt="Gambar00">
+                                                <img style="width: 250px" src="{{asset('storage/img_berita/'.$data->cover)}}" alt="Gambar00">
                                             </div>
                                             <div class="form-group">
-                                                <input type="file" name="namaGambar" id="namaGambar" class="form-control" value="{{ $data->namaGambar }}">
+                                                <input type="file" name="cover" id="cover" class="form-control" value="{{ $data->cover}}">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </form>

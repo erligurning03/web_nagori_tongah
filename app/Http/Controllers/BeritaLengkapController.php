@@ -13,7 +13,7 @@ class BeritaLengkapController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        return view('berita.beritalengkap', compact('beritalengkap'));
+        return view('berita.beritalengkap', compact('berita'));  
     }
 
     /**
@@ -37,7 +37,10 @@ class BeritaLengkapController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        // $berita = Berita::where('id',$idberita)->first();
+        // $berita = Berita::get();
+        return view('berita.beritalengkap',compact('berita'));
     }
 
     /**

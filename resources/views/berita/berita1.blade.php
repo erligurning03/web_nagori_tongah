@@ -31,11 +31,11 @@
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                    <img src="{{asset('/storage/'.$data->alamatGambar)}}" style="width: 400px; object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
+                                    <img src="{{asset('/storage/img_berita/'.$data->cover)}}" style="height: 200px;  object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
                                   </div>
                                   <div class="trend-bottom-cap">
                                       <span class="color4">{{ $data->created_at }}</span>
-                                      <h4><a href="#"> {{ $data->judul }}</a></h4>
+                                      <h4><a href="{{route('berita.show', $data->id)}}"> {{ $data->judul }}</a></h4>
                                       <p>{{ $data->isi_berita }}</p>
                                   </div>
                               </div>
@@ -50,42 +50,17 @@
                         <div class="trending-tittle">
                             <strong>Hoax</strong>
                         </div>
+                        @foreach($beritahoax as $data)
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="img_berita/hoax1.png" width="120" height="100" alt="">
+                              <img src="{{asset('/storage/img_berita/'.$data->cover)}}" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
-                              <span class="color4">Diunggah 12 mei 2023</span>
-                              <h4><a href="details.html">Telah terjadi pencurian 1 unit motor</a></h4>
+                              <span class="color4">{{ $data->created_at }}</span>
+                              <h4><a href="#">{{ $data->judul }}</a></h4>
                           </div>
                       </div>
-                      <div class="trand-right-single d-flex">
-                          <div class="trand-right-img">
-                            <img src="img_berita/hoax2.png" width="120" height="100" alt="">
-                          </div>
-                          <div class="trand-right-cap">
-                              <span class="color4">Diunggah 29 januari 2023</span>
-                              <h4><a href="details.html">Kekerasan dalam rumah tangga kembali terjadi di desa nagori</a></h4>
-                          </div>
-                      </div>
-                      <div class="trand-right-single d-flex">
-                          <div class="trand-right-img">
-                            <img src="img_berita/hoax3.png" width="120" height="100" alt="">
-                          </div>
-                          <div class="trand-right-cap">
-                              <span class="color4">Diunggah 02 maret 2023</span>
-                              <h4><a href="details.html">Longsor yang terjadi di desa Nagori NagoriTongah memakan korban</a></h4>
-                          </div>
-                      </div> 
-                      <div class="trand-right-single d-flex">
-                          <div class="trand-right-img">
-                            <img src="img_berita/hoax4.png" width="120" height="100" alt="">
-                          </div>
-                          <div class="trand-right-cap">
-                              <span class="color4">Diunggah 15 april 2023</span>
-                              <h4><a href="details.html">Gempa 7,6 SR Mengguncang Desa Nagori NagoriTongah Sumatera Utara</a></h4>
-                          </div>
-                      </div>
+                      @endforeach
                   </div>
               </div>
           </div>
