@@ -62,14 +62,14 @@ class ProfileController extends Controller
 
         $validatedData = $request->validate([
             'nik' => 'required|numeric',
-            'nama_lengkap' => 'required|alpha',
+            'nama_lengkap' => 'required|regex:/^[a-zA-Z\s]+$/',
             'username' => 'required|max:16|unique:user,username,'.$user->nik.',nik',
             'email' => 'required|email|unique:user,email,'.$user->nik.',nik',
             'telepon' => ['required', 'regex:/^(\+62|0)[0-9]{1,15}$/'],
             'foto_profil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Hanya menerima file gambar dengan tipe yang diizinkan dan ukuran maksimum 2MB
         ],
         [
-            'nama_lengkap.alpha' => 'Nama hanya boleh terdiri dari huruf.',
+            'nama_lengkap.regex' => 'Nama hanya boleh terdiri dari huruf.',
             'email.email' => 'Email harus dalam format email.',
             'telepon.regex' => 'Telepon harus dimulai dengan +62 atau 0 dan hanya boleh berisi angka.',
             'username.unique' => 'Username sudah ada.',
