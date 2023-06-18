@@ -40,6 +40,7 @@
                   <div>
                     <div class="w-100">
                       <h3 class="mb-4 mt-5"><b>Daftar Akun</b></h3>
+                      <h6>Diharapkan untuk mengingat / mencatat <b style="color: red;">username dan password</b>, karena jika ingin login akan memakai username dan password</h6>
                     </div>
                     <form action="{{ route('simpan_register')}}" method="POST" class="signin-form">
                       @csrf
@@ -84,10 +85,8 @@
                       <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary rounded submit px-3" id="btnSubmit">Daftar Akun</button>
                       </div>
-                      <div class="w-75 text-md-right">
-                        <p>Sudah punya akun?</p>
-                      </div>
                       <div class="form-group">
+                      <p class="text-center">Sudah punya akun?</p>
                         <a href="login" type="submit" class="button form-control btn btn-primary-1 rounded submit px-3">Masuk</a>
                       </div>
                       <div class="form-group d-md-flex">

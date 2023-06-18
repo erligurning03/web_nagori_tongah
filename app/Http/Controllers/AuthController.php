@@ -54,7 +54,7 @@ class AuthController extends Controller
         $user->save();
 
 
-        return redirect('login')->with('success', 'Registrasi Berhasil');
+        return redirect('login')->with('success', 'Registrasi Berhasil, Harap Tunggu Verifikasi Akun oleh Operator');
     }
 
     // login
@@ -100,12 +100,21 @@ class AuthController extends Controller
                 $user->save();
             }
 
-            auth()->login($user);
+            
 
             if ($user->role == 'admin' || $user->role == 'operator') {
+                auth()->login($user);
                 return redirect()->route('dashboard-admin');
-            } elseif ($user->role == 'warga') {
-                return redirect()->route('dashboard');
+            } 
+            elseif ($user->role == 'warga') {
+                if ($user->status_akun == 'terdaftar') {
+                    auth()->login($user);
+                    return redirect()->route('dashboard');
+                } elseif ($user->status_akun == 'menunggu') {
+                    return redirect('login')->withErrors([
+                        'Akun Anda Belum Diverifikasi, Diharapkan untuk Menunggu Proses Verifikasi, Terima Kasih.',
+                    ]);
+                }
             }
         } else {
             if (!$user) {
