@@ -16,7 +16,7 @@ use App\Http\Controllers\BeritaAdminController;
 use App\Http\Controllers\BeritaWargaController;
 use App\Http\Controllers\BeritaLengkapController;
 use App\Http\Controllers\WisataController;
-use App\Models\PerangkatDesa;//kok ada models ini disini bro ??? ada yang tau ??
+use App\Models\PerangkatDesa; //kok ada models ini disini bro ??? ada yang tau ??
 use Illuminate\Contracts\Cache\Store;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\galeriDashController;
@@ -34,140 +34,15 @@ use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\ProfileAdminController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-// Route::get('/tes', function () {
-//     return view('landing_page/tes');
-// });
-// // Route::get('/', function () {
-// //     return view('landing_page/landing');
-// // });
-// // Route::get('/landing', function () {
-// //     return view('landing_page/landing');
-// // });
-
-
-
-// // Route::get('/login', [AuthController::class, 'login'])->name('login');
-// // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-// // Route::get('/landing', function () { return view('landing_page/landing'); })->name('landing');
-// // Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-// // Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
-// Route::get('/pengajuan', function () {return view('pengajuan/index');});
-// Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
-// Route::get('/form', function () {return view('pengajuan/form');})->name('form');
-// Route::get('/galeri', function () {return view('galeri/index');});
-
-
-// // Route::get('/auth', function () {return view('auth/login');});
-// // Route::get('/auth', function () {return view('auth/login');})->name('auth');
-// // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
-// Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');   //untuk menyimpan
-
-// // Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');   //untuk menyimpan
-
-
-
-
-// Route::get('/pengajuan', function () {return view('pengajuan/index');});
-// Route::get('/pengajuan2', function () {return view('pengajuan/index cadangan');});
-// Route::get('/form', function () {return view('pengajuan/form');})->name('form');
-// Route::get('/galeri', function () {return view('galeri/index');});
-
-// Route::get('/admin', function() {return view('admin/index');});
-
-// Route::get('/wisata', function () {return view('wisata/index');});
-
-
-// // Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
-// Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
-
-// Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index');
-// // cara panggil {{ route('posts.index') }}
-// Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
-// Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
-// Route::post('/posts/komentar-store', [PostController::class, 'tambahKomentar'])->name('posts.komentar-store');
-// Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-
-
-// Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
-// Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
-// Route::get('/admin', function() {return view('admin/index');});
-
-// Route::get('/wisata', function () {return view('wisata/index');});
-
-
-// // Route::get('/forum_diskusi', function () {return view('forum_diskusi/index');});
-// Route::get('/forum_diskusi2', function () {return view('forum_diskusi/index cadangan');});
-
-// Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index');
-// // cara panggil {{ route('posts.index') }}
-// Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
-// Route::post('/forum_diskusi/store', [PostController::class, 'store'])->name('posts.store');
-
-
-// // Route::get('/landingpage', function () {
-// //     return view('landing_page/landing');
-// // });
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-// //untuk halaman admin
-// Route::get('/admin', function() {return view('admin/index');});
-// Route::get('/admin/charts', function () {
-//     return view('admin.charts');
-// })->name('charts');
-
-// Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/show');});
-// Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
-// Route::post('/submit-form', 'FormController@submit')->name('submit-form');
-
-// Route::get('/admin/wisata', function() {return view('admin/wisata_desa/daftarwisata');});
-// Route::get('/admin/tambah/wisata', function() {return view('admin/wisata_desa/tambahwisata');});
-// // Route::post('/submit-form', 'FormController@submit')->name('submit-form');
-
-// Route::get('/navbar', function() {return view('admin/layouts/navbar');});
-// Route::get('/navbar2', function() {return view('newadmin/layouts/navsidebar');});
-// Route::get('/test', function() {return view('newadmin/layouts/tes');});
-// Route::get('/newadmin', function() {return view('newadmin/index');});
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// //CRUD Perangkat Desa
-// Route::get('/perangkat-desa/create-multiple', 'PerangkatDesaController@createMultiple')->name('perangkat-desa.create-multiple');
-// Route::post('/perangkat-desa/store-multiple', 'PerangkatDesaController@storeMultiple')->name('perangkat-desa.store-multiple');
-
-// Route::post('/admin/perangkatdesa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');
-
-
-
-// ROUTE YANG SUDAH TERATUR
-
 //route yang semua user bisa akses  termasuk tamu tanpa akun login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 //Route::get('/', function () { return view('landing_page/landing'); })->name('landing');
 Route::get('/', [PerangkatDesaLandingController::class, 'index'])->name('landing');
-Route::get('/warga', function () { return view('warga/dashboard'); })->name('warga');
-Route::get('/newlanding', function () { return view('landing_page/newlanding'); })->name('newlanding');
+Route::get('/warga', function () {return view('warga/dashboard');})->name('warga');
+Route::get('/newlanding', function () {return view('landing_page/newlanding');})->name('newlanding');
 Route::post('/login_masuk', [AuthController::class, 'loginMasuk'])->name('login_masuk');
-Route::get('/register',[ AuthController::class, 'register'])->name('register');                       //view untuk register
-Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register'); 
+Route::get('/register', [AuthController::class, 'register'])->name('register');                       //view untuk register
+Route::post('/simpan_register', [AuthController::class, 'registerPost'])->name('simpan_register');
 // Route::get('/umkm', [UmkmController::class, 'create'])->name('umkm');
 Route::get('/umkm_landing', [UmkmController::class, 'index'])->name('umkm.index');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
@@ -227,43 +102,43 @@ Route::middleware(['auth'])->group(function () {
 
         //route halaman CRUD galeri oleh admin
         Route::get('/galeri_adm', [galeriController::class, 'index'])->name('galeri_adm'); //membaca data didatabase. jadi ini untuk penamaan letak file diviewsnya jadi gausah lagi kasih tau letak file manual tapi kalau ada rout ini aja pake untuk menggil viewnya
-        Route::get('/galeri_admin/create_galeri', [galeriController::class, 'create']);//Route::get('/indexgaleri', function() {return view('galeri_admin.index');});          //untuk name ini biasanya nama view.functionnya, jadi sebenarnya bisa aja agak lain nanmanya
-        Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store');//menyimpan kedatabase
-        Route::delete('galeri_admin/{id}',[galeriController::class,'destroy']);
-        
-        // Route halaman CRUD Surat Keterangan
-         Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
-         Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
-         Route::put('/admin/suket/{id}', [SuketController::class, 'update'])->name('suket.update');
-         Route::get('/admin/suket/add', [SuketController::class, 'create'])->name('admin.tambahsuket.pengajuan');
-         Route::post('/admin/suket', [SuketController::class, 'store'])->name('suket.store');
-         Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
-         Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
-         Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');         
-         Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
-         Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');         
+        Route::get('/galeri_admin/create_galeri', [galeriController::class, 'create']); //Route::get('/indexgaleri', function() {return view('galeri_admin.index');});          //untuk name ini biasanya nama view.functionnya, jadi sebenarnya bisa aja agak lain nanmanya
+        Route::post('/galeri_admi', [galeriController::class, 'store'])->name('galeri_admin.store'); //menyimpan kedatabase
+        Route::delete('galeri_admin/{id}', [galeriController::class, 'destroy']);
 
-         // Route halaman CRUD Halaman UMKM
-         Route::get('/admin/listumkm', [UmkmBaruController::class, 'index'])->name('admin.listumkm.umkm');
-         Route::get('/admin/umkm/add', [UmkmBaruController::class, 'create'])->name('admin.tambahumkm.umkm');
-         Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
-         Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
-         Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
-         Route::get('/umkm/cetak_pdf', [UmkmBaruController::class, 'cetak_pdf'])->name('umkm.cetak_pdf');
+        // Route halaman CRUD Surat Keterangan
+        Route::get('/admin/suket', [SuketController::class, 'index'])->name('admin.suket.pengajuan');
+        Route::delete('/admin/suket/{id}', [SuketController::class, 'destroy'])->name('suket.destroy');
+        Route::put('/admin/suket/{id}', [SuketController::class, 'update'])->name('suket.update');
+        Route::get('/admin/suket/add', [SuketController::class, 'create'])->name('admin.tambahsuket.pengajuan');
+        Route::post('/admin/suket', [SuketController::class, 'store'])->name('suket.store');
+        Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
+        Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
+        Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
+        Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
+        Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');
+
+        // Route halaman CRUD Halaman UMKM
+        Route::get('/admin/listumkm', [UmkmBaruController::class, 'index'])->name('admin.listumkm.umkm');
+        Route::get('/admin/umkm/add', [UmkmBaruController::class, 'create'])->name('admin.tambahumkm.umkm');
+        Route::put('/admin/umkm/{id}', [UmkmBaruController::class, 'update'])->name('umkm.update');
+        Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
+        Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
+        Route::get('/umkm/cetak_pdf', [UmkmBaruController::class, 'cetak_pdf'])->name('umkm.cetak_pdf');
 
         // Route halaman CRUD Berita
-         Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');
-         Route::get('/admin/berita/add', [BeritaAdminController::class, 'create'])->name('admin.tambahberita.berita');
-         Route::put('/admin/berita/{id}', [BeritaAdminController::class, 'update'])->name('berita.update');
-         Route::post('/admin/berita', [BeritaAdminController::class, 'store'])->name('berita.store');
-         Route::delete('/admin/berita/{id}', [BeritaAdminController::class, 'destroy'])->name('berita.destroy');
+        Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');
+        Route::get('/admin/berita/add', [BeritaAdminController::class, 'create'])->name('admin.tambahberita.berita');
+        Route::put('/admin/berita/{id}', [BeritaAdminController::class, 'update'])->name('berita.update');
+        Route::post('/admin/berita', [BeritaAdminController::class, 'store'])->name('berita.store');
+        Route::delete('/admin/berita/{id}', [BeritaAdminController::class, 'destroy'])->name('berita.destroy');
 
         //route halaman perangkat desa oleh admin 
         // Route::get('/admin/perangkatdesa', function() {return view('admin/perangkat_desa/index');});
         Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
         //Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
-        Route::post('/tambah_perangkat_desa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store');//menyimpan kedatabase
-        Route::delete('/perangkat_desa/{id}',[PerangkatDesaController::class,'destroy']);
+        Route::post('/tambah_perangkat_desa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store'); //menyimpan kedatabase
+        Route::delete('/perangkat_desa/{id}', [PerangkatDesaController::class, 'destroy']);
 
         //Route halaman CRUD forum diskusi
         Route::get('/admin/semua-post', [PostAdminController::class, 'index'])->name('semua-post');
@@ -282,7 +157,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/update-password', [ProfileAdminController::class, 'updatePassword'])->name('admin.updatePassword');
 
         //route ke halaman aktifitas semua user
-        Route::resource('logActivity',LogActivityController::class);//->name('logactivity');
+        Route::resource('logActivity', LogActivityController::class); //->name('logactivity');
 
     });
 
@@ -291,10 +166,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         //Route halaman chart anggaran
-        Route::get('/belanja', function () {return view('landing_page/belanja');});
+        Route::get('/belanja', function () {
+            return view('landing_page/belanja');
+        });
         Route::get('/chart', [ChartController::class, 'index'])->name('transparasi');
         // Route::get('/chart/data', [ChartController::class, 'getData']);
-        
+
         //Route halaman forum diskusi
         Route::get('/forum_diskusi', [PostController::class, 'index'])->name('posts.index'); // cara panggil {{ route('posts.index') }}
         Route::get('/forum_diskusi/{id}', [PostController::class, 'show'])->name('posts.show');
@@ -326,18 +203,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
         Route::get('/beritalengkap', [BeritaLengkapController::class, 'index'])->name('berita.beritalengkap');
         Route::get('/beritalengkap', [BeritaLengkapController::class, 'show'])->name('berita.show');
-    }); 
+    });
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//erli route visi misi
-//erli controller galeri
-//Route::get('/galeriadmin', function() {return view('galeri_admin.crud_galeri');});
-//Route::get('/readgaleri', [galeriController::class, 'index'])->name('readgaleri'); //namafungsinya
-//route index
-
-
-//         Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-        //Route::post('/toggle-love', 'PostController@toggleLove')->name('post.toggleLove');
-
-        
