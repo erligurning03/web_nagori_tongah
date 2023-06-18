@@ -325,7 +325,7 @@ Route::middleware(['auth'])->group(function () {
         //Route halaman berita
         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
         Route::get('/beritalengkap', [BeritaLengkapController::class, 'index'])->name('berita.beritalengkap');
-        Route::get('/beritalengkap', [BeritaLengkapController::class, 'show'])->name('berita.beritalengkap');
+        Route::get('/beritalengkap', [BeritaLengkapController::class, 'show'])->name('berita.show');
     }); 
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
