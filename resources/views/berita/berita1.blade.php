@@ -31,7 +31,7 @@
                               <div class="col-lg-4">
                               <div class="single-bottom mb-35">
                                   <div class="trend-bottom-img mb-30">
-                                    <img src="{{asset('/img_berita/'.$data->cover)}}" style="height: 200px;  object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
+                                    <img src="{{asset('img_berita/'.$data->cover)}}" style="height: 200px;  object-fit: contain; "  alt="Foto Berita" class="img-thumbnail">
                                   </div>
                                   <div class="trend-bottom-cap">
                                       <span class="color4">{{ $data->created_at }}</span>

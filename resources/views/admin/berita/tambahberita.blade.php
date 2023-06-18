@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="foto">Gambar:</label>
-                                                <input type="file" name="image" id="foto" class="form-control">
+                                                <input type="file" name="image" id="image" class="form-control">
                                                 @error('image')
                                                     <div>{{ $message }}</div>
                                                 @enderror

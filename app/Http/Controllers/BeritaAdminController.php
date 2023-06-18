@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Berita;
+use Illuminate\Support\Facades\Storage;
 use App\Models\FotoBerita;
 use App\Models\FotoPost;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,7 @@ class BeritaAdminController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {       
         $validatedData = $request->validate([
             'nik' => 'required',
             'jenis_berita' => 'required',
@@ -44,8 +45,8 @@ class BeritaAdminController extends Controller
         $user = Auth::user();
         
         $name = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/img_berita',$name);
-        $path = $request->file('image')->store('img_berita');
+        $request->file('image')->move(public_path('img_berita'),$name); //store gambar ke folder public 
+        // $path = $request->file('image')->store('img_berita/');
 
         $berita = new Berita();
         $berita->nik = $user->nik; 
@@ -55,30 +56,8 @@ class BeritaAdminController extends Controller
         $berita->cover = $name;
         $berita->user()->associate($user); 
         $berita->save();
-
-        // if ($request->hasFile('foto')) {
-        //     foreach ($request->file('foto') as $foto) {
-        //         if ($foto->isValid()) { // Memeriksa apakah foto yang diunggah valid
-        //             $fileExtension = $foto->getClientOriginalExtension(); // Mendapatkan ekstensi file asli
-        //             $allowedExtensions = ['jpg', 'jpeg', 'png']; // Ekstensi yang diizinkan
-
-        //             if (in_array($fileExtension, $allowedExtensions)) {
-        //                 $fileName = $foto->getClientOriginalName();
-
-        //                 $foto->storeAs('img_berita', $fileName, 'public'); 
-        //                 $foto_berita = new FotoBerita();
-        //                 $foto_berita->id_berita = $berita->id;
-        //                 $foto_berita->foto = $fileName;
-        //                 $foto_berita->save();
-        //             } else {
-        //                 return redirect()->back()->withErrors('Tipe file tidak diizinkan. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
-        //             }
-        //         } else {
-        //             return redirect()->back()->withErrors('Ada masalah dengan salah satu file yang diunggah. Pastikan semua file adalah file gambar (jpg, jpeg, png) atau file PDF dengan ukuran maksimum 8MB.');
-        //         }
-        //     }
-        // }
-        return redirect('/admin/semuaberita')->with('success', 'Berita berhasil disimpan.');
+        
+        return redirect('/admin/semuaberita')->with('success', 'Berita berhasil ditambahkan.');
 
 
     }
@@ -108,10 +87,27 @@ class BeritaAdminController extends Controller
         $berita = Berita::findOrFail($id);
         $berita->nik = $request->nik;
         $berita->jenis_berita = $request->jenis_berita;
+        // $berita->cover = $request->cover;
         $berita->judul = $request->judul;
         $berita->isi_berita = $request->isi_berita;
-        $berita->cover = $request->cover;
+        
+        if ($request->hasFile('cover')) {
+            $gambarBerita = $request->file('cover');
+            $gambarBeritaPath = $gambarBerita->store('public/img_berita');
+        
+            // Menghapus file foto lama jika ada
+            if ($berita->cover) {
+                Storage::delete($berita->cover);
+            }
+        
+            $berita->cover = $gambarBeritaPath;
+        } else {
+            // Jika tidak ada file yang diunggah, tetap gunakan file foto lama
+            $berita->cover = $berita->cover;
+        }
+
         $berita->save();
+      
         return redirect('/admin/semuaberita')->with('success', 'Berita berhasil diperbarui');
     }
 

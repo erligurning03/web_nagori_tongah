@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <img src="{{asset('/storage/img_berita/'.$berita->cover)}}" class="card-img-top" alt="Image">
+          <img src="{{asset('img_berita/'.$berita->cover)}}" class="card-img-top" alt="Image">
           <div class="card-body">
             <h5 class="card-title"><b>{{ $berita->judul }}</b></h5>
             <p class="card-text">{{ $berita->created_at }}</p>
