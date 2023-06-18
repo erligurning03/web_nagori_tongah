@@ -71,15 +71,15 @@
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>        
-        <li class="nav-item mt-1">
+        <li class="nav-item  dropdown me-auto mt-1">
           <a class="nav-link" href="{{ route('profile.edit') }}">{{ $user->username }}</a>
         </li>
       </ul>
     </div>
-    <div class="form-check form-switch">
+    <!-- <div class="form-check form-switch">
       <input class="form-check-input" type="checkbox" id="darkModeToggle">
       <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
-    </div>
+    </div> -->
   </div>
 </nav>
 
@@ -91,7 +91,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ingin Keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                     </button>
                 </div>
                 <div class="modal-body">Pilih "Logout" jika Anda ingin mengakhiri sesi Anda</div>

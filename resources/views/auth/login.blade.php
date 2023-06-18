@@ -90,16 +90,30 @@
 		}, 5000); // Mengatur waktu 5 detik (5000 milidetik)
 	</script>
 
+	<!-- notifikasi 7 detik alert -->
+	<script>
+		// Mencari elemen notifikasi
+		const notification = document.querySelector('.alert');
+
+		// Cek apakah notifikasi ada
+		if (notification) {
+			// Setelah 7 detik, sembunyikan notifikasi
+			setTimeout(() => {
+				notification.style.display = 'none';
+			}, 7000);
+		}
+	</script>
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/login.js"></script>
 	<script>
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-</script>
+		if (window.history.replaceState) {
+			window.history.replaceState(null, null, window.location.href);
+		}
+	</script>
 
 
 </body>
