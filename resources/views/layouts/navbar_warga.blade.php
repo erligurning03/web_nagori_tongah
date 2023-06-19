@@ -109,6 +109,20 @@
     @else
 @endif
 
+     <!-- notifikasi 3 detik alert -->
+     <script>
+      // Mencari elemen notifikasi
+      const notification = document.querySelector('.alert');
+
+      // Cek apakah notifikasi ada
+      if (notification) {
+          // Setelah 3 detik, sembunyikan notifikasi
+          setTimeout(() => {
+              notification.style.display = 'none';
+          }, 3000);
+      }
+    </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const darkModeToggle = document.getElementById('darkModeToggle');
