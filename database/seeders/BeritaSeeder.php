@@ -41,7 +41,7 @@ class BeritaSeeder extends Seeder
             'jenis_berita' => 'berita',
             'judul' => 'Pembagian Bansos',
             'isi_berita' => 'Ada bagi-bagi bansos ini',
-            'cover' => 'bansos.png',
+            'cover' => 'bansos.jpg',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
