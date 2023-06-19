@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <!-- Form Edit -->
-                                        <form action="{{ route('berita.update', $data->id) }}" method="POST">
+                                        <form action="{{ route('berita.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="_method" value="PUT">
                                             <!-- Form inputs for editing -->

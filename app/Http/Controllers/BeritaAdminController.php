@@ -87,20 +87,19 @@ class BeritaAdminController extends Controller
         $berita = Berita::findOrFail($id);
         $berita->nik = $request->nik;
         $berita->jenis_berita = $request->jenis_berita;
-        // $berita->cover = $request->cover;
         $berita->judul = $request->judul;
         $berita->isi_berita = $request->isi_berita;
-        
+
         if ($request->hasFile('cover')) {
-            $gambarBerita = $request->file('cover');
-            $gambarBeritaPath = $gambarBerita->store('public/img_berita');
+            $name = $request->file('cover')->getClientOriginalName();
+            $request->file('cover')->move(public_path('img_berita'),$name);
         
             // Menghapus file foto lama jika ada
             if ($berita->cover) {
                 Storage::delete($berita->cover);
             }
         
-            $berita->cover = $gambarBeritaPath;
+            $berita->cover = $name;
         } else {
             // Jika tidak ada file yang diunggah, tetap gunakan file foto lama
             $berita->cover = $berita->cover;
