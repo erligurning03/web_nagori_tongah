@@ -62,7 +62,7 @@
                             <th>NIK</th>
                             <th>Nama Usaha</th>
                             <th>Alamat</th>
-                            <th>Nomor Telepon</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -74,15 +74,17 @@
                             <td>{{ $data->nik }}</td>
                             <td>{{ $data->nama_usaha }}</td>
                             <td>{{ $data->alamat }}</td>
-                            <td>{{ $data->telepon }}</td>
+                            <td>{{ $data->status_validasi }}</td>
                             <td style="display: flex;">
                                 <button type="button" style="width:100px; margin-right: 10px; background-color: #609966; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}"><i class="fa-solid fa-circle-info"></i> Detail</button>
+                                @if ($data->status_validasi == 'diterima')
                                 <button type="button" style="width:100px; margin-right: 10px; background-color: orange; color: white; font-weight:bold;" class="btn" data-toggle="modal" data-target="#editModal{{ $data->id }}"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                                 <form action="{{ route('umkm.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" style="width:100px;color: white;font-weight:bold;" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa-solid fa-trash"></i> Hapus</button>
                                 </form>
+                                @endif
                                 <!-- Modal Lihat Selengkapnya -->
 
                                 <div class="modal fade" id="lihatSelengkapnya{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="lihatSelengkapnya{{ $data->id }}Label" aria-hidden="true">

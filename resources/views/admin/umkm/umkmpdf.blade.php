@@ -55,6 +55,7 @@
                             <th>Alamat</th>
                             <th>Nomor Telepon</th>
                             <th>Deskripsi</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +67,7 @@
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->telepon }}</td>
                             <td>{{ $data->deskripsi }}</td>
+                            <td>{{ $data->status_validasi }}</td>
                             {{-- <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihatSelengkapnya{{ $data->id }}">Lihat Selengkapnya</button>
                                 <br>

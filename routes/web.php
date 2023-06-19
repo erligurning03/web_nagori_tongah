@@ -33,6 +33,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\ValidasiUmkmController;
 use App\Http\Controllers\DetailHoaxController;
 
 
@@ -119,8 +120,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/suket', [SuketController::class, 'store'])->name('suket.store');
         Route::get('/admin/berkas', [AjuanController::class, 'index'])->name('berkas.ajuan');
         Route::put('/admin/berkas/{pengajuan}', [AjuanController::class, 'konfirmasi'])->name('pengajuan.konfirmasi');
-        Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
-        Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');
+        Route::put('/admin/berkas/{pengajuan}/penolakan', [AjuanController::class, 'penolakan'])->name('pengajuan.penolakan');        
         Route::get('/admin/historyberkas', [HistoryAjuanAdminController::class, 'index'])->name('berkas.history');
 
         // Route halaman CRUD Halaman UMKM
@@ -130,6 +130,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/umkm', [UmkmBaruController::class, 'store'])->name('umkm.store');
         Route::delete('/admin/umkm/{id}', [UmkmBaruController::class, 'destroy'])->name('umkm.destroy');
         Route::get('/umkm/cetak_pdf', [UmkmBaruController::class, 'cetak_pdf'])->name('umkm.cetak_pdf');
+        Route::get('/admin/umkm', [ValidasiUmkmController::class, 'index'])->name('umkm.validasi');
+        Route::put('/admin//umkm/{umkm}/terima', [ValidasiUmkmController::class, 'terima'])->name('umkm.terima');
+        Route::put('/admin//umkm/{umkm}/tolak', [ValidasiUmkmController::class, 'tolak'])->name('umkm.tolak');
 
         // Route halaman CRUD Berita
         Route::get('/admin/semuaberita', [BeritaAdminController::class, 'index'])->name('admin.semuaberita.berita');

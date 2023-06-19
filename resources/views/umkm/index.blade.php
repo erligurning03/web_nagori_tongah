@@ -33,6 +33,7 @@
           </div> --}}
           
           @foreach($umkm as $data)
+          @if ($data->status_validasi == 'diterima')
           <div class="col-lg-4 col-md-6">
             <div class="card">
               <img src="{{ asset('img/umkm/gambar_produk/'.$data->gambar_produk) }}" class="card-img-top" alt="Gambar 2">
@@ -44,6 +45,7 @@
               </div>
             </div>
           </div>
+          @endif
           @endforeach
           <button onclick="window.location.href='{{ route('umkm.formumkm') }}'" class="btn btn-primary">Ajukan UMKM</button>
           {{-- @foreach ($umkm as $data)

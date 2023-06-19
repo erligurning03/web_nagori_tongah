@@ -185,6 +185,7 @@
                         <h6 class="collapse-header">Pilih Aksi:</h6>
                         <a class="collapse-item" href="{{ route('admin.listumkm.umkm') }}">List UMKM</a>
                         <a class="collapse-item" href="{{ route('admin.tambahumkm.umkm') }}">Tambah UMKM</a>
+                        <a class="collapse-item" href="{{ route('umkm.validasi') }}">Validasi UMKM</a>
                     </div>
                 </div>
             </li>
