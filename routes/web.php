@@ -32,6 +32,8 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\DetailHoaxController;
+
 
 
 //route yang semua user bisa akses  termasuk tamu tanpa akun login
@@ -203,6 +205,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/berita1', [BeritaWargaController::class, 'index'])->name('berita.berita1');
         Route::get('/beritalengkap', [BeritaLengkapController::class, 'index'])->name('berita.beritalengkap');
         Route::get('/beritalengkap', [BeritaLengkapController::class, 'show'])->name('berita.show');
+        // Route::get('/detailhoax', [DetailHoaxController::class, 'index'])->name('berita.detailhoax');
+        // Route::get('/detailhoax', [DetailHoaxController::class, 'show'])->name('hoax.show');
     });
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
