@@ -53,7 +53,7 @@
                         @foreach($beritahoax as $data)
                       <div class="trand-right-single d-flex">
                           <div class="trand-right-img">
-                              <img src="{{asset('/img_berita/'.$data->cover)}}" width="120" height="100" alt="">
+                              <img src="{{asset('img_berita/'.$data->cover)}}" width="120" height="100" alt="">
                           </div>
                           <div class="trand-right-cap">
                               <span class="color4">{{ $data->created_at }}</span>
