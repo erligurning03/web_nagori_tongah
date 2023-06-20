@@ -146,6 +146,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/perangkatdesa', [PerangkatDesaController::class, 'index'])->name('perangkatdesa.index');
         //Route::get('/admin/tambah/perangkat', function() {return view('admin/perangkat_desa/tambah');});
         Route::post('/tambah_perangkat_desa', [PerangkatDesaController::class, 'store'])->name('perangkatdesa.store'); //menyimpan kedatabase
+        //Route::post('/edit_perangkat_desa/{id}', [PerangkatDesaController::class, 'edit'])->name('perangkatdesa.edit'); 
+        Route::put('/update_perangkat_desa/{id}', [PerangkatDesaController::class, 'update'])->name('perangkatdesa.update'); 
         Route::delete('/perangkat_desa/{id}', [PerangkatDesaController::class, 'destroy']);
 
         //Route halaman CRUD forum diskusi

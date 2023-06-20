@@ -6,6 +6,8 @@ use App\Models\PerangkatDesa;
 use App\Models\Periode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class PerangkatDesaController extends Controller
 {
@@ -73,7 +75,41 @@ class PerangkatDesaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $perangkat= PerangkatDesa::findOrFail($id);//1
+        $perangkat->nama = $request->nama;
+        $perangkat->jabatan = $request->jabatan;
+        $perangkat->id_periode = $request->id_periode;
+        //$perangkat->foto = $request->foto;
+        if($request->hasFile('foto')){
+            //$foto=$request->file('foto')->getClientOriginalName();
+            //$name = $request->file('cover')->getClientOriginalName();
+            //$request->file('foto')->move(public_path('foto_perangkat/'),$foto);
+            //$gambarPath = $foto->store('foto_perangkat/');
+            $gambar = $request->file('foto');
+            $gambarName = $gambar->getClientOriginalName();
+            $gambarPath = 'foto_perangkat/';
+
+            $gambar->move($gambarPath, $gambarName);
+
+            $perangkat->foto =$gambarName;
+
+            //hapus file foto lama jika ada
+            if($perangkat->foto){
+                Storage::delete($perangkat->foto);
+            }
+            $perangkat->foto = $gambar;
+        } else{
+            if($perangkat->foto){
+                $perangkat->foto=$perangkat->foto;
+            }
+            
+        }
+
+        $perangkat->save();
+        //$perangkat->update($request->all());//1
+        return redirect()->back()->with('success','Data Berhasil Diupdate');//1
+
+
     }
 
     /**

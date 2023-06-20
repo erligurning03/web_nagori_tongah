@@ -142,18 +142,18 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editModal{{ $data->id }}Label">Edit Pendapatan</h5>
+                                            <h5 class="modal-title" id="editModal{{ $data->id }}Label">Edit Data Perangkat Desa</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
                                             <!-- Form Edit -->
-                                            <form action="{{ route('pendapatan.update', $data->id) }}" method="POST">
+                                            <form action="{{ route('perangkatdesa.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <!-- Form inputs for editing -->
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <label for="sumber">Sumber Pendapatan</label>
                                                     <select class="form-control" id="sumber" name="sumber" required>
                                                         <option value="{{ $data->sumber }}">{{ $data->sumber }}</option>
@@ -163,14 +163,41 @@
                                                         <option value="BAGI HASIL PAJAK/RETRIBUSI DAERAH">BAGI HASIL PAJAK/RETRIBUSI DAERAH</option>
                                                         <option value="PENDAPATAN LAINNYA">PENDAPATAN LAINNYA</option>
                                                     </select>
+                                                </div> --}}
+                                                <div class="form-group">
+                                                    <label for="jumlah">Nama : </label>
+                                                    <input type="text" name="nama" id="nama" class="form-control" value="{{ $data->nama }}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jumlah">Jumlah:</label>
-                                                    <input type="number" name="jumlah" id="jumlah" class="form-control" value="{{ $data->jumlah }}">
+                                                    <label for="tahun">Jabatan : </label>
+                                                    <input type="text" name="jabatan" id="jabatan" class="form-control" value="{{ $data->jabatan }}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="tahun">Tahun:</label>
-                                                    <input type="text" name="tahun" id="tahun" class="form-control" value="{{ $data->tahun }}">
+                                                    <label for="jumlah">Periode :  </label>
+                                                    {{-- <input type="text" name="id_periode" id="id_periode" class="form-control" value="{{ $data->periode->periode_mulai }}/{{$data->periode->periode_akhir}}"> --}}
+                                                    <select name="id_periode" id="id_periode">
+                                                        <option disabled value>pilih periode</option>
+                                                        <option value="{{$value->id}}">{{ $data->periode->periode_mulai }}/{{$data->periode->periode_akhir}}</option>
+                                                        @foreach($periode as $value)
+                                                        <option value="{{$value->id}}">{{$value->periode_mulai}}/{{$value->periode_akhir}}</option>
+                                                        @endforeach
+                    
+                                                    </select>
+                                                    {{-- <select class="form-control" id="id_periode" name="id_periode" required>
+                                                        @foreach ($data as $dt)
+                                                            <option value="{{$dt->periode->id}}">{{ $dt->periode->periode_mulai }}/{{$dt->periode->periode_akhir}}</option>
+                                                        @endforeach
+                                                        
+                                                    </select> --}}
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tahun">Foto :  </label>
+                                                   
+                                                    <img src="{{asset('foto_perangkat/'.$data->foto)}}" alt="" style="object-fit: contain; width:200px; height: 200px; border: 2px solid black;">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="foto">Ubah Foto</label>
+                                                    <input type="file" name="foto" id="foto" class="form-control">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                             </form>

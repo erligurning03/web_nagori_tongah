@@ -76,7 +76,8 @@
                                 <form action="/galeri_admin/{{$gal->id}}" method="post">
                                   @csrf
                                   @method("delete")
-                                  <button class="btn btn-danger" style="width:100px;color: white;font-weight:bold;" type="submit"><i class="fa-solid fa-trash"></i>  Hapus</button>
+                                  <button class="btn btn-danger" style="width:100px;color: white;font-weight:bold;" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa-solid fa-trash"></i>  Hapus</button>
+                                  {{-- <button type="submit" style="width:100px;color: white;font-weight:bold;" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa-solid fa-trash"></i> Hapus</button> --}}
                                 </form>
                                 
                             </td>
