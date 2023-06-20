@@ -47,7 +47,11 @@
           </div>
           @endif
           @endforeach
-          <button onclick="window.location.href='{{ route('umkm.formumkm') }}'" class="btn btn-primary">Ajukan UMKM</button>
+          <div style="text-align: right;">
+            <a class="btn btn-secondary" href="{{ route('dashboard') }}" style="margin-right: 10px;">Kembali</a>
+            <button onclick="window.location.href='{{ route('umkm.formumkm') }}'" class="btn btn-primary">Ajukan UMKM</button>
+          </div>
+          
           {{-- @foreach ($umkm as $data)
 
 

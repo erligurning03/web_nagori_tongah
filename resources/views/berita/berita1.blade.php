@@ -36,7 +36,6 @@
                                   <div class="trend-bottom-cap">
                                       <span class="color4">{{ $data->created_at }}</span>
                                       <h4><a href="beritalengkap/{{ $data->id }}"> {{ $data->judul }}</a></h4>
-                                      <p>{{ $data->isi_berita }}</p>
                                   </div>
                               </div>
                               </div>

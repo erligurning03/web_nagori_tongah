@@ -62,7 +62,10 @@
                                             </div>
 
                                             <br>
-                                            <button type="submit" style="font-weight: bold;" class="btn btn-primary float-right" >Kirim Ajuan</button>
+                                            <div style="text-align: right;">
+                                                <a class="btn btn-secondary" href="{{ route('umkm.index') }}" style="margin-right: 10px;">Kembali</a>
+                                                <button type="submit" class="btn btn-primary">Kirim Ajuan</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

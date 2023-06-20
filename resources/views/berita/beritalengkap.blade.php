@@ -68,7 +68,7 @@
             <h5 class="card-title"><b>{{ $berita->judul }}</b></h5>
             <p class="card-text">{{ $berita->created_at }}</p>
             <p class="card-text">{{ $berita->isi_berita }}</p>
-            <a href="#" class="btn btn-secondary">Kembali</a>
+            <a href="{{ route('berita.berita1') }}" class="btn btn-secondary">Kembali</a>
           </div>
         </div>
       </div>
